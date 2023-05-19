@@ -1,0 +1,18 @@
+@use "base";
+
+.project-section {
+  .title-thin,
+  .title-bold {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+  }
+
+  .title-thin {
+    color: base.$light-blue;
+  }
+
+  .title-bold {
+    color: base.$white;
+  }
+}

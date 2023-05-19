@@ -1,0 +1,69 @@
+@use "base";
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+html,
+body {
+  overflow-x: hidden;
+  background: base.$background !important;
+}
+body {
+  &::before {
+    content: "HARRYGUCI";
+    position: absolute;
+    font-size: 20rem;
+    font-family: "DM Serif Display", serif;
+    z-index: 0;
+    top: 0%;
+    left: 60%;
+    letter-spacing: -10px;
+    color: rgba(255, 255, 255, 0.1);
+    transform: rotate(-30deg) translate(-50%, -50%);
+  }
+}
+
+#root {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  z-index: 1;
+}
+
+header {
+  background: base.$background;
+  color: base.$white;
+  min-height: 70vh;
+  
+  z-index: 1;
+  h1 {
+    font-family: "DM Serif Display", serif;
+  }
+
+  .title {
+    font-size: 7rem;
+    line-height: 6rem;
+    position: relative;
+    &::after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 50%);
+      width: 30px;
+      height: 30px;
+      background: base.$light-blue;
+    }
+  }
+  .sub-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+  }
+}
+
+.project-section {
+  color: base.$white;
+
+  h2 {
+    font-size: 3rem;
+  }
+}

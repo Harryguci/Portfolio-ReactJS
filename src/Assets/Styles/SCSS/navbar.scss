@@ -1,0 +1,43 @@
+@use "base";
+
+nav {
+  background: base.$background;
+
+  .navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .navbar-item {
+    padding: 10px 20px;
+  }
+  .navbar-brand {
+    img {
+      padding: 0;
+    }
+  }
+
+  .nav-link {
+    color: base.$white;
+    position: relative;
+    text-transform: uppercase;
+
+    &:hover {
+      color: base.$text-blue;
+    }
+  }
+
+  .nav-link.active {
+    font-weight: bold;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-radius: 100px;
+      height: 2px;
+      background-color: base.$text-blue;
+    }
+  }
+}

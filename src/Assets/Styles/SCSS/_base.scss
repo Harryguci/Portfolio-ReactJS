@@ -1,0 +1,56 @@
+@import "~bootstrap/scss/bootstrap";
+
+$background: #0f1630;
+$dark-blue: #471fbd;
+$light-blue: #4fabda;
+$text-blue: #50badf;
+$white: #ffffff;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-custom {
+  box-sizing: border-box !important;
+  padding: 15px 35px;
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  background: rgb(79, 171, 218);
+  background: linear-gradient(
+    90deg,
+    rgba(79, 171, 218, 1) 0%,
+    rgba(71, 31, 189, 1) 100%
+  );
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none !important;
+
+  &:hover {
+    background: rgb(50, 150, 200);
+    background: linear-gradient(
+      90deg,
+      rgba(50, 150, 200, 1) 0%,
+      rgba(60, 20, 170, 1) 100%
+    );
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+.link-custom {
+  text-decoration: none;
+  color: $white;
+
+  &:hover {
+    color: $light-blue;
+  }
+}
+
+.link-custom.active {
+  font-weight: bold;
+}
