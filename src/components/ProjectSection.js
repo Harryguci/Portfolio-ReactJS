@@ -14,7 +14,6 @@ export default function ProjectSection(props) {
   const imgUrl = props.imgUrl;
 
   const handleOrder = (index) => {
-    console.log(type);
     if (type === "left" && index === 0) return 0;
     else if (type === "left" && index === 1) return 1;
     else if (type === "right" && index === 0) return 1;
@@ -45,7 +44,7 @@ export default function ProjectSection(props) {
             <p style={{ lineHeight: "2rem", letterSpacing: "1px" }}>
               {content}
             </p>
-            <Row className="mx-1" style={{ gap: 2 + "rem" }}>
+            <Row className="" style={{ gap: 2 + "rem", marginLeft: 5 + "px" }}>
               {buttons.map((btn) => (
                 <a
                   href="/"

@@ -72,21 +72,56 @@ function Home() {
           })}
         </Row>
       </Container>
-      <ProjectSection
-        title="PROJECT 1"
-        h2="File Sharing Website"
-        type="right"
-        content={content}
-        className="my-5"
-        imgUrl="/logo512.png"
-        buttons={[
-          {
-            name: "Read More",
-            type: "link",
-            attr: ['href="/projects/1"'],
-          },
-        ]}
-      />
+      <div style={{ margin: "150px auto" }}>
+        <ProjectSection
+          title="PROJECT 1"
+          h2="File Sharing Website"
+          type="right"
+          content={content}
+          className="my-5"
+          imgUrl="/nodejs.jpg"
+          buttons={[
+            {
+              name: "Read More",
+              type: "link",
+              attr: ['href="/projects/1"'],
+            },
+          ]}
+        />
+      </div>
+      <div style={{ margin: "150px auto" }}>
+        <ProjectSection
+          title="PROJECT 2"
+          h2="Todo List Website"
+          type="left"
+          content={content}
+          className="my-5"
+          imgUrl="/nodejs.jpg"
+          buttons={[
+            {
+              name: "Read More",
+              type: "link",
+              attr: ['href="/projects/1"'],
+            },
+          ]}
+        />
+      </div>
+
+      <Container>
+        <Row className="">
+          <Col className="d-flex" style={{ justifyContent: "center" }}>
+            <div>
+              <a
+                href="/projects"
+                className="btn-custom my-2 d-block fs-4 fw-bold px-5 py-3"
+                style={{ width: "fit-content" }}
+              >
+                View All
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
