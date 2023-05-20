@@ -82,12 +82,13 @@ html {
   border-radius: 100px 100px 0 0;
 
   form {
-    input {
+    input, textarea {
       font-size: 1.2rem;
       padding: 1rem;
       border: none;
       outline: none;
     }
+    
   }
 
   .circle {
@@ -148,3 +149,4 @@ button.bg-dark {
 .circle {
   border-radius: 100%;
 }
+

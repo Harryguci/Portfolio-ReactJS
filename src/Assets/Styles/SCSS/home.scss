@@ -23,7 +23,6 @@ body {
 
 #root {
   padding-top: 20px;
-  padding-bottom: 20px;
 
   z-index: 1;
 }
@@ -32,7 +31,7 @@ header {
   background: base.$background;
   color: base.$white;
   min-height: 70vh;
-  
+
   z-index: 1;
   h1 {
     font-family: "DM Serif Display", serif;
@@ -65,5 +64,15 @@ header {
 
   h2 {
     font-size: 3rem;
+  }
+}
+
+.services-container {
+  .service-box {
+    background: linear-gradient(base.$dark-blue, base.$dark-blue) padding-box,
+      linear-gradient(to right, darkblue, darkorchid) border-box;
+    border-radius: 2em;
+    border: 7px solid transparent;
+    box-shadow: 0 0 30px base.$dark-blue;
   }
 }

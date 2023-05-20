@@ -1,5 +1,7 @@
 import Header from "../components/Header";
 import ProjectSection from "../components/ProjectSection";
+import Services from "../components/Services";
+import Experience from "../components/Experience";
 import "../Assets/Styles/SCSS/_base.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -122,6 +124,8 @@ function Home() {
           </Col>
         </Row>
       </Container>
+      <Services />
+      <Experience />
     </>
   );
 }
