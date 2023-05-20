@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="container-fluid mt-3 mt-md-5">
       <div className="container-md d-flex">
         <div className="navbar-brand">
-          <img src={logo} width="60" height="60" alt="logo" />
+          <img src={logo} width="80" height="80" alt="logo" />
         </div>
         <ul className="nav navbar w-100 justify-content-end">
           {nav_items.map((item) => (
