@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import logo from "../logo.svg";
 import "../Assets/Styles/SCSS/navbar.scss";
 
@@ -12,6 +12,8 @@ const nav_items = [
 export default function Navbar() {
 
   const [toggleMenu, setToggleMenu] = useState(null);
+  const menubarRef = useRef(null);
+
   const handleToggleMenu = () => {
     if (toggleMenu === null) setToggleMenu(false);
     else
@@ -22,9 +24,9 @@ export default function Navbar() {
     <nav className="container-fluid mt-3 mt-md-5">
       <div className="container-md d-flex">
         <div className="navbar-brand">
-          <img src={logo} width="80" height="80" alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
-        <ul className={"nav navbar w-100 justify-content-end " + (toggleMenu === true || toggleMenu === null ? " d-flex" : " d-none")}>
+        <ul ref={menubarRef} className={"nav navbar w-100 justify-content-end d-flex " + (toggleMenu === false ? "d-none" : "active")}>
           {nav_items.map((item) => (
             <li key={item.content} className="navbar-item">
               <a href="/" className="nav-link">
@@ -42,7 +44,7 @@ export default function Navbar() {
             <button 
               type="button" 
               className="btn btn-outline-primary mt-3"
-              style={{height: "max-content"}}
+              style={{height: "max-content", fontSize: 0.7 + "rem"}}
               onClick={handleToggleMenu}
             >
               Menu

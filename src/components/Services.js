@@ -43,17 +43,17 @@ export default function Services() {
           </h2>
         </Row>
         <Row
-          className="flex-wrap"
+          className=""
           style={{
             justifyContent: "center",
-            margin: "auto 3rem",
+            margin: "auto 0.5rem",
             rowGap: "2rem",
           }}
         >
           {services.map((service) => (
             <Col sm={12} md={6}>
-              <div className="service-box p-5">
-                <div className="d-flex gap-4" style={{ alignItem: "center" }}>
+              <div className="service-box p-md-5 p-2">
+                <div className="d-flex gap-md-4 gap-2" style={{ alignItem: "center" }}>
                   <img
                     src={service.url}
                     alt="Harryguci"

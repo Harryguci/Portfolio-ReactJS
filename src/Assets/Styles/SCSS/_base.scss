@@ -42,6 +42,10 @@ html {
     );
     color: rgba(255, 255, 255, 0.5) !important;
   }
+
+  @media (max-width: 768px) {
+      font-size: 0.7rem !important;
+  }
 }
 
 .link-custom {

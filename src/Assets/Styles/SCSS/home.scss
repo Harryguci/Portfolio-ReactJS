@@ -50,13 +50,13 @@ header {
       height: 30px;
       background: base.$light-blue;
       @media screen and (max-width: 768px) {
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
       }
     }
     @media screen and (max-width: 768px) {
-      font-size: 4rem;
-      line-height: 3.5rem;
+      font-size: 3rem;
+      line-height: 3rem;
     }
   }
   .sub-title {
@@ -80,6 +80,24 @@ header {
     border-radius: 2em;
     border: 7px solid transparent;
     box-shadow: 0 0 30px base.$dark-blue;
+
+    @media (max-width: 767px) {
+      $fs: 0.7rem;
+      p {
+        font-size: $fs;
+        line-height: 1rem;
+      }
+
+      img {
+        width: 50% !important;
+        height: auto;
+        object-fit: cover;
+      }
+
+      h2 {
+        font-size: 1rem !important;
+      }
+    }
   }
 }
 
@@ -88,5 +106,21 @@ header {
     &::before {
       display: none;
     }
+  }
+}
+
+.experience-container {
+  .logo {
+    img {
+      overflow: hidden;
+      width: max-content;
+      height: 100px;
+      @media (max-width: 768px) {
+        height: 20px;
+      }
+    }
+  }
+  p {
+    font-size: 0.5rem !important;
   }
 }

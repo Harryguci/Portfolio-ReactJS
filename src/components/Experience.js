@@ -34,7 +34,7 @@ export default function Experience() {
 
   return (
     <>
-      <Container style={{ color: "white" }}>
+      <Container className="experience-container" style={{ color: "white" }}>
         <Row>
           <h2
             className="text-center fs-1 fw-bold my-5"
@@ -45,14 +45,13 @@ export default function Experience() {
         </Row>
         <Row>
           {list.map((item) => (
-            <Col sm={4} md={3} className="my-3">
+            <Col col={3} className="my-3">
               <div>
                 <div className="logo d-flex justify-content-center">
                   <img
                     src={item.url}
                     alt="Harryguci"
                     className="rounded-2"
-                    style={{ height: 100 + "px", overflow: "hidden" }}
                   />
                 </div>
                 <p className="text-center fs-4 mt-3">{item.name}</p>
