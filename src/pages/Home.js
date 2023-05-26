@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+
 function Home() {
   const content = `“I graduated with my degree in Economics two months ago. 
   I chose that field of study because I’ve always been interested in finance and money, 

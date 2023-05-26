@@ -40,4 +40,27 @@ nav {
       background-color: base.$text-blue;
     }
   }
+
+  .toggle-menu {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .toggle-menu {
+      display: block;
+    }
+    .navbar {
+      flex-direction: column;
+      height: auto;
+    }
+  }
+}
+
+@keyframes show-menu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
