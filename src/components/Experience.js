@@ -34,27 +34,27 @@ export default function Experience() {
 
   return (
     <>
-      <Container className="experience-container" style={{ color: "white" }}>
+      <Container className="experience-container mb-3" style={{ color: "white" }}>
         <Row>
           <h2
-            className="text-center fs-1 fw-bold my-5"
+            className="text-center fs-1 fw-bold mt-5 mb-4 my-md-5"
             style={{ letterSpacing: 2 + "px" }}
           >
             Experience
           </h2>
         </Row>
-        <Row>
+        <Row style={{rowGap: 1 + "rem"}}>
           {list.map((item) => (
-            <Col col={3} className="my-3">
+            <Col col={3} className="">
               <div>
-                <div className="logo d-flex justify-content-center">
+                <div className="logo d-flex justify-content-center mx-auto" style={{width: "max-content"}}>
                   <img
                     src={item.url}
                     alt="Harryguci"
                     className="rounded-2"
                   />
                 </div>
-                <p className="text-center fs-4 mt-3">{item.name}</p>
+                <p className="text-center fs-4 mt-1 mt-md-3">{item.name}</p>
               </div>
             </Col>
           ))}
