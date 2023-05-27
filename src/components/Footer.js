@@ -69,16 +69,24 @@ export default function Footer() {
                     flexWrap: "nowrap",
                   }}
                 >
-                  <img
-                    src={item.url}
-                    alt="harryguci"
-                    className="bg-blue-gradient rounded-3 overflow-hidden p-2"
-                    style={{
-                      width: "70px",
-                      height: "max-content",
-                      maxWidth: "15vw",
-                    }}
-                  />
+                  <Col>
+                    <div className="thumb" style={{maxHeight: 100 + "px"}}>
+                      <img
+                        src={item.url}
+                        alt="harryguci"
+                        className="d-block 
+                        bg-blue-gradient 
+                        rounded-3 
+                        overflow-hidden 
+                        p-2"
+                        style={{
+                          width: "70px",
+                          height: "auto",
+                          maxWidth: "15vw",
+                        }}
+                      />
+                    </div>
+                  </Col>
                   <p className="d-block p-0 my-auto">{item.description}</p>
                 </Row>
               ))}
@@ -90,11 +98,22 @@ export default function Footer() {
             </div>
           </Col>
         </Row>
-        <hr style={{margin: "2rem 0"}} />
-        <Row style={{gap: "20px 0"}}>
+        <hr style={{ margin: "2rem 0" }} />
+        <Row style={{ gap: "20px 0" }}>
           <Col md={1}>
-            <div className="d-flex justify-content-center" style={{objectFit: "cover"}}>
-              <img src="./logo512.png" alt="harryguci" style={{width: 50 + "px", height:"max-content", maxWidth: "15vw"}} />
+            <div
+              className="d-flex justify-content-center"
+              style={{ objectFit: "cover" }}
+            >
+              <img
+                src="./logo512.png"
+                alt="harryguci"
+                style={{
+                  width: 50 + "px",
+                  height: "max-content",
+                  maxWidth: "15vw",
+                }}
+              />
             </div>
           </Col>
           <Col md={8}>

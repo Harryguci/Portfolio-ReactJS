@@ -47,7 +47,7 @@ export default function Experience() {
           {list.map((item, index) => (
             <Col col={3} className="" key={index + 1}>
               <div key={item.name}>
-                <div className="logo d-flex justify-content-center mx-auto" style={{width: "max-content"}}>
+                <div className="logo mx-auto" style={{width: "max-content"}}>
                   <img
                     src={item.url}
                     alt="Harryguci"
