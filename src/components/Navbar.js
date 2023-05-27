@@ -35,7 +35,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a href="/" className="nav-link btn-custom">
+            <a href="#contact-form" className="nav-link btn-custom">
               Contact
             </a>
           </li>

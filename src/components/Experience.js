@@ -5,8 +5,8 @@ import Col from "react-bootstrap/Col";
 export default function Experience() {
   const list = [
     {
-      name: "AWS",
-      url: "https://media.gettyimages.com/id/1239031090/fr/photo/amazon-aws-logo-exhibited-at-amazon-stand-during-the-mobile-world-congress-the-biggest-trade.jpg?s=612x612&w=gi&k=20&c=k93wf6_zqZbuDnaI-ncEOuuKA7DThCijZowtpX2dSro=",
+      name: "SQL Server",
+      url: "./SQL-server.jpg",
     },
     {
       name: "CSS3(SCSS)",
@@ -44,9 +44,9 @@ export default function Experience() {
           </h2>
         </Row>
         <Row style={{rowGap: 1 + "rem"}}>
-          {list.map((item) => (
-            <Col col={3} className="">
-              <div>
+          {list.map((item, index) => (
+            <Col col={3} className="" key={index + 1}>
+              <div key={item.name}>
                 <div className="logo d-flex justify-content-center mx-auto" style={{width: "max-content"}}>
                   <img
                     src={item.url}

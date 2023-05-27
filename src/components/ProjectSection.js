@@ -33,14 +33,14 @@ export default function ProjectSection(props) {
   return (
     <Container className={className}>
       <Row className="" style={rowStyle}>
-        <Col sm={12} md={5} style={{ order: 1 }}>
+        <Col sm={12} md={5} style={{ order: 0 }}>
           <Thumbnail url={imgUrl} type={type} />
         </Col>
         <Col
           sm={12}
           md={5}
           className="px-3 mt-3"
-          style={{ order: 0, flex: "1 0 auto" }}
+          style={{ order: 1, flex: "1 0 auto" }}
         >
           <div className="mt-3 mt-md-5">
             <h2 className="title-thin fs-1">{title}</h2>
@@ -54,10 +54,11 @@ export default function ProjectSection(props) {
                 gap: 1 + "rem",
                 marginLeft: 5 + "px",
                 rowGap: 1 + "rem",
-              }}
+              }}b
             >
-              {buttons.map((btn) => (
+              {buttons.map((btn, index) => (
                 <a
+                  key={index + 1}
                   href="/"
                   className="btn-custom d-block"
                   style={{ width: "fit-content" }}

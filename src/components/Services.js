@@ -51,7 +51,7 @@ export default function Services() {
           }}
         >
           {services.map((service) => (
-            <Col sm={12} md={6}>
+            <Col sm={12} md={6} key={service.name}>
               <div className="service-box p-md-5 p-3">
                 <div className="d-flex gap-md-4 gap-2" style={{ alignItem: "center" }}>
                   <img

@@ -19,6 +19,7 @@ export default function Footer() {
       >
         <div
           className="position-absolute circle bg-blue-gradient"
+          id="contact-form"
           style={{
             zIndex: 0,
             width: 30 + "vw",
@@ -58,9 +59,10 @@ export default function Footer() {
             <div>
               <h2 className="fs-2">Drop me a Message</h2>
               <p className="mt-3 mb-5">Some content in here...</p>
-              {listInformation.map((item) => (
+              {listInformation.map((item, index) => (
                 <Row
                   className="my-3"
+                  key={index}
                   style={{
                     gap: 10 + "px",
                     flexDirection: "row",
@@ -91,8 +93,8 @@ export default function Footer() {
         <hr style={{margin: "2rem 0"}} />
         <Row style={{gap: "20px 0"}}>
           <Col md={1}>
-            <div className="d-flex justify-content-center">
-              <img src="./logo512.png" alt="harryguci" style={{width: 50 + "px", maxWidth: "15vw"}} />
+            <div className="d-flex justify-content-center" style={{objectFit: "cover"}}>
+              <img src="./logo512.png" alt="harryguci" style={{width: 50 + "px", height:"max-content", maxWidth: "15vw"}} />
             </div>
           </Col>
           <Col md={8}>

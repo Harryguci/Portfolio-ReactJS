@@ -30,7 +30,7 @@ function Home() {
         type="left"
         content={content}
         className="my-5"
-        imgUrl="/avatar.jpg"
+        imgUrl="/avatar2.jpg"
         buttons={[
           {
             name: "Read More",
@@ -66,7 +66,7 @@ function Home() {
             if (name === currentProject) className += " active";
 
             return (
-              <Col md={3} xl={2} className="" style={{justifyContent: 'center'}}>
+              <Col key={name} md={3} xl={2} className="" style={{justifyContent: 'center'}}>
                 <a href="/" className={className}>
                   {name}
                 </a>
@@ -82,7 +82,7 @@ function Home() {
           type="right"
           content={content}
           className="my-5"
-          imgUrl="/nodejs.jpg"
+          imgUrl="/Screenshot-8.png"
           buttons={[
             {
               name: "Read More",
