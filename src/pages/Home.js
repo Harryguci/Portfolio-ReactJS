@@ -110,6 +110,24 @@ function Home() {
         />
       </div>
 
+      <div style={{ margin: "150px auto auto auto" }}>
+        <ProjectSection
+          title="PROJECT 3"
+          h2="Bomber Game"
+          type="right"
+          content={content}
+          className="my-5"
+          imgUrl="/Screenshot-8.png"
+          buttons={[
+            {
+              name: "Read More",
+              type: "link",
+              attr: ['href="./javaGame.png"'],
+            },
+          ]}
+        />
+      </div>
+
       <Container className="" style={{margin: "5rem auto 2rem auto"}}>
         <Row className="">
           <Col className="d-flex" style={{ justifyContent: "center" }}>

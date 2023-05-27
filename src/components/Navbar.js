@@ -43,7 +43,7 @@ export default function Navbar() {
         <div className="toggle-menu d-flex justify-content-end">
             <button 
               type="button" 
-              className="btn btn-outline-primary mt-3"
+              className="btn btn-outline-primary rounded-0 mt-3"
               style={{height: "max-content", fontSize: 0.7 + "rem"}}
               onClick={handleToggleMenu}
             >
