@@ -2,10 +2,12 @@
 
 nav {
   background: base.$background;
+  transition: all 0.5s ease-in-out;
 
   .navbar {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    overflow: hidden;
     animation-duration: 1s;
     animation-fill-mode: both;
   }
@@ -54,12 +56,14 @@ nav {
   }
 
   .toggle-menu {
-    display: none;
+    display: none !important;
+    position: absolute;
+    right: 5px;
   }
 
   @media (max-width: 768px) {
     .toggle-menu {
-      display: block;
+      display: flex !important;
     }
     .navbar {
       flex-direction: column;
@@ -78,8 +82,10 @@ nav {
 @keyframes show-menu {
   0% {
     opacity: 0;
+    transform: translate(0, -20px);
   }
   100% {
     opacity: 1;
+    transform: translate(0, 0px);
   }
 }

@@ -33,7 +33,7 @@ export default function Services() {
 
   return (
     <>
-      <Container className="my-5 services-container" style={{ color: "white" }}>
+      <Container className="my-2 my-md-5 services-container" style={{ color: "white" }}>
         <Row>
           <h2
             className="text-center my-5 fs-1 fw-bold"
@@ -52,7 +52,7 @@ export default function Services() {
         >
           {services.map((service) => (
             <Col sm={12} md={6}>
-              <div className="service-box p-md-5 p-2">
+              <div className="service-box p-md-5 p-3">
                 <div className="d-flex gap-md-4 gap-2" style={{ alignItem: "center" }}>
                   <img
                     src={service.url}

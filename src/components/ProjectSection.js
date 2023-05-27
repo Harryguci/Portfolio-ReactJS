@@ -13,14 +13,7 @@ export default function ProjectSection(props) {
   const className = props.className + " project-section";
   const imgUrl = props.imgUrl;
 
-  const handleOrder = (index) => {
-    if (type === "left" && index === 0) return 0;
-    else if (type === "left" && index === 1) return 1;
-    else if (type === "right" && index === 0) return 1;
-    else return 0;
-  };
   let buttons = [];
-
   if (props.buttons) {
     buttons = props.buttons.map((button) => {
       return {
@@ -31,24 +24,42 @@ export default function ProjectSection(props) {
     });
   }
 
+  const rowStyle = {
+    gap: 7 + "%",
+    rowGap: 3 + "rem",
+    flexDirection: type === "right" ? "row-reverse" : "row",
+  };
+
   return (
     <Container className={className}>
-      <Row className="flex-nowrap" style={{ gap: 4 + "rem" }}>
-        <Col sm={12} md={6} style={{ order: handleOrder(0) }}>
+      <Row className="" style={rowStyle}>
+        <Col sm={12} md={5} style={{ order: 1 }}>
           <Thumbnail url={imgUrl} type={type} />
         </Col>
-        <Col sm={12} md={6} className="px-0" style={{ order: handleOrder(1) }}>
-          <div className="mt-5">
+        <Col
+          sm={12}
+          md={5}
+          className="px-3 mt-3"
+          style={{ order: 0, flex: "1 0 auto" }}
+        >
+          <div className="mt-3 mt-md-5">
             <h2 className="title-thin fs-1">{title}</h2>
             <h2 className="title-bold fs-1 mb-3">{h2}</h2>
             <p style={{ lineHeight: "2rem", letterSpacing: "1px" }}>
               {content}
             </p>
-            <Row className="" style={{ gap: 2 + "rem", marginLeft: 5 + "px" }}>
+            <Row
+              className="mt-5"
+              style={{
+                gap: 1 + "rem",
+                marginLeft: 5 + "px",
+                rowGap: 1 + "rem",
+              }}
+            >
               {buttons.map((btn) => (
                 <a
                   href="/"
-                  className="btn-custom my-2 d-block"
+                  className="btn-custom d-block"
                   style={{ width: "fit-content" }}
                   {...btn.attr}
                 >

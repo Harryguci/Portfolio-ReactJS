@@ -48,13 +48,13 @@ function Home() {
         className=""
         style={{
           color: "white",
-          marginTop: 150 + "px",
-          marginBottom: 150 + "px",
+          marginTop: 5 + "rem",
+          marginBottom: 0 + "rem",
         }}
       >
         <Row>
           <h2
-            className="text-center fs-1 my-5 text-uppercase"
+            className="text-center fs-4 fs-1 my-4 text-uppercase"
             style={{ letterSpacing: 10 + "px" }}
           >
             Portfolio
@@ -62,11 +62,11 @@ function Home() {
         </Row>
         <Row className="" style={{ justifyContent: "center" }}>
           {listProjectNames.map((name) => {
-            let className = "text-center fs-4 link-custom";
+            let className = "text-center fs-5 link-custom";
             if (name === currentProject) className += " active";
 
             return (
-              <Col sm={6} md={3} xl={2}>
+              <Col md={3} xl={2} className="" style={{justifyContent: 'center'}}>
                 <a href="/" className={className}>
                   {name}
                 </a>
@@ -75,7 +75,7 @@ function Home() {
           })}
         </Row>
       </Container>
-      <div style={{ margin: "150px auto" }}>
+      <div style={{ margin: "150px auto auto auto" }}>
         <ProjectSection
           title="PROJECT 1"
           h2="File Sharing Website"
@@ -92,13 +92,13 @@ function Home() {
           ]}
         />
       </div>
-      <div style={{ margin: "150px auto" }}>
+      <div style={{ margin: "150px auto auto auto" }}>
         <ProjectSection
           title="PROJECT 2"
           h2="Todo List Website"
           type="left"
           content={content}
-          className="my-5"
+          className="my-3 my-md-5"
           imgUrl="/nodejs.jpg"
           buttons={[
             {
@@ -110,13 +110,13 @@ function Home() {
         />
       </div>
 
-      <Container>
+      <Container className="" style={{margin: "5rem auto 2rem auto"}}>
         <Row className="">
           <Col className="d-flex" style={{ justifyContent: "center" }}>
             <div>
               <a
                 href="/projects"
-                className="btn-custom my-2 d-block fs-4 fw-bold px-5 py-3"
+                className="btn-custom d-block fs-4 fw-bold px-5 py-3"
                 style={{ width: "fit-content" }}
               >
                 View All

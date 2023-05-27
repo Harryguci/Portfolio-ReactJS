@@ -8,6 +8,8 @@
   background: rgba(0, 0, 0, 0.3);
   min-width: 20px;
   min-width: 20px;
+  width: 100%;
+  flex: 1 0 auto;
 
   .image-container {
     z-index: 5;
@@ -24,6 +26,7 @@
     display: block;
     position: absolute;
     width: 100%;
+    max-width: 70vw;
     height: 100%;
     border: 10px solid rgba(200, 200, 255);
     top: 35px;
@@ -37,6 +40,7 @@
     display: block;
     position: absolute;
     width: 100%;
+    max-width: 70vw;
     height: 100%;
     border: 10px solid rgba(200, 200, 255);
     top: 35px;
@@ -45,11 +49,4 @@
     z-index: 0;
     border-radius: 10px;
   }
-  
-  // &:hover {
-  //   img {
-  //     transform-origin: center center;
-  //     transform: scale(1.2, 1.2);
-  //   }
-  // }
 }
