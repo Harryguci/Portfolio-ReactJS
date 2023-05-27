@@ -102,7 +102,7 @@ export default function Footer() {
         <Row style={{ gap: "20px 0" }}>
           <Col md={1}>
             <div
-              className="d-flex justify-content-center"
+              className="d-block"
               style={{ objectFit: "cover" }}
             >
               <img
@@ -110,7 +110,7 @@ export default function Footer() {
                 alt="harryguci"
                 style={{
                   width: 50 + "px",
-                  height: "max-content",
+                  height: "auto",
                   maxWidth: "15vw",
                 }}
               />
