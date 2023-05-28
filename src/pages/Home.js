@@ -198,7 +198,7 @@ function Home() {
           <Col className="d-flex" style={{ justifyContent: "center" }}>
             <div>
               <a
-                href="/projects"
+                href="https://github.com/Harryguci"
                 className="btn-custom d-block fs-4 fw-bold px-5 py-3"
                 style={{ width: "fit-content" }}
               >
