@@ -14,19 +14,19 @@ export default function Services() {
     {
       name: "Website Development",
       description:
-        "Knowles in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
+        "Knowledge  in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
       url: "./logo512.png",
     },
     {
       name: "Game Development",
       description:
-        "Knowles in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
+        "Knowledge  in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
       url: "./Java_programming_language_logo.svg.png",
     },
     {
       name: "Network and Hardware",
       description:
-        "Knowles in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
+        "Knowledge  in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
       url: "./NodeJS.png",
     },
   ];
