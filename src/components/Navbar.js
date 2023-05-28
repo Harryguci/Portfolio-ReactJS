@@ -43,10 +43,10 @@ export default function Navbar() {
             </a>
           </li>
         </ul>
-        <div className="toggle-menu d-flex justify-content-end">
+        <div className="toggle-menu d-flex justify-content-end align-items-center">
           <button
             type="button"
-            className="btn rounded-0"
+            className="btn d-block rounded-0"
             style={{
               height: "max-content",
               fontSize: 1 +"rem",

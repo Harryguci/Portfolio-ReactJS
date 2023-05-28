@@ -10,7 +10,7 @@ export default function ProjectSection(props) {
   const h2 = props.h2;
   const id = props.id;
   const content = props.content;
-  const type = props.type ? props.type : "right";
+  const type = props.type ? props.type.toString() : "right";
   const className = props.className + " project-section";
   const imgUrl = props.imgUrl;
 
