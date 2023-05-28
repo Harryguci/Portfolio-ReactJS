@@ -4,11 +4,13 @@ import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
 import MessageForm from "./MessageForm";
 
+import { FaPhone, FaEnvelope, FaLocationArrow } from "react-icons/fa";
+
 export default function Footer() {
   const listInformation = [
-    { url: "./logo512.png", description: "+84967259370" },
-    { url: "./logo512.png", description: "huyquang0028@gmail.com" },
-    { url: "./logo512.png", description: "Nghia Do, Hanoi, Vietnam" },
+    { url: "./logo512.png", description: "+84967259370", icon: <FaPhone/> },
+    { url: "./logo512.png", description: "huyquang0028@gmail.com", icon: <FaEnvelope/> },
+    { url: "./logo512.png", description: "Nghia Do, Hanoi, Vietnam", icon: <FaLocationArrow/> },
   ];
   return (
     <>
@@ -70,8 +72,8 @@ export default function Footer() {
                   }}
                 >
                   <Col>
-                    <div className="thumb" style={{maxHeight: 100 + "px"}}>
-                      <img
+                    <div className="thumb" style={{ maxHeight: 100 + "px" }}>
+                      {/* <img
                         src={item.url}
                         alt="harryguci"
                         className="d-block 
@@ -84,7 +86,8 @@ export default function Footer() {
                           height: "auto",
                           maxWidth: "15vw",
                         }}
-                      />
+                      /> */}
+                      {item.icon}
                     </div>
                   </Col>
                   <p className="d-block p-0 my-auto">{item.description}</p>
@@ -101,10 +104,7 @@ export default function Footer() {
         <hr style={{ margin: "2rem 0" }} />
         <Row style={{ gap: "20px 0" }}>
           <Col md={1}>
-            <div
-              className="d-block"
-              style={{ objectFit: "cover" }}
-            >
+            <div className="d-block" style={{ objectFit: "cover" }}>
               <img
                 src="./logo512.png"
                 alt="harryguci"
