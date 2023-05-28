@@ -28,6 +28,21 @@ export default function Footer() {
       description: "Nghia Do, Hanoi, Vietnam",
       icon: <FaLocationArrow />,
     },
+    {
+      description: "fb.com/chu.huy.336333/",
+      icon: <FaFacebookF />,
+      href: "https://www.facebook.com/chu.huy.336333/",
+    },
+    {
+      description: "instagram.com/q_huy.28",
+      icon: <FaInstagram />,
+      href: "https://instagram.com/q_huy.28",
+    },
+    {
+      description: "github.com/Harryguci",
+      icon: <FaGithub />,
+      href: "https://github.com/Harryguci",
+    },
   ];
   return (
     <>
@@ -77,7 +92,12 @@ export default function Footer() {
           <Col sm={12} md={6}>
             <div className="px-3 px-md-0">
               <h2 className="fs-2">Drop me a Message</h2>
-              <p className="mt-3 mb-5 opacity-75">Some content in here...</p>
+              <p className="mt-3 opacity-75" style={{maxWidth: "400px"}}>
+                I'm ready for a job as an intern software developer. If you want
+                to contact me for work, please email me. I am happy that you
+                were here.<br/> 
+              </p>
+              <p className="mb-5 fw-bold">Have a nice day!</p>
               {listInformation.map((item, index) => (
                 <Row
                   className="my-3"
@@ -93,7 +113,17 @@ export default function Footer() {
                       {item.icon}
                     </div>
                   </Col>
-                  <p className="d-block p-0 my-auto">{item.description}</p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="d-block p-0 my-auto"
+                      style={{ color: "rgb(150, 150, 255)" }}
+                    >
+                      {item.description}
+                    </a>
+                  ) : (
+                    <p className="d-block p-0 my-auto">{item.description}</p>
+                  )}
                 </Row>
               ))}
             </div>
@@ -144,7 +174,7 @@ export default function Footer() {
               <div className="d-block" style={{ width: 50 + "px" }}>
                 <a
                   target="_blank"
-                  href="https://instagram.com/q_huy.28?igshid=MmIzYWVlNDQ5Yg=="
+                  href="https://instagram.com/q_huy.28"
                   className="text-white"
                   rel="noreferrer"
                 >
