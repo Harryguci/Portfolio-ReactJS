@@ -36,11 +36,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 header {
+  position: relative;
   background: base.$background;
   color: base.$white;
   min-height: 70vh;
 
-  z-index: 1;
   h1 {
     font-family: "DM Serif Display", serif;
   }

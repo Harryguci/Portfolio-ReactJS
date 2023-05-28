@@ -3,22 +3,42 @@
 nav {
   background: base.$background;
   transition: all 0.5s ease-in-out;
-  
+  z-index: 0;
+    
   .navbar {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     overflow: hidden;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+    transform: translate(0, -100%);
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    z-index: 4;
+    box-shadow: 0 10px 20px rgb(0, 0, 200, 0);
+
+
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #000000;
+      min-height: 50vh;
+      max-height: 500px;
+
+      padding-top: 30px !important;
+      padding-bottom: 30px !important;
+      box-shadow: 0 10px 20px rgb(0, 0, 200, 0.5);
+    }
   }
   .navbar.active {
-    animation-name: show-menu;
+    transform: translate(0, 0);
   }
 
   .navbar-item {
     padding: 10px 20px;
   }
   .navbar-brand {
+    position: relative;
+    z-index: 5;
     img {
       padding: 0;
       width: 80px;
@@ -58,6 +78,7 @@ nav {
   .toggle-menu {
     display: none !important;
     position: absolute;
+    z-index: 5;
     right: 10px;
   }
 
@@ -82,7 +103,7 @@ nav {
 @keyframes show-menu {
   0% {
     opacity: 0;
-    transform: translate(0, -20px);
+    transform: translate(0, -100%);
   }
   100% {
     opacity: 1;
