@@ -8,9 +8,106 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 function Home() {
-  const content = `“I graduated with my degree in Economics two months ago. 
-  I chose that field of study because I’ve always been interested in finance and money, 
-  and a couple of family members told me it leads to great career options, too.”`;
+  const content = `“Hello, everyone! My name is QUANG HUY, and I am thrilled
+   to introduce myself as an intern website developer. 
+   I am passionate about crafting digital experiences that
+    are visually appealing, user-friendly, and highly functional.
+     With a strong foundation in web development languages 
+     such as HTML, CSS, and JavaScript, I am eager to dive into 
+     the dynamic world of creating interactive websites.”`;
+
+  const projects = [
+    {
+      title: "PROJECT 1",
+      h2: "File Sharing Website",
+      type: "right",
+      content: `HARG website, the premier platform for sharing 
+      and downloading learning documents. Upload and access a wide range
+       of educational resources including textbooks, research papers, 
+       lecture notes, and study guides. With an intuitive interface and 
+       powerful search functionality, finding the materials you need has 
+       never been easier.`,
+      className: "my-5",
+      imgUrl: "/Screenshot-8.png",
+      buttons: [
+        {
+          name: "Read More",
+          type: "link",
+          attr: [],
+          href: "https://github.com/Harryguci/File-Sharing-Application",
+        },
+      ],
+    },
+    {
+      title: "PROJECT 2",
+      h2: "Todo List Website",
+      type: "left",
+      content: `TodoList website, your ultimate Todo List Website! Stay 
+      organized and productive with TodoList, a user-friendly platform 
+      designed to help you manage your tasks effortlessly.  With TodoList, 
+      you can create personalized to-do lists, set due dates, and prioritize 
+      your tasks with ease. Stay on top of your commitments by organizing your 
+      tasks into categories and subtasks, ensuring nothing falls through the cracks. 
+      The intuitive interface makes adding, editing, and checking off tasks a breeze. 
+      Receive timely reminders and notifications, so you never miss an important 
+      deadline again.`,
+      className: "my-3 my-md-5",
+      imgUrl: "/nodejs.jpg",
+      buttons: [
+        {
+          name: "Read More",
+          type: "link",
+          attr: [],
+          href: "https://github.com/Harryguci/To-do-list-application",
+        },
+      ],
+    },
+    {
+      title: "PROJECT 3",
+      h2: "Bomber Game",
+      type: "right",
+      content: `Experience explosive fun with the Java-based Bomber game! 
+      Engage in thrilling gameplay as you strategically navigate through 
+      maze-like levels, planting bombs to destroy obstacles and outsmart 
+      your opponents. Unleash your inner strategist and embark on an 
+      adrenaline-fueled adventure. Play the Bomber game today and ignite 
+      your gaming experience!`,
+      className: "my-5",
+      imgUrl: "./javaGame.png",
+      buttons: [
+        {
+          name: "Read More",
+          type: "link",
+          attr: [],
+          href: "https://github.com/Harryguci/Bomber-Game",
+        },
+      ],
+    },
+    {
+      title: "PROJECT 4",
+      h2: "Hotel Management Website",
+      type: "left",
+      content: `Our sleek and intuitive hotel management website interface! 
+      Designed with HTML, CSS, and Javascript (jQuery), our interface offers 
+      a seamless experience for both hotel administrators and guests.
+      Effortlessly navigate through our user-friendly interface to access a 
+      range of powerful features. Hotel administrators can efficiently manage 
+      reservations, check-ins, and check-outs, ensuring a smooth and organized 
+      operation. With real-time updates and comprehensive data analytics, make 
+      informed decisions to optimize occupancy and revenue.`,
+      className: "my-5",
+      imgUrl: "./hotel-web.png",
+      buttons: [
+        {
+          name: "Read More",
+          type: "link",
+          attr: [],
+          href: "https://github.com/Harryguci/Hotel-management-website",
+        },
+      ],
+    },
+  ];
+
   const listProjectNames = [
     "Mobile App",
     "Website",
@@ -82,78 +179,19 @@ function Home() {
         </Row>
       </Container>
 
-      <div style={{ margin: "150px auto auto auto" }}>
-        <ProjectSection
-          title="PROJECT 1"
-          h2="File Sharing Website"
-          type="right"
-          content={content}
-          className="my-5"
-          imgUrl="/Screenshot-8.png"
-          buttons={[
-            {
-              name: "Read More",
-              type: "link",
-              attr: [],
-              href: "https://github.com/Harryguci/File-Sharing-Application",
-            },
-          ]}
-        />
-      </div>
-      <div style={{ margin: "150px auto auto auto" }}>
-        <ProjectSection
-          title="PROJECT 2"
-          h2="Todo List Website"
-          type="left"
-          content={content}
-          className="my-3 my-md-5"
-          imgUrl="/nodejs.jpg"
-          buttons={[
-            {
-              name: "Read More",
-              type: "link",
-              attr: [],
-              href: "https://github.com/Harryguci/To-do-list-application",
-            },
-          ]}
-        />
-      </div>
-      <div style={{ margin: "150px auto auto auto" }}>
-        <ProjectSection
-          title="PROJECT 3"
-          h2="Bomber Game"
-          type="right"
-          content={content}
-          className="my-5"
-          imgUrl="./javaGame.png"
-          buttons={[
-            {
-              name: "Read More",
-              type: "link",
-              attr: [],
-              href: "https://github.com/Harryguci/Bomber-Game",
-            },
-          ]}
-        />
-      </div>
-      <div style={{ margin: "150px auto auto auto" }}>
-        <ProjectSection
-          title="PROJECT 4"
-          h2="Hotel Management Website"
-          type="left"
-          content={content}
-          className="my-5"
-          imgUrl="./hotel-web.png"
-          buttons={[
-            {
-              name: "Read More",
-              type: "link",
-              attr: [],
-              href: "https://github.com/Harryguci/Hotel-management-website",
-            },
-          ]}
-        />
-      </div>
+      {projects.map((project, index) => (
+        <div key={index + 1} style={{ margin: "150px auto auto auto" }}>
+          <ProjectSection
+            title={project.title}
+            h2={project.h2}
+            type={project.type}
+            content={project.content}
+            className={project.className}
+            imgUrl={project.imgUrl}
+            buttons={project.buttons}
+          />
+        </div>
+      ))}
 
       <Container className="" style={{ margin: "5rem auto 2rem auto" }}>
         <Row className="">
