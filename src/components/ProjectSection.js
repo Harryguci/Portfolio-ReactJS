@@ -8,6 +8,7 @@ import "../Assets/Styles/SCSS/ProjectSection.scss";
 export default function ProjectSection(props) {
   const title = props.title;
   const h2 = props.h2;
+  const id = props.id;
   const content = props.content;
   const type = props.type ? props.type : "right";
   const className = props.className + " project-section";
@@ -32,7 +33,7 @@ export default function ProjectSection(props) {
   };
 
   return (
-    <Container className={className}>
+    <Container id={id} className={className}>
       <Row className="" style={rowStyle}>
         <Col sm={12} md={5} style={{ order: 0 }}>
           <Thumbnail url={imgUrl} type={type} />

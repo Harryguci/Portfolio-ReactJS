@@ -33,7 +33,7 @@ export default function Services() {
 
   return (
     <>
-      <Container className="my-2 my-md-5 services-container" style={{ color: "white" }}>
+      <Container id="services" className="my-2 my-md-5 services-container" style={{ color: "white" }}>
         <Row>
           <h2
             className="text-center my-5 fs-1 fw-bold"

@@ -34,7 +34,7 @@ export default function Experience() {
 
   return (
     <>
-      <Container className="experience-container mb-3" style={{ color: "white" }}>
+      <Container id="experience" className="experience-container mb-3" style={{ color: "white" }}>
         <Row>
           <h2
             className="text-center fs-1 fw-bold mt-5 mb-4 my-md-5"

@@ -4,20 +4,18 @@ import "../Assets/Styles/SCSS/navbar.scss";
 import { FaBars } from "react-icons/fa";
 
 const nav_items = [
-  { content: "Home", href: "/" },
-  { content: "About", href: "/About" },
-  { content: "Education", href: "/" },
-  { content: "Experience", href: "/" },
+  { content: "Home", href: "#header" },
+  { content: "About", href: "#about" },
+  { content: "Services", href: "#services" },
+  { content: "Experience", href: "#experience" },
 ];
 
 export default function Navbar() {
-  const [toggleMenu, setToggleMenu] = useState(null);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const menubarRef = useRef(null);
 
   const handleToggleMenu = () => {
-    if (toggleMenu === null) setToggleMenu(false);
-    else setToggleMenu(!toggleMenu);
-    // console.log(toggleMenu);
+    setToggleMenu(!toggleMenu);
   };
   return (
     <nav className="container-fluid mt-4 mt-md-5">
@@ -34,7 +32,7 @@ export default function Navbar() {
         >
           {nav_items.map((item) => (
             <li key={item.content} className="navbar-item">
-              <a href="/" className="nav-link">
+              <a href={item.href} className="nav-link">
                 {item.content}
               </a>
             </li>

@@ -22,10 +22,11 @@ function Home() {
 
   return (
     <>
-      <Header className="container-fluid container-md"></Header>
+      <Header id="header" className="container-fluid container-md"></Header>
       <ProjectSection
         title="ABOUT ME"
         h2=""
+        id="about"
         type="left"
         content={content}
         className="my-5"
