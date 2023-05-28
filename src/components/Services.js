@@ -27,7 +27,7 @@ export default function Services() {
       name: "Network and Hardware",
       description:
         "Knowles in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
-      url: "./png-transparent-node-js-javascript-database-mongodb-native-miscellaneous-text-trademark.png",
+      url: "./NodeJS.png",
     },
   ];
 

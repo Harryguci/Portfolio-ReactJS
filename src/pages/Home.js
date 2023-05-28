@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
 function Home() {
   const content = `“I graduated with my degree in Economics two months ago. 
   I chose that field of study because I’ve always been interested in finance and money, 
@@ -66,7 +65,13 @@ function Home() {
             if (name === currentProject) className += " active";
 
             return (
-              <Col key={name} md={3} xl={2} className="" style={{justifyContent: 'center'}}>
+              <Col
+                key={name}
+                md={3}
+                xl={2}
+                className=""
+                style={{ justifyContent: "center" }}
+              >
                 <a href="/" className={className}>
                   {name}
                 </a>
@@ -75,6 +80,7 @@ function Home() {
           })}
         </Row>
       </Container>
+
       <div style={{ margin: "150px auto auto auto" }}>
         <ProjectSection
           title="PROJECT 1"
@@ -87,7 +93,8 @@ function Home() {
             {
               name: "Read More",
               type: "link",
-              attr: ['href="/projects/1"'],
+              attr: [],
+              href: "https://github.com/Harryguci/File-Sharing-Application",
             },
           ]}
         />
@@ -104,12 +111,12 @@ function Home() {
             {
               name: "Read More",
               type: "link",
-              attr: ['href="/projects/1"'],
+              attr: [],
+              href: "https://github.com/Harryguci/To-do-list-application",
             },
           ]}
         />
       </div>
-
       <div style={{ margin: "150px auto auto auto" }}>
         <ProjectSection
           title="PROJECT 3"
@@ -117,18 +124,37 @@ function Home() {
           type="right"
           content={content}
           className="my-5"
-          imgUrl="/Screenshot-8.png"
+          imgUrl="./javaGame.png"
           buttons={[
             {
               name: "Read More",
               type: "link",
-              attr: ['href="./javaGame.png"'],
+              attr: [],
+              href: "https://github.com/Harryguci/Bomber-Game",
+            },
+          ]}
+        />
+      </div>
+      <div style={{ margin: "150px auto auto auto" }}>
+        <ProjectSection
+          title="PROJECT 4"
+          h2="Hotel Management Website"
+          type="left"
+          content={content}
+          className="my-5"
+          imgUrl="./hotel-web.png"
+          buttons={[
+            {
+              name: "Read More",
+              type: "link",
+              attr: [],
+              href: "https://github.com/Harryguci/Hotel-management-website",
             },
           ]}
         />
       </div>
 
-      <Container className="" style={{margin: "5rem auto 2rem auto"}}>
+      <Container className="" style={{ margin: "5rem auto 2rem auto" }}>
         <Row className="">
           <Col className="d-flex" style={{ justifyContent: "center" }}>
             <div>

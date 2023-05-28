@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import logo from "../logo.svg";
+import logo from "../harryguci-logo-white.png";
 import "../Assets/Styles/SCSS/navbar.scss";
 import { FaBars } from "react-icons/fa";
 
@@ -20,7 +20,7 @@ export default function Navbar() {
     console.log(toggleMenu);
   };
   return (
-    <nav className="container-fluid mt-3 mt-md-5">
+    <nav className="container-fluid mt-4 mt-md-5">
       <div className="container-md d-flex">
         <div className="navbar-brand">
           <img src={logo} alt="logo" />
@@ -48,7 +48,7 @@ export default function Navbar() {
         <div className="toggle-menu d-flex justify-content-end">
           <button
             type="button"
-            className="btn rounded-0 mt-2"
+            className="btn rounded-0"
             style={{
               height: "max-content",
               fontSize: 1 +"rem",

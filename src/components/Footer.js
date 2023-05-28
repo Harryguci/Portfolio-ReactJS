@@ -4,13 +4,29 @@ import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
 import MessageForm from "./MessageForm";
 
-import { FaPhone, FaEnvelope, FaLocationArrow } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaLocationArrow,
+  FaFacebookF,
+  FaInstagram,
+  FaBehance,
+  FaGithub,
+} from "react-icons/fa";
 
 export default function Footer() {
   const listInformation = [
-    { url: "./logo512.png", description: "+84967259370", icon: <FaPhone/> },
-    { url: "./logo512.png", description: "huyquang0028@gmail.com", icon: <FaEnvelope/> },
-    { url: "./logo512.png", description: "Nghia Do, Hanoi, Vietnam", icon: <FaLocationArrow/> },
+    { url: "./logo512.png", description: "+84967259370", icon: <FaPhone /> },
+    {
+      url: "./logo512.png",
+      description: "huyquang0028@gmail.com",
+      icon: <FaEnvelope />,
+    },
+    {
+      url: "./logo512.png",
+      description: "Nghia Do, Hanoi, Vietnam",
+      icon: <FaLocationArrow />,
+    },
   ];
   return (
     <>
@@ -60,7 +76,7 @@ export default function Footer() {
           <Col sm={12} md={6}>
             <div>
               <h2 className="fs-2">Drop me a Message</h2>
-              <p className="mt-3 mb-5">Some content in here...</p>
+              <p className="mt-3 mb-5 opacity-75">Some content in here...</p>
               {listInformation.map((item, index) => (
                 <Row
                   className="my-3"
@@ -104,12 +120,12 @@ export default function Footer() {
         <hr style={{ margin: "2rem 0" }} />
         <Row style={{ gap: "20px 0" }}>
           <Col md={1}>
-            <div className="d-block" style={{ objectFit: "cover" }}>
+            <div className="d-flex justify-content-center" style={{ objectFit: "cover" }}>
               <img
-                src="./logo512.png"
+                src="./harryguci-logo-white.png"
                 alt="harryguci"
                 style={{
-                  width: 50 + "px",
+                  width: 30 + "px",
                   height: "auto",
                   maxWidth: "15vw",
                 }}
@@ -124,25 +140,25 @@ export default function Footer() {
             </div>
           </Col>
           <Col md={3}>
-            <Row className="justify-content-end align-items-center opacity-50">
+            <Row className="justify-content-end align-items-center opacity-75">
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a href="/" className="text-white" style={{}}>
-                  FB
+                <a target="_blank" href="https://www.facebook.com/chu.huy.336333/" className="text-white" rel="noreferrer">
+                  <FaFacebookF />
                 </a>
               </div>
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a href="/" className="text-white" style={{}}>
-                  IG
+                <a target="_blank" href="https://instagram.com/q_huy.28?igshid=MmIzYWVlNDQ5Yg==" className="text-white" rel="noreferrer">
+                  <FaInstagram />
                 </a>
               </div>
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a href="/" className="text-white" style={{}}>
-                  BE
+                <a target="_blank" href="https://www.behance.net/chuhuy1" className="text-white" rel="noreferrer">
+                  <FaBehance />
                 </a>
               </div>
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a href="/" className="text-white" style={{}}>
-                  LI
+                <a target="_blank" href="https://github.com/Harryguci" className="text-white" rel="noreferrer">
+                  <FaGithub />
                 </a>
               </div>
             </Row>

@@ -20,6 +20,7 @@ export default function ProjectSection(props) {
         name: button.name,
         type: button.type,
         attr: button.attr,
+        href: button.href,
       };
     });
   }
@@ -54,15 +55,17 @@ export default function ProjectSection(props) {
                 gap: 1 + "rem",
                 marginLeft: 5 + "px",
                 rowGap: 1 + "rem",
-              }}b
+              }}
+              b
             >
               {buttons.map((btn, index) => (
                 <a
                   key={index + 1}
-                  href="/"
                   className="btn-custom d-block"
                   style={{ width: "fit-content" }}
-                  {...btn.attr}
+                  target={"_blank"}
+                  href={btn.href}
+                  rel="noreferrer"
                 >
                   {btn.name}
                 </a>
