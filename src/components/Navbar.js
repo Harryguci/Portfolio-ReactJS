@@ -17,7 +17,7 @@ export default function Navbar() {
   const handleToggleMenu = () => {
     if (toggleMenu === null) setToggleMenu(false);
     else setToggleMenu(!toggleMenu);
-    console.log(toggleMenu);
+    // console.log(toggleMenu);
   };
   return (
     <nav className="container-fluid mt-4 mt-md-5">

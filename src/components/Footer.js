@@ -16,14 +16,15 @@ import {
 
 export default function Footer() {
   const listInformation = [
-    { url: "./logo512.png", description: "+84967259370", icon: <FaPhone /> },
     {
-      url: "./logo512.png",
+      description: "+84967259370",
+      icon: <FaPhone />,
+    },
+    {
       description: "huyquang0028@gmail.com",
       icon: <FaEnvelope />,
     },
     {
-      url: "./logo512.png",
       description: "Nghia Do, Hanoi, Vietnam",
       icon: <FaLocationArrow />,
     },
@@ -74,7 +75,7 @@ export default function Footer() {
         </Row>
         <Row className="position-relative" style={{ zIndex: 1, gap: "50px 0" }}>
           <Col sm={12} md={6}>
-            <div>
+            <div className="px-3 px-md-0">
               <h2 className="fs-2">Drop me a Message</h2>
               <p className="mt-3 mb-5 opacity-75">Some content in here...</p>
               {listInformation.map((item, index) => (
@@ -89,20 +90,6 @@ export default function Footer() {
                 >
                   <Col>
                     <div className="thumb" style={{ maxHeight: 100 + "px" }}>
-                      {/* <img
-                        src={item.url}
-                        alt="harryguci"
-                        className="d-block 
-                        bg-blue-gradient 
-                        rounded-3 
-                        overflow-hidden 
-                        p-2"
-                        style={{
-                          width: "70px",
-                          height: "auto",
-                          maxWidth: "15vw",
-                        }}
-                      /> */}
                       {item.icon}
                     </div>
                   </Col>
@@ -112,7 +99,7 @@ export default function Footer() {
             </div>
           </Col>
           <Col md={6} sm={12}>
-            <div className="m-xl-5">
+            <div className="m-xl-5 px-1 px-md-0">
               <MessageForm className={["card-custom"]} />
             </div>
           </Col>
@@ -120,7 +107,10 @@ export default function Footer() {
         <hr style={{ margin: "2rem 0" }} />
         <Row style={{ gap: "20px 0" }}>
           <Col md={1}>
-            <div className="d-flex justify-content-center" style={{ objectFit: "cover" }}>
+            <div
+              className="d-flex justify-content-center"
+              style={{ objectFit: "cover" }}
+            >
               <img
                 src="./harryguci-logo-white.png"
                 alt="harryguci"
@@ -140,24 +130,44 @@ export default function Footer() {
             </div>
           </Col>
           <Col md={3}>
-            <Row className="justify-content-end align-items-center opacity-75">
+            <Row className="justify-content-center align-items-center opacity-75">
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a target="_blank" href="https://www.facebook.com/chu.huy.336333/" className="text-white" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/chu.huy.336333/"
+                  className="text-white"
+                  rel="noreferrer"
+                >
                   <FaFacebookF />
                 </a>
               </div>
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a target="_blank" href="https://instagram.com/q_huy.28?igshid=MmIzYWVlNDQ5Yg==" className="text-white" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://instagram.com/q_huy.28?igshid=MmIzYWVlNDQ5Yg=="
+                  className="text-white"
+                  rel="noreferrer"
+                >
                   <FaInstagram />
                 </a>
               </div>
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a target="_blank" href="https://www.behance.net/chuhuy1" className="text-white" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://www.behance.net/chuhuy1"
+                  className="text-white"
+                  rel="noreferrer"
+                >
                   <FaBehance />
                 </a>
               </div>
               <div className="d-block" style={{ width: 50 + "px" }}>
-                <a target="_blank" href="https://github.com/Harryguci" className="text-white" rel="noreferrer">
+                <a
+                  target="_blank"
+                  href="https://github.com/Harryguci"
+                  className="text-white"
+                  rel="noreferrer"
+                >
                   <FaGithub />
                 </a>
               </div>
