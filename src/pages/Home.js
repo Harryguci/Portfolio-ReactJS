@@ -6,6 +6,7 @@ import "../Assets/Styles/SCSS/_base.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ScrollButton from "../components/ScrollButton";
 
 function Home() {
   const content = `Hello, everyone! My name is QUANG HUY, and I am thrilled
@@ -211,6 +212,7 @@ function Home() {
       </Container>
       <Services />
       <Experience />
+      <ScrollButton />
     </>
   );
 }
