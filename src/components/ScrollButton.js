@@ -20,19 +20,19 @@ const ScrollButton = () => {
       /* you can also use 'auto' behaviour
 		in place of 'smooth' */
     });
-    console.log('Scrolling..');
+    console.log("Scrolling..");
   };
 
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <div className="btn btn-primary position-fixed opacity-75" 
-    style={{bottom: 20 + "px", right: 20 + "px", zIndex: 100}}>
-      <FaArrowCircleUp
-        onClick={scrollToTop}
-        style={{ display: visible ? "inline" : "none" }}
-      />
-    </div>
+    <button
+      className="btn btn-primary position-fixed opacity-75"
+      onClick={scrollToTop}
+      style={{ bottom: 20 + "px", right: 20 + "px", zIndex: 100 }}
+    >
+      <FaArrowCircleUp style={{ display: visible ? "inline" : "none" }} />
+    </button>
   );
 };
 

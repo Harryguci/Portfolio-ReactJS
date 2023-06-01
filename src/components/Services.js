@@ -2,38 +2,39 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
-
+const services = [
+  {
+    name: "Graphics Design",
+    description: `Proficient in Adobe Photoshop, Adobe Illustrator and Lightroom,
+       etc. Experience working in the field of education.`,
+    url: "./adobeLogo.jpg",
+  },
+  {
+    name: "Website Development",
+    description:
+      "Knowledge in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use basic of NodeJs(Express) and React.",
+    url: "./logo512.png",
+  },
+  {
+    name: "Game Development",
+    description: `Knowledge in OOP, Data structure, Physics. Proficient in Java 17, 
+      Game structure. Can use libraries for develop games and desktop app: SDL, Swing, Awt`,
+    url: "./Java_programming_language_logo.svg.png",
+  },
+  {
+    name: "Network and Hardware",
+    description: "Experience working in System maintenance and network.",
+    url: "./NodeJS.png",
+  },
+];
 export default function Services() {
-  const services = [
-    {
-      name: "Graphics Design",
-      description: `Proficient in Adobe Photoshop, Adobe Illustrator and Lightroom,
-         etc. Experience working in the field of education.`,
-      url: "./adobe logo.jpg",
-    },
-    {
-      name: "Website Development",
-      description:
-        "Knowledge  in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
-      url: "./logo512.png",
-    },
-    {
-      name: "Game Development",
-      description:
-        "Knowledge  in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
-      url: "./Java_programming_language_logo.svg.png",
-    },
-    {
-      name: "Network and Hardware",
-      description:
-        "Knowledge  in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use NodeJs(Express) and React.",
-      url: "./NodeJS.png",
-    },
-  ];
-
   return (
     <>
-      <Container id="services" className="my-2 my-md-5 services-container" style={{ color: "white" }}>
+      <Container
+        id="services"
+        className="my-2 my-md-5 services-container"
+        style={{ color: "white" }}
+      >
         <Row>
           <h2
             className="text-center my-5 fs-1 fw-bold"
@@ -53,7 +54,10 @@ export default function Services() {
           {services.map((service) => (
             <Col sm={12} md={6} key={service.name}>
               <div className="service-box p-md-5 p-3">
-                <div className="d-flex gap-md-4 gap-2" style={{ alignItem: "center" }}>
+                <div
+                  className="d-flex gap-md-4 gap-2"
+                  style={{ alignItem: "center" }}
+                >
                   <img
                     src={service.url}
                     alt="Harryguci"

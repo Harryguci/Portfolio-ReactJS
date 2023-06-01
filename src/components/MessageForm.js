@@ -49,6 +49,7 @@ export default function MessageForm(props) {
   };
 
   const handleSubmit = (e) => {
+    alert(`Xin cảm ơn ${name}`);
     e.preventDefault();
     console.log(`name: ${name}`);
     console.log(`email: ${email}`);
@@ -64,12 +65,13 @@ export default function MessageForm(props) {
     <Form
       className={className}
       method="POST"
-      action="/send-message"
+      action="/message"
       onSubmit={(e) => handleSubmit(e)}
     >
       <Form.Group className="mb-3" controlId="MessageForm.ControlInput1">
         <Form.Control
           className="bg-dark"
+          name="userName"
           type="text"
           placeholder="Your name..."
           value={name}
@@ -79,6 +81,7 @@ export default function MessageForm(props) {
       <Form.Group className="mb-3" controlId="MessageForm.ControlInput2">
         <Form.Control
           className="bg-dark"
+          name="email"
           type="email"
           placeholder="Email"
           value={email}
@@ -88,25 +91,30 @@ export default function MessageForm(props) {
       <Form.Group className="mb-3" controlId="MessageForm.ControlTextarea1">
         <Form.Control
           className="bg-dark"
-          type="textarea"
+          name="content"
+          as="textarea"
           rows={3}
           placeholder="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
       </Form.Group>
-      <p className="fw-bold" style={{margin: "20px 0 5px 0"}}>Kind of message</p>
+      <p className="fw-bold" style={{ margin: "20px 0 5px 0" }}>
+        Kind of message
+      </p>
       {values.map((item) => (
         <Form.Group key={item.id}>
           <input
             type="checkbox"
             name={item.name.replace(/ /g, "")}
-            className="mx-2"
+            className="mx-2 d-inline-block"
             value={item.name}
             onChange={() => handleChange(item.id)}
             check={isChecked(item.id)}
           />
-          <label for={item.name.replace(/ /g, "")}>{item.name}</label>
+          <label for={item.name.replace(/ /g, "")} className="my-auto">
+            {item.name}
+          </label>
         </Form.Group>
       ))}
       <Form.Group className="mt-4 mt-md-5">
