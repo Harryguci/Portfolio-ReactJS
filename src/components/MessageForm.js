@@ -13,10 +13,6 @@ const values = [
     id: 2,
     name: "Other",
   },
-  {
-    id: 3,
-    name: "...",
-  },
 ];
 
 export default function MessageForm(props) {
