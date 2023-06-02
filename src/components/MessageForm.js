@@ -1,7 +1,5 @@
-// import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import "../Assets/Styles/SCSS/_base.scss";
-// import { FaBuromobelexperte } from "react-icons/fa";
 import { useState } from "react";
 
 const values = [
