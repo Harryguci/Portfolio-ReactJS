@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
 import MessageForm from "./MessageForm";
+import React, { useState, useEffect } from "react";
 
 import {
   FaPhone,
@@ -15,37 +16,42 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
-  const listInformation = [
-    {
-      description: "+84967259370",
-      icon: <FaPhone />,
-    },
-    {
-      description: "huyquang0028@gmail.com",
-      icon: <FaEnvelope />,
-    },
-    {
-      description: "Nghia Do, Hanoi, Vietnam",
-      icon: <FaLocationArrow />,
-    },
-    {
-      description: "fb.com/chu.huy.336333/",
-      icon: <FaFacebookF />,
-      href: "https://www.facebook.com/chu.huy.336333/",
-    },
-    {
-      description: "instagram.com/q_huy.28",
-      icon: <FaInstagram />,
-      href: "https://instagram.com/q_huy.28",
-    },
-    {
-      description: "github.com/Harryguci",
-      icon: <FaGithub />,
-      href: "https://github.com/Harryguci",
-    },
-  ];
+  const [listInformation, setListInformation] = useState([]);
+  useEffect(() => {
+    console.log("Re-render Footer");
+    setListInformation([
+      {
+        description: "+84967259370",
+        icon: <FaPhone />,
+      },
+      {
+        description: "huyquang0028@gmail.com",
+        icon: <FaEnvelope />,
+      },
+      {
+        description: "Nghia Do, Hanoi, Vietnam",
+        icon: <FaLocationArrow />,
+      },
+      {
+        description: "fb.com/chu.huy.336333/",
+        icon: <FaFacebookF />,
+        href: "https://www.facebook.com/chu.huy.336333/",
+      },
+      {
+        description: "instagram.com/q_huy.28",
+        icon: <FaInstagram />,
+        href: "https://instagram.com/q_huy.28",
+      },
+      {
+        description: "github.com/Harryguci",
+        icon: <FaGithub />,
+        href: "https://github.com/Harryguci",
+      },
+    ]);
+  }, []);
+
   return (
-    <>
+    <React.Fragment>
       <Container
         fluid
         style={{ color: "white" }}
@@ -92,10 +98,11 @@ export default function Footer() {
           <Col sm={12} md={6}>
             <div className="px-3 px-md-0">
               <h2 className="fs-2">Drop me a Message</h2>
-              <p className="mt-3 opacity-75" style={{maxWidth: "400px"}}>
+              <p className="mt-3 opacity-75" style={{ maxWidth: "400px" }}>
                 I'm ready for a job as an intern software developer. If you want
                 to contact me for work, please email me. I am happy that you
-                were here.<br/> 
+                were here.
+                <br />
               </p>
               <p className="mb-5 fw-bold">Have a nice day!</p>
               {listInformation.map((item, index) => (
@@ -205,6 +212,6 @@ export default function Footer() {
           </Col>
         </Row>
       </Container>
-    </>
+    </React.Fragment>
   );
 }

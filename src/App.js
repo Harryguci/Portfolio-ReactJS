@@ -9,16 +9,18 @@ const About = lazy(() => import("./pages/About"));
 
 function App() {
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-        <Footer />
-      </Suspense>
-    </Router>
+    <React.StrictMode>
+      <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+          <Footer />
+        </Suspense>
+      </Router>
+    </React.StrictMode>
   );
 }
 

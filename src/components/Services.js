@@ -12,7 +12,8 @@ const services = [
   {
     name: "Website Development",
     description:
-      "Knowledge in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), Javascript (ES6). Can use basic of NodeJs(Express) and React.",
+      `Knowledge in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), 
+      Javascript (ES6). Can use basic of NodeJs(Express) and React.`,
     url: "./logo512.png",
   },
   {
@@ -23,7 +24,10 @@ const services = [
   },
   {
     name: "Network and Hardware",
-    description: "Experience working in System maintenance and network.",
+    description: `I possess extensive experience in Network and Hardware, with a strong
+     understanding of network architecture, protocols, and components. In hardware, I 
+     excel in assembling, upgrading, repairing computer systems, resolving hardware 
+     issues, and staying up-to-date with the latest technologies.`,
     url: "./NodeJS.png",
   },
 ];

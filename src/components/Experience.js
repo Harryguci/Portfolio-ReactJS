@@ -1,9 +1,10 @@
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function Experience() {
-  const list = [
+  const [list] = useState([
     {
       name: "HTML",
       url: "https://www.w3.org/html/logo/downloads/HTML5_Badge_256.png",
@@ -34,7 +35,7 @@ export default function Experience() {
       name: "MongoDB",
       url: "https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Picture.png",
     },
-  ];
+  ]);
 
   return (
     <>

@@ -1,27 +1,33 @@
 import Form from "react-bootstrap/Form";
 import "../Assets/Styles/SCSS/_base.scss";
-import { useState } from "react";
-
-const values = [
-  {
-    id: 1,
-    name: "For work",
-  },
-  {
-    id: 2,
-    name: "Other",
-  },
-];
+import { useState, useEffect } from "react";
 
 export default function MessageForm(props) {
   let className = "";
+  const [values, setValues] = useState([]);
+
   props.className.forEach((name) => (className += name + " "));
+
+  useEffect(() => {
+    console.log("Re-render Values");
+
+    setValues([
+      {
+        id: 1,
+        name: "For work",
+      },
+      {
+        id: 2,
+        name: "Other",
+      },
+    ]);
+  }, []);
 
   const [idCheckBox, setIdCheckBox] = useState([]);
 
   const isChecked = (id) => {
     try {
-      return idCheckBox.some((value, index) => value === id);
+      return idCheckBox.some((value) => value === id);
     } catch (e) {
       return false;
     }
@@ -94,7 +100,7 @@ export default function MessageForm(props) {
         />
       </Form.Group>
       <p className="fw-bold" style={{ margin: "20px 0 5px 0" }}>
-        Kind of message
+        Type of message
       </p>
       {values.map((item) => (
         <Form.Group key={item.id}>
@@ -106,7 +112,7 @@ export default function MessageForm(props) {
             onChange={() => handleChange(item.id)}
             check={isChecked(item.id)}
           />
-          <label for={item.name.replace(/ /g, "")} className="my-auto">
+          <label htmlFor={item.name.replace(/ /g, "")} className="my-auto">
             {item.name}
           </label>
         </Form.Group>
