@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
 import MessageForm from "./MessageForm";
+import GGForm from "./GGForm";
 import React, { useState, useEffect } from "react";
 
 import {
@@ -138,6 +139,7 @@ export default function Footer() {
           <Col md={6} sm={12}>
             <div className="m-xl-5 px-1 px-md-0">
               <MessageForm className={["card-custom"]} />
+              {/* <GGForm /> */}
             </div>
           </Col>
         </Row>
