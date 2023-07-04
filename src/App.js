@@ -6,12 +6,27 @@ import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
+const LoadingPage = () => (
+  <div
+    style={{
+      width: "100vw",
+      height: 100 + "vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "#0f1630",
+    }}
+  >
+    <h1 style={{ color: "white" }}>Loading...</h1>
+  </div>
+);
 
+// #0f1630
 function App() {
   return (
     <React.StrictMode>
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingPage />}>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

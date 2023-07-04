@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function Experience() {
-  const [list] = useState([
+  const list = useRef([
     {
       name: "HTML",
       url: "https://www.w3.org/html/logo/downloads/HTML5_Badge_256.png",
@@ -53,7 +53,7 @@ export default function Experience() {
           </h2>
         </Row>
         <Row style={{ rowGap: 1 + "rem" }}>
-          {list.map((item, index) => (
+          {list.current.map((item, index) => (
             <Col col={3} className="" key={index + 1}>
               <div key={item.name}>
                 <div className="logo mx-auto" style={{ width: "max-content" }}>

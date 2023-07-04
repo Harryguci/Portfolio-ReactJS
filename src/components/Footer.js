@@ -3,8 +3,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
 import MessageForm from "./MessageForm";
-import GGForm from "./GGForm";
-import React, { useState, useEffect } from "react";
+// import GGForm from "./GGForm";
+import React, { useRef } from "react";
 
 import {
   FaPhone,
@@ -17,39 +17,35 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
-  const [listInformation, setListInformation] = useState([]);
-  useEffect(() => {
-    console.log("Re-render Footer");
-    setListInformation([
-      {
-        description: "+84967259370",
-        icon: <FaPhone />,
-      },
-      {
-        description: "huyquang0028@gmail.com",
-        icon: <FaEnvelope />,
-      },
-      {
-        description: "Nghia Do, Hanoi, Vietnam",
-        icon: <FaLocationArrow />,
-      },
-      {
-        description: "fb.com/chu.huy.336333/",
-        icon: <FaFacebookF />,
-        href: "https://www.facebook.com/chu.huy.336333/",
-      },
-      {
-        description: "instagram.com/q_huy.28",
-        icon: <FaInstagram />,
-        href: "https://instagram.com/q_huy.28",
-      },
-      {
-        description: "github.com/Harryguci",
-        icon: <FaGithub />,
-        href: "https://github.com/Harryguci",
-      },
-    ]);
-  }, []);
+  const listInformation = useRef([
+    {
+      description: "+84967259370",
+      icon: <FaPhone />,
+    },
+    {
+      description: "huyquang0028@gmail.com",
+      icon: <FaEnvelope />,
+    },
+    {
+      description: "Nghia Do, Hanoi, Vietnam",
+      icon: <FaLocationArrow />,
+    },
+    {
+      description: "fb.com/chu.huy.336333/",
+      icon: <FaFacebookF />,
+      href: "https://www.facebook.com/chu.huy.336333/",
+    },
+    {
+      description: "instagram.com/q_huy.28",
+      icon: <FaInstagram />,
+      href: "https://instagram.com/q_huy.28",
+    },
+    {
+      description: "github.com/Harryguci",
+      icon: <FaGithub />,
+      href: "https://github.com/Harryguci",
+    },
+  ]);
 
   return (
     <React.Fragment>
@@ -106,7 +102,7 @@ export default function Footer() {
                 <br />
               </p>
               <p className="mb-5 fw-bold">Have a nice day!</p>
-              {listInformation.map((item, index) => (
+              {listInformation.current.map((item, index) => (
                 <Row
                   className="my-3"
                   key={index}
