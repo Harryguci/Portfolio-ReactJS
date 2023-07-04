@@ -11,7 +11,7 @@ export default function Experience() {
     },
     {
       name: "CSS3(SCSS)",
-      url: "https://sass-lang.com/assets/img/styleguide/seal-color-aef0354c.png",
+      url: "./scss.png",
     },
     {
       name: "Javascript",

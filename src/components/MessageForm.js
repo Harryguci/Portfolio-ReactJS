@@ -3,33 +3,20 @@ import "../Assets/Styles/SCSS/_base.scss";
 import { useState, useEffect } from "react";
 
 export default function MessageForm(props) {
-  let className = "";
-  const [values, setValues] = useState([]);
-
-  props.className.forEach((name) => (className += name + " "));
-
+ const [className, setClassName] = useState([]);
   useEffect(() => {
-    console.log("Re-render Values");
-
-    setValues([
-      {
-        id: 1,
-        name: "For work",
-      },
-      {
-        id: 2,
-        name: "Other",
-      },
-    ]);
-  }, []);
-
-  const handleSubmit = (e) => {
-    alert(`Xin cảm ơn ${name}`);
-  };
+    let txt = "";
+    props.className.forEach((name) => (txt += name + " "));
+    setClassName(prev => prev += txt);
+  },[props.className]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    alert(`Gửi thành công! Cảm ơn ${name}`);
+  };
 
   return (
     <>
