@@ -14,16 +14,20 @@ function Home() {
   const [listProjectNames, setListProjectNames] = useState([]);
   const [content, setContent] = useState("");
   const [projects, setProjects] = useState([]);
+
   useEffect(() => {
     setListProjectNames(["Mobile App", "Website", "Desktop", "Other Projects"]);
+
     setContent(`Hello, everyone! My name is QUANG HUY, and I am thrilled
     to introduce myself as an intern website developer. 
-    I have been studying Information & Technology at the University of Transport & Communications since Oct 2021.
+    I have been studying Information & Technology at the 
+    University of Transport & Communications since Oct 2021.
     I am passionate about crafting digital experiences that
      are visually appealing, user-friendly, and highly functional.
       With a strong foundation in web development languages 
       such as HTML, CSS, and JavaScript (ES6 and Jquery).
       Currently I am learning about NodeJs, ReactJs and some things about Javascript.`);
+
     setProjects([
       {
         title: "PROJECT 1",
