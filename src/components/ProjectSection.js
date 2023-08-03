@@ -61,7 +61,7 @@ export default function ProjectSection(props) {
         </p>
       );
     } else {
-      tContent = tContent.substr(0,250) + "...";
+      tContent = tContent.substr(0, 250) + "...";
       contentElem = (
         <p style={{ lineHeight: "2rem", letterSpacing: "1px" }}>
           {tContent}
@@ -86,7 +86,7 @@ export default function ProjectSection(props) {
   return (
     <Container id={id} className={className}>
       <Row className="" style={rowStyle}>
-        <Col sm={12} md={5} style={{ order: 0 }}>
+        <Col sm={12} md={5} className="d-flex position-relative justify-content-center align-content-center" style={{ order: 0 }}>
           <Thumbnail url={imgUrl} type={type} />
         </Col>
         <Col
