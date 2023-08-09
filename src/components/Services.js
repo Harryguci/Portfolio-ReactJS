@@ -28,7 +28,7 @@ const services = [
      understanding of network architecture, protocols, and components. In hardware, I 
      excel in assembling, upgrading, repairing computer systems, resolving hardware 
      issues, and staying up-to-date with the latest technologies.`,
-    url: "./NodeJS.png",
+    url: "https://graphicriver.img.customer.envatousercontent.com/files/85881596/vector_166_590.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=ac5330bea75679b7b2a117c1f68266b9",
   },
 ];
 export default function Services() {
@@ -65,7 +65,7 @@ export default function Services() {
                   <img
                     src={service.url}
                     alt="Harryguci"
-                    style={{ maxHeight: 100 + "px" }}
+                    style={{ maxHeight: 100 + "px", borderRadius: "5px" }}
                   />
                   <h2 style={{ margin: "auto 0" }}>{service.name}</h2>
                 </div>

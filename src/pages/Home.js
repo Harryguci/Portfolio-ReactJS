@@ -150,6 +150,25 @@ function Home() {
           },
         ],
       },
+      {
+        title: "PROJECT 6",
+        h2: "Environment Social Website",
+        type: "left",
+        content: `The website about environmental protection allows users to buy, 
+        sell and exchange environmentally friendly products. Users can post articles
+         as a social network to provide information and call on the community to protect
+          the environment.        `,
+        className: "my-5",
+        imgUrl: "./environment-website.png",
+        buttons: [
+          {
+            name: "Read More",
+            type: "link",
+            attr: [],
+            href: "https://github.com/Harryguci/Environment-website",
+          },
+        ],
+      },
     ]);
   }, []);
   return (
