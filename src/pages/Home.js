@@ -118,6 +118,38 @@ function Home() {
           },
         ],
       },
+      {
+        title: "PROJECT 5",
+        h2: "Travel Maps",
+        type: "right",
+        content: `Discover Travel Maps: Your interactive travel journal! 
+        Share your wanderlust adventures with an interactive map and captivating
+         pictures. Inspire others to explore the world as you document your journeys.
+          Join us and let your memories take flight! User can add some pictures in your location on maps
+          and views all pictures was uploaded.`,
+        className: "my-5",
+        imgUrl: "./travel-maps-website.png",
+        buttons: [
+          {
+            name: "Client",
+            type: "link",
+            attr: [],
+            href: "https://github.com/Harryguci/client-maps-travel-website",
+          },
+          {
+            name: "Server",
+            type: "link",
+            attr: [],
+            href: "https://github.com/Harryguci/server-maps-travel-website",
+          },
+          {
+            name: "Demo",
+            type: "link",
+            attr: [],
+            href: "https://maps-travel-website.vercel.app/",
+          },
+        ],
+      },
     ]);
   }, []);
   return (
