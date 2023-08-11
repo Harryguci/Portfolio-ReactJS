@@ -3,12 +3,12 @@ import "../Assets/Styles/SCSS/_base.scss";
 import { useState, useEffect } from "react";
 
 export default function MessageForm(props) {
- const [className, setClassName] = useState([]);
+  const [className, setClassName] = useState([]);
   useEffect(() => {
     let txt = "";
     props.className.forEach((name) => (txt += name + " "));
     setClassName(prev => prev += txt);
-  },[props.className]);
+  }, [props.className]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,6 +34,7 @@ export default function MessageForm(props) {
             type="text"
             placeholder="Your name..."
             value={name}
+            style={{ fontSize: 16 + 'px !important' }}
             onChange={(e) => setName(e.target.value)}
           />
         </Form.Group>
@@ -45,6 +46,7 @@ export default function MessageForm(props) {
             type="email"
             placeholder="Email"
             value={email}
+            style={{ fontSize: 16 + 'px !important' }}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
@@ -57,6 +59,7 @@ export default function MessageForm(props) {
             rows={3}
             placeholder="Message"
             value={message}
+            style={{ fontSize: 16 + 'px !important' }}
             onChange={(e) => setMessage(e.target.value)}
           />
         </Form.Group>
