@@ -25,9 +25,7 @@ const services = [
   {
     name: "Network and Hardware",
     description: `I possess extensive experience in Network and Hardware, with a strong
-     understanding of network architecture, protocols, and components. In hardware, I 
-     excel in assembling, upgrading, repairing computer systems, resolving hardware 
-     issues, and staying up-to-date with the latest technologies.`,
+     understanding of network architecture, protocols, and components.`,
     url: "https://graphicriver.img.customer.envatousercontent.com/files/85881596/vector_166_590.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=ac5330bea75679b7b2a117c1f68266b9",
   },
 ];
