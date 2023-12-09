@@ -31,6 +31,25 @@ function Home() {
     setProjects([
       {
         title: "PROJECT 1",
+        h2: "Showroom management website",
+        type: "right",
+        content: `The website is a website application. The website provides features
+         to manage about Employees, Customers, Products, Services, Reports and financial statistics...
+         The object of use are manager, sales employee, customers. Ensure that the website 
+         is authorized and authenticated, protected information.`,
+        className: "my-5",
+        imgUrl: "./ShowroomManagement.png",
+        buttons: [
+          {
+            name: "Read More",
+            type: "link",
+            attr: [],
+            href: "https://github.com/Harryguci/Environment-website",
+          },
+        ],
+      },
+      {
+        title: "PROJECT 2",
         h2: "Environment Social Website",
         type: "left",
         content: `The website about environmental protection allows users to buy, 
@@ -49,7 +68,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 2",
+        title: "PROJECT 3",
         h2: "Travel Maps",
         type: "right",
         content: `Discover Travel Maps: Your interactive travel journal! 
@@ -81,7 +100,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 3",
+        title: "PROJECT 4",
         h2: "File Sharing Website",
         type: "right",
         content: `HARG website, the premier platform for sharing 
@@ -102,7 +121,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 4",
+        title: "PROJECT 5",
         h2: "Todo List Website",
         type: "left",
         content: `TodoList website, your ultimate Todo List Website! Stay 
@@ -126,7 +145,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 5",
+        title: "PROJECT 6",
         h2: "Bomber Game",
         type: "right",
         content: `Experience explosive fun with the Java-based Bomber game! 
@@ -147,7 +166,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 6",
+        title: "PROJECT 7",
         h2: "Hotel Management Website",
         type: "left",
         content: `Our sleek and intuitive hotel management website interface! 
