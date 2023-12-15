@@ -95,12 +95,11 @@ export default function ProjectSection(props) {
           className="px-3 mt-3"
           style={{ order: 1, flex: "1 0 auto" }}
         >
-          <div className="mt-3 mt-md-5">
+          <div className="">
             <h2 className="title-thin fs-1">{title}</h2>
             <h2 className="title-bold fs-1 mb-3">{h2}</h2>
             {contentElem}
             <Row
-              className="mt-5"
               style={{
                 gap: 1 + "rem",
                 marginLeft: 5 + "px",

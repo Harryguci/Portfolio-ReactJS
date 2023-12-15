@@ -35,6 +35,14 @@ export default function Experience() {
       name: "MongoDB",
       url: "https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Picture.png",
     },
+    {
+      name: "Git & Github",
+      url: "https://www.flexmind.co/wp-content/uploads/2020/04/logo-git-icon-e1586889963495.png"
+    },
+    {
+      name: "ASP .NET",
+      url: "https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2019/11/msft.net_large_purple-1.png"
+    }
   ]);
 
   return (

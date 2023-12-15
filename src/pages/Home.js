@@ -57,7 +57,7 @@ function Home() {
          as a social network to provide information and call on the community to protect
           the environment.        `,
         className: "my-5",
-        imgUrl: "./environment-website.png",
+        imgUrl: "./environment-website1.png",
         buttons: [
           {
             name: "Read More",
