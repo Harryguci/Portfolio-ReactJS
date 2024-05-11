@@ -31,6 +31,24 @@ function Home() {
     setProjects([
       {
         title: "PROJECT 1",
+        h2: "Chating Realtime Website",
+        type: "right",
+        content: `- The premier real-time chatting platform where you can connect with friends, family, and colleagues instantly.
+        - Using NEXT.JS - a ReactJs framework to build the user-friendly interface.
+        - Using Websocket with .NET 8.0 to build the BackEnd layer: Authentication, Author,  handle request, valid data, handle conflic, send & receive messages in real-time.`,
+        className: "my-5",
+        imgUrl: "./ShowroomManagement.png",
+        buttons: [
+          {
+            name: "Read More",
+            type: "link",
+            attr: [],
+            href: "https://github.com/Harryguci/Showroom-ASPNET-Core-MVC",
+          },
+        ],
+      },
+      {
+        title: "PROJECT 2",
         h2: "Showroom management website",
         type: "right",
         content: `The website is a website application. The website provides features
@@ -49,7 +67,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 2",
+        title: "PROJECT 3",
         h2: "Environment Social Website",
         type: "left",
         content: `The website about environmental protection allows users to buy, 
@@ -68,7 +86,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 3",
+        title: "PROJECT 4",
         h2: "Travel Maps",
         type: "right",
         content: `Discover Travel Maps: Your interactive travel journal! 
@@ -100,7 +118,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 4",
+        title: "PROJECT 5",
         h2: "File Sharing Website",
         type: "right",
         content: `HARG website, the premier platform for sharing 
@@ -122,30 +140,6 @@ function Home() {
       },
       {
         title: "PROJECT 5",
-        h2: "Todo List Website",
-        type: "left",
-        content: `TodoList website, your ultimate Todo List Website! Stay 
-          organized and productive with TodoList, a user-friendly platform 
-          designed to help you manage your tasks effortlessly.  With TodoList, 
-          you can create personalized to-do lists, set due dates, and prioritize 
-          your tasks with ease. Stay on top of your commitments by organizing your 
-          tasks into categories and subtasks, ensuring nothing falls through the cracks. 
-          The intuitive interface makes adding, editing, and checking off tasks a breeze. 
-          Receive timely reminders and notifications, so you never miss an important 
-          deadline again.`,
-        className: "my-3 my-md-5",
-        imgUrl: "/nodejs.jpg",
-        buttons: [
-          {
-            name: "Read More",
-            type: "link",
-            attr: [],
-            href: "https://github.com/Harryguci/To-do-list-application",
-          },
-        ],
-      },
-      {
-        title: "PROJECT 6",
         h2: "Bomber Game",
         type: "right",
         content: `Experience explosive fun with the Java-based Bomber game! 
@@ -166,7 +160,7 @@ function Home() {
         ],
       },
       {
-        title: "PROJECT 7",
+        title: "PROJECT 6",
         h2: "Hotel Management Website",
         type: "left",
         content: `Our sleek and intuitive hotel management website interface! 

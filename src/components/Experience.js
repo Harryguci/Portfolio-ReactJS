@@ -42,6 +42,14 @@ export default function Experience() {
     {
       name: "ASP .NET",
       url: "https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2019/11/msft.net_large_purple-1.png"
+    },
+    {
+      name: "MySQL",
+      url: "./MySql.jpg"
+    },
+    {
+      name: "Deploy",
+      url: "./cloud-server-icon-vector-15548468.jpg"
     }
   ]);
 
