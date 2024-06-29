@@ -37,13 +37,19 @@ function Home() {
         - Using NEXT.JS - a ReactJs framework to build the user-friendly interface.
         - Using Websocket with .NET 8.0 to build the BackEnd layer: Authentication, Author,  handle request, valid data, handle conflic, send & receive messages in real-time.`,
         className: "my-5",
-        imgUrl: "./ShowroomManagement.png",
+        imgUrl: "./chating-app.png",
         buttons: [
           {
-            name: "Read More",
+            name: "Source Client",
             type: "link",
             attr: [],
-            href: "https://github.com/Harryguci/Showroom-ASPNET-Core-MVC",
+            href: "https://github.com/Harryguci/Chatting-Realtime-Client",
+          },
+          {
+            name: "Source Server",
+            type: "link",
+            attr: [],
+            href: "https://github.com/Harryguci/Chatting-Realtime-Server",
           },
         ],
       },
@@ -194,7 +200,7 @@ function Home() {
         type="left"
         content={content}
         className="my-5"
-        imgUrl="/avatar2.jpg"
+        imgUrl="/att.UF_ixPHTZTB92M-iEODEV8w6zLKb1G_-wc7wSVXqUkI.jpg"
         buttons={[
           {
             name: "Read More",
