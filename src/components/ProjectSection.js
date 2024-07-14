@@ -23,6 +23,7 @@ export default function ProjectSection(props) {
         type: button.type,
         attr: button.attr,
         href: button.href,
+        disabled: button.disabled,
       };
     });
   }
@@ -86,7 +87,12 @@ export default function ProjectSection(props) {
   return (
     <Container id={id} className={className}>
       <Row className="" style={rowStyle}>
-        <Col sm={12} md={5} className="d-flex position-relative justify-content-center align-content-center" style={{ order: 0 }}>
+        <Col
+          sm={12}
+          md={5}
+          className="d-flex position-relative justify-content-center align-content-center"
+          style={{ order: 0 }}
+        >
           <Thumbnail url={imgUrl} type={type} />
         </Col>
         <Col
@@ -107,18 +113,38 @@ export default function ProjectSection(props) {
               }}
               b
             >
-              {buttons.map((btn, index) => (
-                <a
-                  key={index + 1}
-                  className="btn-custom d-block"
-                  style={{ width: "fit-content" }}
-                  target={"_blank"}
-                  href={btn.href}
-                  rel="noreferrer"
-                >
-                  {btn.name}
-                </a>
-              ))}
+              {buttons.map((btn, index) => {
+                if (btn.type === "button") {
+                  return (
+                    <button
+                      key={index + 1}
+                      className={
+                        "btn-custom d-block" +
+                        (btn.disabled ? " btn-disabled" : "")
+                      }
+                      style={{ width: "fit-content" }}
+                      rel="noreferrer"
+                      disabled={btn.disabled}
+                    >
+                      <span
+                        dangerouslySetInnerHTML={{ __html: btn.name }}
+                      ></span>
+                    </button>
+                  );
+                }
+                return (
+                  <a
+                    key={index + 1}
+                    className="btn-custom d-block"
+                    style={{ width: "fit-content" }}
+                    target={"_blank"}
+                    href={btn.href}
+                    rel="noreferrer"
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: btn.name }}></span>
+                  </a>
+                );
+              })}
             </Row>
           </div>
         </Col>

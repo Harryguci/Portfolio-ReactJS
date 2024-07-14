@@ -14,6 +14,8 @@ function Home() {
   const [listProjectNames, setListProjectNames] = useState([]);
   const [content, setContent] = useState("");
   const [projects, setProjects] = useState([]);
+  const projectPagedLimit = 4;
+  const [allProject, setAllProject] = useState(false);
 
   useEffect(() => {
     setListProjectNames(["Mobile App", "Website", "Desktop", "Other Projects"]);
@@ -56,7 +58,7 @@ function Home() {
       {
         title: "PROJECT 2",
         h2: "Showroom management website",
-        type: "right",
+        type: "left",
         content: `The website is a website application. The website provides features
          to manage about Employees, Customers, Products, Services, Reports and financial statistics...
          The object of use are manager, sales employee, customers. Ensure that the website 
@@ -69,6 +71,23 @@ function Home() {
             type: "link",
             attr: [],
             href: "https://github.com/Harryguci/Showroom-ASPNET-Core-MVC",
+          },
+        ],
+      },
+      {
+        title: "PROJECT 3",
+        h2: "Effort Tracking Application",
+        type: "right",
+        content: `A Management applications can track and calculate the effort of work items. Help to managers business team. In the first version, it focus to manager development team, works with Azure Devops.`,
+        className: "my-5",
+        imgUrl: "./effort-tracking.png",
+        buttons: [
+          {
+            name: `Read More <small style="opacity: 0.5">(update soon)</small>`,
+            type: "button",
+            attr: [],
+            href: "#",
+            disabled: true,
           },
         ],
       },
@@ -126,7 +145,7 @@ function Home() {
       {
         title: "PROJECT 5",
         h2: "File Sharing Website",
-        type: "right",
+        type: "left",
         content: `HARG website, the premier platform for sharing 
           and downloading learning documents. Upload and access a wide range
            of educational resources including textbooks, research papers, 
@@ -190,6 +209,11 @@ function Home() {
       },
     ]);
   }, []);
+
+  const handleViewAllProject = (event) => {
+    setAllProject((prev) => !prev);
+  };
+
   return (
     <React.Fragment>
       <Header id="header" className="container-fluid container-md"></Header>
@@ -252,31 +276,32 @@ function Home() {
         </Row>
       </Container>
 
-      {projects.map((project, index) => (
-        <div key={index + 1} style={{ margin: "150px auto auto auto" }}>
-          <ProjectSection
-            title={project.title}
-            h2={project.h2}
-            type={project.type}
-            content={project.content}
-            className={project.className}
-            imgUrl={project.imgUrl}
-            buttons={project.buttons}
-          />
-        </div>
-      ))}
-
+      {projects
+        .slice(1, !allProject ? projectPagedLimit : 100)
+        .map((project, index) => (
+          <div key={index + 1} style={{ margin: "150px auto auto auto" }}>
+            <ProjectSection
+              title={project.title}
+              h2={project.h2}
+              type={project.type}
+              content={project.content}
+              className={project.className}
+              imgUrl={project.imgUrl}
+              buttons={project.buttons}
+            />
+          </div>
+        ))}
       <Container className="" style={{ margin: "5rem auto 2rem auto" }}>
         <Row className="">
           <Col className="d-flex" style={{ justifyContent: "center" }}>
             <div>
-              <a
-                href="https://github.com/Harryguci"
+              <button
                 className="btn-custom d-block fs-4 fw-bold px-5 py-3"
                 style={{ width: "fit-content" }}
+                onClick={handleViewAllProject}
               >
-                View All
-              </a>
+                {!allProject ? "View All" : "Hide"}
+              </button>
             </div>
           </Col>
         </Row>

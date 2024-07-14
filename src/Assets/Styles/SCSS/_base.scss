@@ -48,6 +48,24 @@ html {
   }
 }
 
+.btn-disabled {
+  background: rgb(171, 171, 171);
+    background: linear-gradient(90deg,
+        rgba(171,
+          171,
+          171, 1) 0%,
+        rgba(71, 71, 71, 1) 100%);
+
+        &:hover {
+          background: rgb(171, 171, 171);
+            background: linear-gradient(90deg,
+                rgba(171,
+                  171,
+                  171, 1) 0%,
+                rgba(71, 71, 71, 1) 100%);
+        }
+}
+
 .link-custom {
   text-decoration: none;
   color: $white;
