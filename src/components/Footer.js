@@ -94,11 +94,11 @@ export default function Footer() {
         <Row className="position-relative" style={{ zIndex: 1, gap: "50px 0" }}>
           <Col sm={12} md={6}>
             <div className="px-3 px-md-0">
-              <h2 className="fs-2">Drop me a Message</h2>
+              <h2 className="fs-2">Leave me a Message</h2>
               <p className="mt-3 opacity-75" style={{ maxWidth: "400px" }}>
-                I'm ready for a job as an intern software developer. If you want
-                to contact me for work, please email me. I am happy that you
-                were here.
+                I'm ready for a job as a software developer. If you want to
+                contact me for work, please email me. I am happy that you were
+                here.
                 <br />
               </p>
               <p className="mb-5 fw-bold">Have a nice day!</p>
@@ -135,7 +135,6 @@ export default function Footer() {
           <Col md={6} sm={12}>
             <div className="m-xl-5 px-1 px-md-0">
               <MessageForm className={["card-custom"]} />
-              {/* <GGForm /> */}
             </div>
           </Col>
         </Row>
@@ -160,7 +159,7 @@ export default function Footer() {
           <Col md={8}>
             <div className="d-flex align-items-center justify-content-center">
               <p className="opacity-50 text-center">
-                2023 - Harryguci, All rights reserved
+                2025 - Harryguci, All rights reserved
               </p>
             </div>
           </Col>

@@ -111,7 +111,6 @@ export default function ProjectSection(props) {
                 marginLeft: 5 + "px",
                 rowGap: 1 + "rem",
               }}
-              b
             >
               {buttons.map((btn, index) => {
                 if (btn.type === "button") {

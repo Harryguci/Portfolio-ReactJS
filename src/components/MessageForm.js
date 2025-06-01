@@ -7,7 +7,7 @@ export default function MessageForm(props) {
   useEffect(() => {
     let txt = "";
     props.className.forEach((name) => (txt += name + " "));
-    setClassName(prev => prev += txt);
+    setClassName((prev) => (prev += txt));
   }, [props.className]);
 
   const [name, setName] = useState("");
@@ -27,6 +27,7 @@ export default function MessageForm(props) {
         onSubmit={(e) => handleSubmit(e)}
       >
         <Form.Group className="mb-3" controlId="MessageForm.ControlInput1">
+          <Form.Label>Name</Form.Label>
           <Form.Control
             controlid="name"
             className="bg-dark"
@@ -34,11 +35,12 @@ export default function MessageForm(props) {
             type="text"
             placeholder="Your name..."
             value={name}
-            style={{ fontSize: 16 + 'px !important' }}
+            style={{ fontSize: 16 + "px !important" }}
             onChange={(e) => setName(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="MessageForm.ControlInput2">
+          <Form.Label>Email</Form.Label>
           <Form.Control
             controlid="email"
             className="bg-dark"
@@ -46,11 +48,12 @@ export default function MessageForm(props) {
             type="email"
             placeholder="Email"
             value={email}
-            style={{ fontSize: 16 + 'px !important' }}
+            style={{ fontSize: 16 + "px !important" }}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="MessageForm.ControlTextarea1">
+          <Form.Label>Message</Form.Label>
           <Form.Control
             controlid="message"
             className="bg-dark"
@@ -59,7 +62,7 @@ export default function MessageForm(props) {
             rows={3}
             placeholder="Message"
             value={message}
-            style={{ fontSize: 16 + 'px !important' }}
+            style={{ fontSize: 16 + "px !important" }}
             onChange={(e) => setMessage(e.target.value)}
           />
         </Form.Group>

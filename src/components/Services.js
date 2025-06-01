@@ -4,16 +4,15 @@ import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
 const services = [
   {
-    name: "Graphics Design",
-    description: `Proficient in Adobe Photoshop, Adobe Illustrator and Lightroom,
-       etc. Experience working in the field of education.`,
-    url: "./adobeLogo.jpg",
+    name: "Software Development",
+    description: `I possess extensive experience in Software Development, with a strong
+     understanding of software architecture. Can build software on any platform: Desktop, Web, Mobile, etc.`,
+    url: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/b0ef1f96575065.5eb190924cc53.jpg",
   },
   {
     name: "Website Development",
-    description:
-      `Knowledge in OOP, Data structure, Website. Proficient in HTML, CSS (SCSS), 
-      Javascript (ES6). Can use basic of NodeJs(Express) and React.`,
+    description: `Knowledge in OOP, Data structure, Website. Proficient in HTML/CSS (SCSS), 
+      Typescript/Javascript (ES6). Proficient in .NET and React. Can provide a landing page or a full website with a beautiful design and a responsive interface.`,
     url: "./logo512.png",
   },
   {
@@ -23,10 +22,10 @@ const services = [
     url: "./Java_programming_language_logo.svg.png",
   },
   {
-    name: "Network and Hardware",
-    description: `I possess extensive experience in Network and Hardware, with a strong
-     understanding of network architecture, protocols, and components.`,
-    url: "https://graphicriver.img.customer.envatousercontent.com/files/85881596/vector_166_590.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=ac5330bea75679b7b2a117c1f68266b9",
+    name: "Graphics Design",
+    description: `Proficient in Adobe Photoshop, Adobe Illustrator and Lightroom,
+       etc. Experience working in the field of education.`,
+    url: "./adobeLogo.jpg",
   },
 ];
 export default function Services() {
