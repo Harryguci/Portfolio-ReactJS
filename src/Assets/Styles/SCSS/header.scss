@@ -14,3 +14,16 @@
         opacity: 0;
     }
 }
+
+#home-header {
+    .title {
+        height: 500px;
+        overflow: visible;
+    }
+
+    @media (max-width: 768px) {
+        .title {
+            height: 200px;
+        }
+    }
+}

@@ -105,6 +105,7 @@ export default function Experience() {
           </h2>
         </Row>
         <Row className="mb-5">
+          {/* 
           <Col className="d-flex align-items-center justify-content-center">
             <div
               className="d-flex mx-auto justify-content-center"
@@ -142,7 +143,7 @@ export default function Experience() {
                 </span>
               </p>
             </div>
-          </Col>
+          </Col> */}
           <Col className="d-flex align-items-center justify-content-center">
             <div
               className="d-flex mx-auto justify-content-center"
@@ -164,7 +165,7 @@ export default function Experience() {
                   }}
                 />
               </div>
-              <p className="text-left mt-1 mt-md-3">
+              <p className="text-left mt-1 mt-md-3" style={{ lineHeight: 1.7 }}>
                 <span className="fs-1">QC Technology Solution</span>
                 <br />
                 <span className="fs-6 opacity-50">
@@ -172,11 +173,21 @@ export default function Experience() {
                 </span>
                 <br />
                 <span className="fs-4">
-                  Time: <strong>03/2021 - Present</strong>
+                  <img
+                    src="./schedule_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                    alt="time"
+                    style={{ width: "2rem", height: "2rem" }}
+                  />
+                  <strong> 03/2024 - Present</strong>
                 </span>
                 <br />
                 <span className="fs-4">
-                  Position: <strong>Fresher Full-Stack Developer</strong>
+                  <img
+                    src="./person_pin_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                    alt="time"
+                    style={{ width: "2rem", height: "2rem" }}
+                  />
+                  <strong> Fresher Full-Stack Developer</strong>
                 </span>
               </p>
             </div>

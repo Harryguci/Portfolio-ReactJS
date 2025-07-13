@@ -43,6 +43,23 @@ function Home() {
         ],
       },
       {
+        // title: "PROJECT 3",
+        h2: "Effort Tracking Application",
+        type: "left",
+        content: `A Management applications can track and calculate the effort of work items. Help to managers business team. In the first version, it focus to manager development team, works with Azure Devops.`,
+        className: "my-5",
+        imgUrl: "./effort-tracking.png",
+        buttons: [
+          {
+            name: `Read More <small style="opacity: 0.5">(Update later)</small>`,
+            type: "button",
+            attr: [],
+            href: "#",
+            disabled: true,
+          },
+        ],
+      },
+      {
         // title: "PROJECT 1",
         h2: "Chating Realtime Website",
         type: "right",
@@ -82,23 +99,6 @@ function Home() {
             type: "link",
             attr: [],
             href: "https://github.com/Harryguci/Showroom-ASPNET-Core-MVC",
-          },
-        ],
-      },
-      {
-        // title: "PROJECT 3",
-        h2: "Effort Tracking Application",
-        type: "right",
-        content: `A Management applications can track and calculate the effort of work items. Help to managers business team. In the first version, it focus to manager development team, works with Azure Devops.`,
-        className: "my-5",
-        imgUrl: "./effort-tracking.png",
-        buttons: [
-          {
-            name: `Read More <small style="opacity: 0.5">(Update later)</small>`,
-            type: "button",
-            attr: [],
-            href: "#",
-            disabled: true,
           },
         ],
       },
@@ -235,7 +235,7 @@ function Home() {
         type="left"
         content={content}
         className="my-5"
-        imgUrl="/IMG_2790.JPG"
+        imgUrl="./IMG_2790.JPG"
         buttons={[
           {
             name: "Read More",

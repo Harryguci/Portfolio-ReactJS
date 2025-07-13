@@ -1,4 +1,5 @@
 import "../Assets/Styles/SCSS/home.scss";
+import "../Assets/Styles/SCSS/header.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,25 +12,35 @@ export default function Header() {
 
   useEffect(() => {
     let currentIndex = 0;
+    let timeoutId = null;
     const timer = setInterval(() => {
       if (currentIndex <= fullText.length) {
         setDisplayText(fullText.slice(0, currentIndex));
         currentIndex++;
       } else {
-        clearInterval(timer);
+        timeoutId = setTimeout(() => {
+          currentIndex = 0;
+        }, 1000);
       }
     }, typingSpeed);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
-    <header className="container-md" style={{ backgroundColor: "none" }}>
+    <header
+      id="home-header"
+      className="container-md"
+      style={{ backgroundColor: "none" }}
+    >
       <Container className="my-5">
         <Row>
           <Col sm={12} md={6}>
             <p className="sub-title m-0 fs-2">I'm a</p>
-            <h1 className="title m-0 p-0" style={{}}>
+            <h1 className="title m-0 p-0">
               {displayText}
               <span className="typing-cursor">|</span>
             </h1>
