@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import "./Assets/Styles/SCSS/_base.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -23,11 +23,9 @@ const LoadingPage = () => (
 function App() {
   return (
     <React.StrictMode>
-        <Suspense fallback={<LoadingPage />}>
-          <Navbar />
-            <Home />
-          <Footer />
-        </Suspense>
+      <Navbar />
+      <Home />
+      <Footer />
     </React.StrictMode>
   );
 }

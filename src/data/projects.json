@@ -1,0 +1,188 @@
+[
+  {
+    "h2": "Tay Ninh Investment Project Management Platform",
+    "type": "right",
+    "content": "The effective management of investment projects is crucial for the Department of Finance of Tay Ninh Province. To address the complexity of overseeing project processes, documents, plans, and capital, we introduce a specialized Investment Project Management Web Platform.\n\nThis robust digital solution provides a centralized system for comprehensive project oversight. Its key innovation lies in the integration of OCR and Large Language Models (LLM). This advanced technology automatically processes and extracts critical data from various project documents—such as contracts and financial reports—ensuring that all project information is captured, categorized, and managed with exceptional efficiency and accuracy.\n\nThe platform drastically reduces manual administrative effort and significantly enhances the effectiveness and transparency of capital management, driving informed decision-making for Tay Ninh's economic initiatives.",
+    "imgUrl": "./investment-project.png",
+    "buttons": [
+      {
+        "name": "Demo",
+        "type": "button",
+        "attr": [],
+        "href": "#",
+        "disabled": true
+      }
+    ]
+  },
+  {
+    "h2": "Edtech Web application",
+    "type": "right",
+    "content": "We are excited to introduce a comprehensive EdTech application designed to deliver flexible and engaging learning experiences for users while providing powerful administrative control.\nThis platform is structured into two distinct, yet interconnected, sides:\n⚙️ Admin Console\nThe Admin Console is the powerful control center for course creators and administrators. It facilitates end-to-end management, including:\nEdTech Engine Management: Administrators can manage the dynamic components used to build rich, interactive content. These \"engines\" include elements like customizable text, games, practices, images, videos, audios, and layouts, enabling the creation of truly dynamic lessons. \nDefault Lesson Management: Centralized control over all standard, pre-built courses and content.\n Landing Page Management: Tools to design and update the application's promotional and entry pages.\n🧑‍💻 End-User Experience\nThe user-facing platform is built for flexible and personalized learning: \nView Lessons & Join Courses: Users can access structured course content and view engaging lessons built with the platform's engine.\n View/Do Exams: Access to assessments and testing functionalities.\nCreate Custom Lessons: Leveraging the same robust EdTech Engines, end users can create and organize their own personalized learning materials, fostering self-directed study and knowledge sharing. \n\n This two-sided approach ensures high-qual    ity, standardized content delivered with creative flexibility, making learning both effective and personalized.",
+    "className": "my-5",
+    "imgUrl": "./edtech-web.png",
+    "buttons": [
+      {
+        "name": "Demo",
+        "type": "button",
+        "attr": [],
+        "href": "#",
+        "disabled": true
+      }
+    ]
+  },
+  {
+    "h2": "Paperless Meeting Management",
+    "type": "left",
+    "content": "The \"Paperless Meeting Management\" application is a comprehensive digital solution designed to modernize and streamline the organization and administration of meetings within government agencies and enterprises. The system digitizes all aspects of a meeting, including participant management, meeting content, and related documents. It supports the entire meeting lifecycle—from planning and approval, sending invitations, confirming attendance, conducting the meeting (online or in-person), to post-meeting summaries and follow-ups.\n\n The application is cross-platform, enabling seamless access on both desktop and mobile devices, which ensures users can manage and participate in meetings anytime, anywhere. Technologically, the system is built using .NET Core 8.0 and the ABP Framework for the backend, ReactJS for the frontend, and MariaDB for data storage. Additionally, it leverages Docker for containerized deployment and Azure cloud infrastructure to ensure high scalability, security, and availability.\n\n By replacing traditional paper-based processes, the application significantly reduces administrative workload, enhances collaboration, improves information transparency, and supports a modern, efficient working environment. This solution represents a vital step towards digital transformation and sustainable, paperless governance.",
+    "imgUrl": "./meeting_project.png",
+    "buttons": [
+      {
+        "name": "Source (Update later)",
+        "type": "button",
+        "attr": [],
+        "href": "#",
+        "disabled": true
+      }
+    ]
+  },
+  {
+    "h2": "Effort Tracking Application",
+    "type": "left",
+    "content": "A Management applications can track and calculate the effort of work items. Help to managers business team. In the first version, it focus to manager development team, works with Azure Devops.",
+    "className": "my-5",
+    "imgUrl": "./effort-tracking.png",
+    "buttons": [
+      {
+        "name": "Read More <small style=\"opacity: 0.5\">(Update later)</small>",
+        "type": "button",
+        "attr": [],
+        "href": "#",
+        "disabled": true
+      }
+    ]
+  },
+  {
+    "h2": "Chating Realtime Website",
+    "type": "right",
+    "content": "- The premier real-time chatting platform where you can connect with friends, family, and colleagues instantly.\n        - Using NEXT.JS - a ReactJs framework to build the user-friendly interface.\n        - Using Websocket with .NET 8.0 to build the BackEnd layer: Authentication, Author,  handle request, valid data, handle conflic, send & receive messages in real-time.",
+    "className": "my-5",
+    "imgUrl": "./chating-app.png",
+    "buttons": [
+      {
+        "name": "Source Client",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/Chatting-Realtime-Client"
+      },
+      {
+        "name": "Source Server",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/Chatting-Realtime-Server"
+      }
+    ]
+  },
+  {
+    "h2": "Showroom management website",
+    "type": "left",
+    "content": "The website is a website application. The website provides features\n         to manage about Employees, Customers, Products, Services, Reports and financial statistics...\n         The object of use are manager, sales employee, customers. Ensure that the website \n         is authorized and authenticated, protected information.",
+    "className": "my-5",
+    "imgUrl": "./ShowroomManagement.png",
+    "buttons": [
+      {
+        "name": "Read More",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/Showroom-ASPNET-Core-MVC"
+      }
+    ]
+  },
+  {
+    "h2": "Environment Social Website",
+    "type": "left",
+    "content": "The website about environmental protection allows users to buy, \n        sell and exchange environmentally friendly products. Users can post articles\n         as a social network to provide information and call on the community to protect\n          the environment.        ",
+    "className": "my-5",
+    "imgUrl": "./environment-website1.png",
+    "buttons": [
+      {
+        "name": "Read More",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/Environment-website"
+      }
+    ]
+  },
+  {
+    "h2": "Travel Maps",
+    "type": "right",
+    "content": "Discover Travel Maps: Your interactive travel journal! \n        Share your wanderlust adventures with an interactive map and captivating\n         pictures. Inspire others to explore the world as you document your journeys.\n          Join us and let your memories take flight! User can add some pictures in your location on maps\n          and views all pictures was uploaded.",
+    "className": "my-5",
+    "imgUrl": "./travel-maps-website.png",
+    "buttons": [
+      {
+        "name": "Client",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/client-maps-travel-website"
+      },
+      {
+        "name": "Server",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/server-maps-travel-website"
+      },
+      {
+        "name": "Demo",
+        "type": "link",
+        "attr": [],
+        "href": "https://maps-travel-website.vercel.app/"
+      }
+    ]
+  },
+  {
+    "h2": "File Sharing Website",
+    "type": "left",
+    "content": "HARG website, the premier platform for sharing \n          and downloading learning documents. Upload and access a wide range\n           of educational resources including textbooks, research papers, \n           lecture notes, and study guides. With an intuitive interface and \n           powerful search functionality, finding the materials you need has \n           never been easier.",
+    "className": "my-5",
+    "imgUrl": "/Screenshot-8.png",
+    "buttons": [
+      {
+        "name": "Read More",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/File-Sharing-Application"
+      }
+    ]
+  },
+  {
+    "h2": "Bomber Game",
+    "type": "right",
+    "content": "Experience explosive fun with the Java-based Bomber game! \n          Engage in thrilling gameplay as you strategically navigate through \n          maze-like levels, planting bombs to destroy obstacles and outsmart \n          your opponents. Unleash your inner strategist and embark on an \n          adrenaline-fueled adventure. Play the Bomber game today and ignite \n          your gaming experience!",
+    "className": "my-5",
+    "imgUrl": "./javaGame.png",
+    "buttons": [
+      {
+        "name": "Read More",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/Bomber-Game"
+      }
+    ]
+  },
+  {
+    "title": "PROJECT 6",
+    "h2": "Hotel Management Website",
+    "type": "left",
+    "content": "Our sleek and intuitive hotel management website interface!\n          Designed with HTML, CSS, and Javascript (jQuery), our interface offers\n          a seamless experience for both hotel administrators and guests.\n          Effortlessly navigate through our user-friendly interface to access a\n          range of powerful features. Hotel administrators can efficiently manage\n          reservations, check-ins, and check-outs, ensuring a smooth and organized\n          operation. With real-time updates and comprehensive data analytics, make\n          informed decisions to optimize occupancy and revenue.",
+    "className": "my-5",
+    "imgUrl": "./hotel-web.png",
+    "buttons": [
+      {
+        "name": "Read More",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/Hotel-management-website"
+      }
+    ]
+  }
+]

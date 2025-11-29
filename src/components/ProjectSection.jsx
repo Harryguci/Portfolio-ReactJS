@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,6 +14,9 @@ export default function ProjectSection(props) {
   const type = props.type ? props.type.toString() : "right";
   const className = props.className + " project-section";
   const imgUrl = props.imgUrl;
+
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   let buttons = [];
   if (props.buttons) {
@@ -34,17 +37,43 @@ export default function ProjectSection(props) {
     flexDirection: type === "right" ? "row-reverse" : "row",
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const [isShowAll, setShowAll] = useState(false);
   let tContent = content;
 
   let contentElem = (
-    <p style={{ lineHeight: "2rem", letterSpacing: "1px" }}>{tContent}</p>
+    <p style={{ lineHeight: "2rem", letterSpacing: "1px", whiteSpace: "pre-line" }}>{tContent}</p>
   );
 
   if (content.length > 250) {
     if (isShowAll) {
       contentElem = (
-        <p style={{ lineHeight: "2rem", letterSpacing: "1px" }}>
+        <p style={{ lineHeight: "2rem", letterSpacing: "1px", whiteSpace: "pre-line" }}>
           {content}
           <button
             className="d-inline"
@@ -85,12 +114,16 @@ export default function ProjectSection(props) {
   }
 
   return (
-    <Container id={id} className={className}>
+    <Container
+      id={id}
+      ref={sectionRef}
+      className={`${className} ${isVisible ? 'animate-in' : ''}`}
+    >
       <Row className="" style={rowStyle}>
         <Col
           sm={12}
           md={5}
-          className="d-flex position-relative justify-content-center align-content-center"
+          className={`d-flex position-relative justify-content-center align-content-center project-image ${type === 'left' ? 'slide-from-left' : 'slide-from-right'}`}
           style={{ order: 0 }}
         >
           <Thumbnail url={imgUrl} type={type} />
@@ -98,7 +131,7 @@ export default function ProjectSection(props) {
         <Col
           sm={12}
           md={5}
-          className="px-3 mt-3"
+          className={`px-3 mt-3 project-content ${type === 'left' ? 'slide-from-right' : 'slide-from-left'}`}
           style={{ order: 1, flex: "1 0 auto" }}
         >
           <div className="">
@@ -124,6 +157,7 @@ export default function ProjectSection(props) {
                       style={{ width: "fit-content" }}
                       rel="noreferrer"
                       disabled={btn.disabled}
+                      {...(btn.attr ?? [])}
                     >
                       <span
                         dangerouslySetInnerHTML={{ __html: btn.name }}

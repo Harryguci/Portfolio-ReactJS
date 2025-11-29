@@ -27,26 +27,17 @@ export default function Experience() {
     },
     { name: "REACT.JS", url: "./logo512.png" },
     {
-      name: "Node.Js",
-      url: "https://www.secret-source.eu/wp-content/uploads/2017/11/node-js-logo.jpg",
-    },
-    {
-      name: "C/C++",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png",
-    },
-    {
-      name: "SQL Server",
-      url: "./SQL-server.jpg",
+      name: "Git",
+      url: "https://www.flexmind.co/wp-content/uploads/2020/04/logo-git-icon-e1586889963495.png",
     },
     {
       name: "MongoDB",
       url: "https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Picture.png",
     },
     {
-      name: "Git & Github",
-      url: "https://www.flexmind.co/wp-content/uploads/2020/04/logo-git-icon-e1586889963495.png",
+      name: "SQL Server",
+      url: "./SQL-server.jpg",
     },
-
     {
       name: "MySQL",
       url: "./MySql.jpg",
@@ -80,13 +71,17 @@ export default function Experience() {
       url: "https://as1.ftcdn.net/v2/jpg/03/35/87/38/1000_F_335873870_9lGF7CqjQinw5AdAxIDobvNTwgcZrzOq.jpg",
     },
     {
-      name: "AI Training",
-      url: "https://i.morioh.com/201031/b496ea4d.webp",
-    },
-    {
       name: "Design Pattern",
       url: "https://static.vecteezy.com/system/resources/previews/004/578/736/original/enterprise-development-configuration-management-free-vector.jpg",
     },
+    {
+      name: "AI Model Training",
+      url: "https://cdn.analyticsvidhya.com/wp-content/uploads/2025/05/4-4.webp",
+    },
+    {
+      name: "AI Integration",
+      url: "https://www.xevensolutions.com/wp-content/uploads/2024/06/what-are-the-AI-models.jpg",
+    }
   ]);
 
   return (
@@ -105,8 +100,7 @@ export default function Experience() {
           </h2>
         </Row>
         <Row className="mb-5">
-          {/* 
-          <Col className="d-flex align-items-center justify-content-center">
+          {/* <Col className="d-flex align-items-center justify-content-center">
             <div
               className="d-flex mx-auto justify-content-center"
               style={{
@@ -116,9 +110,9 @@ export default function Experience() {
             >
               <div className="mx-auto">
                 <img
-                  src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-6/294274381_568029448094771_1507721242405144141_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Xzn-dfQ-u8gQ7kNvwFx11vE&_nc_oc=AdnZwXLSfarNlHb6FTDFxyLrNYF8ruA7hAuMmuM5d5bCeRJQBUMi5GCdoCgMJBC03QE&_nc_zt=23&_nc_ht=scontent.fhan15-2.fna&_nc_gid=xZYIjSKhQLTbe8zB70kgCg&oh=00_AfLxcUs1O2v1KqhU2TB-xdNqe4HEt1JVoF7nch9bkA8yJg&oe=6842379E"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/LogoUTC.jpg/1200px-LogoUTC.jpg"
                   className="rounded-circle"
-                  alt="QC Technology Solution"
+                  alt="UTC University"
                   style={{
                     overflow: "hidden",
                     aspectRatio: "1/1",
@@ -135,11 +129,21 @@ export default function Experience() {
                 </span>
                 <br />
                 <span className="fs-4">
-                  Time: <strong>06/2022 - 01/2023</strong>
+                  <img
+                    src="./schedule_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                    alt="time"
+                    style={{ width: "2rem", height: "2rem" }}
+                  />
+                  <strong style={{ marginLeft: "0.5rem" }}>06/2022 - 01/2023</strong>
                 </span>
                 <br />
                 <span className="fs-4">
-                  Position: <strong>IT Support</strong>
+                  <img
+                    src="./person_pin_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                    alt="time"
+                    style={{ width: "2rem", height: "2rem" }}
+                  />
+                  <strong style={{ marginLeft: "0.5rem" }}>IT Support</strong>
                 </span>
               </p>
             </div>
@@ -178,7 +182,7 @@ export default function Experience() {
                     alt="time"
                     style={{ width: "2rem", height: "2rem" }}
                   />
-                  <strong> 03/2024 - Present</strong>
+                  <strong style={{ marginLeft: "0.5rem" }}>03/2024 - Present</strong>
                 </span>
                 <br />
                 <span className="fs-4">
@@ -187,7 +191,7 @@ export default function Experience() {
                     alt="time"
                     style={{ width: "2rem", height: "2rem" }}
                   />
-                  <strong> Fresher Full-Stack Developer</strong>
+                  <strong style={{ marginLeft: "0.5rem" }}>Full-Stack Developer</strong>
                 </span>
               </p>
             </div>

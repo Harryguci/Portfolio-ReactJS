@@ -1,7 +1,9 @@
+import { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Assets/Styles/SCSS/_base.scss";
+import "../Assets/Styles/SCSS/Services.scss";
 const services = [
   {
     name: "Software Development",
@@ -29,16 +31,46 @@ const services = [
   },
 ];
 export default function Services() {
+  const servicesRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    if (servicesRef.current) {
+      observer.observe(servicesRef.current);
+    }
+
+    return () => {
+      if (servicesRef.current) {
+        observer.unobserve(servicesRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <Container
         id="services"
-        className="my-2 my-md-5 services-container"
+        ref={servicesRef}
+        className={`my-2 my-md-5 services-container ${isVisible ? 'animate-in' : ''}`}
         style={{ color: "white" }}
       >
         <Row>
           <h2
-            className="text-center my-5 fs-1 fw-bold"
+            className="text-center my-5 fs-1 fw-bold services-title"
             style={{ letterSpacing: 2 + "px" }}
           >
             Services
@@ -52,9 +84,12 @@ export default function Services() {
             rowGap: "2rem",
           }}
         >
-          {services.map((service) => (
-            <Col sm={12} md={6} key={service.name}>
-              <div className="service-box p-md-5 p-3">
+          {services.map((service, index) => (
+            <Col sm={12} md={6} key={service.name} className="d-flex">
+              <div
+                className="service-box p-md-5 p-3"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
                 <div
                   className="d-flex gap-md-4 gap-2"
                   style={{ alignItem: "center" }}
