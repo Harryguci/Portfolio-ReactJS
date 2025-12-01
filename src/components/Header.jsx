@@ -39,7 +39,7 @@ export default function Header() {
       <Container className="my-5">
         <Row>
           <Col sm={12} md={6}>
-            <p className="sub-title m-0 fs-2">I'm a</p>
+            <p className="sub-title m-0 fs-2">I'm a <span className="crossed" style={{ marginLeft: 10 + "px" }}>Coder</span></p>
             <h1 className="title m-0 p-0">
               {displayText}
               <span className="typing-cursor">|</span>

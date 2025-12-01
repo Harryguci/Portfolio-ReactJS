@@ -27,3 +27,25 @@
         }
     }
 }
+
+.crossed {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .crossed::after {
+    content: "";
+    position: absolute;
+    left: -5%;
+    top: 50%;
+    transform: rotate(5deg);
+    width: 0;
+    height: 5px;
+    background: white;
+    animation: strike 1s ease both infinite;
+  }
+  
+  @keyframes strike {
+    to { width: 105%; }
+  }
+  

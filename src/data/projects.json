@@ -3,7 +3,7 @@
     "h2": "Tay Ninh Investment Project Management Platform",
     "type": "right",
     "content": "The effective management of investment projects is crucial for the Department of Finance of Tay Ninh Province. To address the complexity of overseeing project processes, documents, plans, and capital, we introduce a specialized Investment Project Management Web Platform.\n\nThis robust digital solution provides a centralized system for comprehensive project oversight. Its key innovation lies in the integration of OCR and Large Language Models (LLM). This advanced technology automatically processes and extracts critical data from various project documents—such as contracts and financial reports—ensuring that all project information is captured, categorized, and managed with exceptional efficiency and accuracy.\n\nThe platform drastically reduces manual administrative effort and significantly enhances the effectiveness and transparency of capital management, driving informed decision-making for Tay Ninh's economic initiatives.",
-    "imgUrl": "./investment-project.png",
+    "imgUrl": "./DauTuCong.png",
     "buttons": [
       {
         "name": "Demo",
