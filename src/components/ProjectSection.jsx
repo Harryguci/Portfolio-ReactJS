@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ReactMarkdown from "react-markdown";
 import Thumbnail from "./Thumbnail";
 import "../Assets/Styles/SCSS/_base.scss";
 import "../Assets/Styles/SCSS/ProjectSection.scss";
@@ -64,23 +65,91 @@ export default function ProjectSection(props) {
   }, []);
 
   const [isShowAll, setShowAll] = useState(false);
-  let tContent = content;
+  
+  // Helper function to truncate markdown content intelligently
+  const truncateMarkdown = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    
+    // Find the last space or newline before maxLength to avoid breaking words
+    let truncateAt = maxLength;
+    const lastNewline = text.lastIndexOf('\n', maxLength);
+    const lastSpace = text.lastIndexOf(' ', maxLength);
+    
+    // Prefer breaking at newline, then space (at least 70% of maxLength to avoid too short truncation)
+    if (lastNewline > maxLength * 0.7) {
+      truncateAt = lastNewline;
+    } else if (lastSpace > maxLength * 0.7) {
+      truncateAt = lastSpace;
+    }
+    
+    let truncated = text.substring(0, truncateAt).trim();
+    
+    // Try to clean up incomplete markdown syntax at the end
+    // Remove trailing incomplete markdown patterns
+    truncated = truncated.replace(/\*\*[^*]*$/, '');  // Incomplete bold **
+    truncated = truncated.replace(/\*[^*\s]*$/, '');   // Incomplete italic * (but keep if followed by space)
+    truncated = truncated.replace(/`[^`]*$/, '');       // Incomplete code `
+    truncated = truncated.replace(/\[[^\]]*$/, '');     // Incomplete link [
+    
+    // Ensure we still have reasonable length after cleanup
+    if (truncated.length < maxLength * 0.5) {
+      // If cleanup removed too much, use original truncation
+      truncated = text.substring(0, truncateAt).trim();
+    }
+    
+    return truncated + "...";
+  };
 
-  let contentElem = (
-    <p style={{ lineHeight: "2rem", letterSpacing: "1px", whiteSpace: "pre-line" }}>{tContent}</p>
-  );
+  const contentStyle = {
+    lineHeight: "2rem",
+    letterSpacing: "1px",
+  };
 
-  if (content.length > 250) {
-    if (isShowAll) {
-      contentElem = (
-        <p style={{ lineHeight: "2rem", letterSpacing: "1px", whiteSpace: "pre-line" }}>
-          {content}
+  const markdownStyle = {
+    ...contentStyle,
+    color: "inherit",
+  };
+
+  let contentElem;
+  const shouldTruncate = content.length > 250;
+
+  if (shouldTruncate && !isShowAll) {
+    const truncatedContent = truncateMarkdown(content, 250);
+    contentElem = (
+      <div style={markdownStyle} className="project-content-markdown">
+        <ReactMarkdown>{truncatedContent}</ReactMarkdown>
+        <button
+          className="d-inline markdown-toggle-btn"
+          style={{
+            background: "none",
+            color: "blue",
+            border: "none",
+            cursor: "pointer",
+            padding: "0 4px",
+            textDecoration: "underline",
+          }}
+          onClick={() => {
+            setShowAll(!isShowAll);
+          }}
+        >
+          show more
+        </button>
+      </div>
+    );
+  } else {
+    contentElem = (
+      <div style={markdownStyle} className="project-content-markdown">
+        <ReactMarkdown>{content}</ReactMarkdown>
+        {shouldTruncate && (
           <button
-            className="d-inline"
+            className="d-inline markdown-toggle-btn"
             style={{
               background: "none",
               color: "blue",
               border: "none",
+              cursor: "pointer",
+              padding: "0 4px",
+              textDecoration: "underline",
             }}
             onClick={() => {
               setShowAll(!isShowAll);
@@ -88,29 +157,9 @@ export default function ProjectSection(props) {
           >
             hide
           </button>
-        </p>
-      );
-    } else {
-      tContent = tContent.substr(0, 250) + "...";
-      contentElem = (
-        <p style={{ lineHeight: "2rem", letterSpacing: "1px" }}>
-          {tContent}
-          <button
-            className="d-inline"
-            style={{
-              background: "none",
-              color: "blue",
-              border: "none",
-            }}
-            onClick={() => {
-              setShowAll(!isShowAll);
-            }}
-          >
-            show more
-          </button>
-        </p>
-      );
-    }
+        )}
+      </div>
+    );
   }
 
   return (

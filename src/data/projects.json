@@ -15,11 +15,26 @@
     ]
   },
   {
+    "h2": "Chatbot RAG System",
+    "type": "left",
+    "content": "A database-first Retrieval-Augmented Generation (RAG) system that scales to millions of documents with constant memory usage. Built with FastAPI, PostgreSQL + pgvector, and multimodal AI capabilities.\n\n**Key Advantages:**\n• **Database-First Architecture** - Zero in-memory embeddings, all vectors stored in PostgreSQL with pgvector. Achieves ~99% memory reduction (~2MB per 10k chunks vs ~45MB traditional RAG) with unlimited scalability limited only by disk space.\n• **Advanced Retrieval** - Recency-weighted search with 15% boost for recent documents, dual embedding strategy (Text 384-dim + Multimodal Vintern 768-dim), and hybrid search with keyword fallback for robustness.\n• **Multimodal Capabilities** - High-speed PDF processing with PyMuPDF, image OCR using Gemini Vision API, and visual content search enabled by Vintern embeddings.\n• **Production-Ready** - Async initialization with concurrent model loading (30-40% faster startup), graceful degradation for optional components, Google OAuth authentication with JWT tokens, and modern React + Ant Design frontend.\n\nThe system uses Gemini 2.* Flash Lite for fast, cost-effective answer generation and performs O(log n) similarity search with indexed pgvector queries. Typical query response time is 1.5-4s with cold start in 4-6s.",
+    "imgUrl": "./chatbot.png",
+    "buttons": [
+      {
+        "name": "Source",
+        "type": "link",
+        "attr": [],
+        "href": "https://github.com/Harryguci/ChatBot",
+        "disabled": true
+      }
+    ]
+  },
+  {
     "h2": "Edtech Web application",
     "type": "right",
     "content": "We are excited to introduce a comprehensive EdTech application designed to deliver flexible and engaging learning experiences for users while providing powerful administrative control.\nThis platform is structured into two distinct, yet interconnected, sides:\n⚙️ Admin Console\nThe Admin Console is the powerful control center for course creators and administrators. It facilitates end-to-end management, including:\nEdTech Engine Management: Administrators can manage the dynamic components used to build rich, interactive content. These \"engines\" include elements like customizable text, games, practices, images, videos, audios, and layouts, enabling the creation of truly dynamic lessons. \nDefault Lesson Management: Centralized control over all standard, pre-built courses and content.\n Landing Page Management: Tools to design and update the application's promotional and entry pages.\n🧑‍💻 End-User Experience\nThe user-facing platform is built for flexible and personalized learning: \nView Lessons & Join Courses: Users can access structured course content and view engaging lessons built with the platform's engine.\n View/Do Exams: Access to assessments and testing functionalities.\nCreate Custom Lessons: Leveraging the same robust EdTech Engines, end users can create and organize their own personalized learning materials, fostering self-directed study and knowledge sharing. \n\n This two-sided approach ensures high-qual    ity, standardized content delivered with creative flexibility, making learning both effective and personalized.",
     "className": "my-5",
-    "imgUrl": "./edtech-web.png",
+    "imgUrl": "./edtech.png",
     "buttons": [
       {
         "name": "Demo",
