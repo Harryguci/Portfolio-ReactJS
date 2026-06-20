@@ -108,10 +108,22 @@ export default function ProjectsSection() {
       <SectionBookReveal id="projects" className="mb-32 py-16">
         <div className="mb-12 flex items-baseline gap-4">
           <h2 className="font-display text-4xl font-black uppercase tracking-tight md:text-5xl">
-            RECAP PROJECT {new Date().getFullYear()}
+            PROJECTs
           </h2>
           <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
-            NO AI
+            AI
+          </span>
+          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
+            Digital Transformation
+          </span>
+          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
+            Edtech
+          </span>
+          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
+            HRM
+          </span>
+          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
+            Personal
           </span>
         </div>
 
