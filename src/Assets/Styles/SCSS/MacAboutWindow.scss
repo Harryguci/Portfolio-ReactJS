@@ -1,0 +1,40 @@
+@use "macos-tokens" as mac;
+
+.mac-about {
+  width: 100%;
+}
+
+.mac-about__window {
+  transform: rotate(-0.5deg);
+}
+
+.mac-about__layout {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mac-about__photo {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+.mac-about__content {
+  min-width: 0;
+}

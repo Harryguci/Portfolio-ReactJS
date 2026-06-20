@@ -1,0 +1,410 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PORTFOLIO 2025</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&amp;family=Hanken+Grotesk:wght@400;600&amp;family=JetBrains+Mono:wght@500;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "dark-blue": "#031021",
+                        "dark-red": "#5a0f18",
+                        "neon-cyan": "#00f2ff",
+                        "on-surface-variant": "#7b8a97",
+                        "ghost-white": "#FFFFFF",
+                        "surface": "#051328"
+                    },
+                    "fontFamily": {
+                        "display": ["Anybody", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                        "body": ["Hanken Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #031021;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        /* Game Menu Styling */
+        .game-menu-item {
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .game-menu-item:hover {
+            color: #00f2ff;
+            letter-spacing: 0.1em;
+        }
+        
+        .game-menu-item::before {
+            content: '>';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            color: #00f2ff;
+            transition: all 0.3s ease;
+        }
+        
+        .game-menu-item:hover::before {
+            opacity: 1;
+            left: -15px;
+        }
+        
+        .software-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body class="antialiased font-body selection:bg-neon-cyan selection:text-dark-blue relative">
+<!-- Background Shader -->
+<div class="fixed inset-0 z-[-1] pointer-events-none opacity-30">
+<!-- STITCH_SHADER_START:ANIMATION_10 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_10" style="display:block;width:100%;height:100%" width="1280" height="4266"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_10');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+float noise(vec2 p) {
+    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec3 color1 = vec3(0.01, 0.04, 0.08); // Very Deep Blue
+    vec3 color2 = vec3(0.0, 0.5, 0.6);   // Muted Cyan
+    
+    float wave = sin(uv.x * 2.0 + u_time * 0.2) * 0.5 + 0.5;
+    wave *= cos(uv.y * 1.5 - u_time * 0.1) * 0.5 + 0.5;
+    
+    vec3 finalColor = mix(color1, color1 * 1.2, wave);
+    
+    // Subtle particles
+    float n = noise(uv * 50.0 + u_time * 0.05);
+    if (n > 0.995) {
+        finalColor += color2 * 0.3;
+    }
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_10 -->
+</div>
+<!-- Logo Header -->
+<header class="absolute top-8 left-8 z-50">
+<div class="text-2xl font-mono font-bold tracking-tighter italic">YP</div>
+</header>
+<main class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center pt-20 pb-32" id="hero">
+<div class="flex flex-col items-center justify-center gap-16"><!-- Horizontal Row: Portrait + Title -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 animate-fade-up">
+    <!-- Left: Portrait with Glow -->
+    <div class="relative flex justify-center shrink-0">
+        <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 bg-dark-red rounded-full z-0 opacity-80 blur-3xl"></div>
+        <img alt="Portrait" class="relative z-10 w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-2xl border-4 border-dark-blue" src="https://lh3.googleusercontent.com/aida/AP1WRLtxxAXLj6S_PUrxeVSAs8aR0WBuZ_eNUiCuO2eauOYOHTEgsw9JLB4ay7icyr5mgKOiIdAw08W3kYg1CfNU6OVQm7lP1D_PwPx2twO2or9tEDrujeUAo1bZ349936nN7Il9OyxG37rq7BKTRjo_eCTUL7qr-40Cgqw1RMuYAxyZeUtCdH4Yo4L0MkK-QUCB77vn07Bofl8ktemNYmQFNT8O091hkl6IZddfhEycFBh9hoxsg8dIaRN_poA">
+    </div>
+    <!-- Right: Title and Year -->
+    <div class="flex flex-col md:flex-row items-center md:items-baseline gap-4 text-center md:text-left">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-black uppercase tracking-tighter leading-none text-glow">
+            PORTFOLIO
+        </h1>
+        <span class="text-xl md:text-4xl font-mono text-on-surface-variant">2025</span>
+    </div>
+</div>
+<!-- Bottom: Subtitle and Menu -->
+<div class="w-full flex flex-col items-center text-center z-10 animate-fade-up delay-100">
+    <div class="flex items-center gap-3 mb-12 mt-8">
+        <div class="w-2 h-2 bg-ghost-white rounded-full"></div>
+        <span class="font-mono text-sm tracking-widest uppercase">FULLSTACK DEVELOPER</span>
+    </div>
+    <nav class="flex flex-col gap-6 mt-4 font-mono text-xl md:text-2xl tracking-widest uppercase">
+        <a class="game-menu-item text-ghost-white" href="#about">START</a>
+        <a class="game-menu-item text-on-surface-variant" href="#projects">OPTIONS</a>
+        <a class="game-menu-item text-on-surface-variant" href="#contact">EXIT</a>
+    </nav>
+</div></div>
+</section>
+<!-- Section Navigation (Shared across inner sections) -->
+<div class="flex justify-center gap-8 py-8 border-t border-white/10 mb-16 font-mono text-sm tracking-widest uppercase">
+<a class="bg-white/20 text-ghost-white px-4 py-1 rounded-full" href="#about">PROFIL</a>
+<a class="text-on-surface-variant hover:text-ghost-white transition-colors" href="#projects">PROJECT</a>
+<a class="text-on-surface-variant hover:text-ghost-white transition-colors" href="#contact">CONTACT PERSON</a>
+</div>
+<!-- About Section -->
+<section class="py-16 mb-32" id="about">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<!-- Portrait Left -->
+<div class="w-full md:w-5/12 relative animate-fade-up" style="animation-play-state: running;">
+<div class="absolute inset-0 bg-gradient-to-t from-dark-blue to-transparent z-10"></div>
+<div class="absolute top-0 left-0 p-8 z-20">
+<p class="font-mono text-sm text-on-surface-variant">HELLO, I AM</p>
+<h2 class="font-display text-3xl font-bold uppercase tracking-tight">YUDHA PRADANA</h2>
+</div>
+<img alt="Portrait Secondary" class="w-full aspect-[3/4] object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida/AP1WRLtxxAXLj6S_PUrxeVSAs8aR0WBuZ_eNUiCuO2eauOYOHTEgsw9JLB4ay7icyr5mgKOiIdAw08W3kYg1CfNU6OVQm7lP1D_PwPx2twO2or9tEDrujeUAo1bZ349936nN7Il9OyxG37rq7BKTRjo_eCTUL7qr-40Cgqw1RMuYAxyZeUtCdH4Yo4L0MkK-QUCB77vn07Bofl8ktemNYmQFNT8O091hkl6IZddfhEycFBh9hoxsg8dIaRN_poA">
+<div class="absolute -inset-4 bg-neon-cyan/5 blur-3xl -z-10 rounded-full"></div>
+</div>
+<!-- Info Right -->
+<div class="w-full md:w-7/12 animate-fade-up delay-100" style="animation-play-state: running;">
+<h2 class="font-display text-4xl md:text-5xl font-black uppercase mb-6 tracking-tight">ABOUT ME</h2>
+<p class="font-mono text-xs md:text-sm text-on-surface-variant leading-relaxed mb-12 uppercase tracking-wide max-w-2xl">
+                    HI, I'M YUDHA PRADANA, I'M BACK MAKING A PORTFOLIO AT THE END OF THE YEAR, I LEARNED A LOT OF THINGS FROM EDITING FROM GRAPHIC DESIGN, VIDEO, TYPOGRAPHY AND OTHERS ABOUT EDITING. I LEARNED FROM 2018 AUTODIDACT, AND I HAVE A LITTLE EDITING SKILL THAT I LEARNED FROM YEAR TO YEAR.
+                </p>
+<h3 class="font-display text-2xl font-bold uppercase mb-4 tracking-tight">SOFTWARE SKILLS</h3>
+<div class="flex gap-4 mb-12">
+<div class="software-icon bg-[#31a8ff] text-white">P</div>
+<div class="software-icon bg-[#001e36] text-[#31a8ff] border border-[#31a8ff]">Ps</div>
+<div class="software-icon bg-[#001e36] text-[#31a8ff] border border-[#31a8ff]">Lr</div>
+<div class="software-icon bg-white text-black text-2xl">⧖</div>
+<div class="software-icon bg-[#ff9a00] text-white border border-[#ff9a00]">O</div>
+<div class="software-icon bg-[#9900ff] text-white">P</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<h3 class="font-display text-xl font-bold uppercase mb-4 tracking-tight">EDUCATION</h3>
+<div class="mb-4">
+<p class="font-mono text-xs text-on-surface-variant mb-1">• 2019 - 2022</p>
+<p class="font-mono text-sm font-bold uppercase">SMAN 2 HALMAHERA TIMUR</p>
+<p class="font-mono text-xs text-on-surface-variant">Natural science</p>
+</div>
+</div>
+<div>
+<h3 class="font-display text-xl font-bold uppercase mb-4 tracking-tight">EXPERIENCE</h3>
+<div>
+<p class="font-mono text-sm font-bold uppercase">TIKTOK CONTENT</p>
+<p class="font-mono text-xs text-on-surface-variant mb-1">Get Followers 20.000+ ( 1 JULI - 29 DES )</p>
+<p class="font-mono text-xs text-on-surface-variant">Content football cartoon version</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h3 class="font-display text-xl font-bold uppercase mb-4 tracking-tight">LANGUAGE (COMMUNICATION)</h3>
+<div class="grid grid-cols-2 gap-4 max-w-xs font-mono text-xs uppercase text-on-surface-variant">
+<div class="">INDONESIA</div><div class="">95%</div>
+<div class="">JAVA</div><div class="">100%</div>
+<div class="">ENGLISH</div><div class="">10%</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section Navigation -->
+<div class="flex justify-center gap-8 py-8 border-t border-white/10 mb-16 font-mono text-sm tracking-widest uppercase">
+<a class="text-on-surface-variant hover:text-ghost-white transition-colors" href="#about">PROFIL</a>
+<a class="bg-white/20 text-ghost-white px-4 py-1 rounded-full" href="#projects">PROJECT</a>
+<a class="text-on-surface-variant hover:text-ghost-white transition-colors" href="#contact">CONTACT PERSON</a>
+</div>
+<!-- Projects Section -->
+<section class="py-16 mb-32" id="projects">
+<div class="flex items-baseline gap-4 mb-12 animate-fade-up" style="animation-play-state: running;">
+<h2 class="font-display text-4xl md:text-5xl font-black uppercase tracking-tight">RECAP PROJECT 2025</h2>
+<span class="font-mono text-xs px-2 py-1 bg-white/10 rounded tracking-widest">NO AI</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] animate-fade-up delay-100" style="animation-play-state: running;">
+<div class="col-span-1 row-span-2 rounded-lg overflow-hidden glass-panel">
+<img alt="Project 1" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLu4BTZFWqLC5FJQ3a-JSm4KZB_cpV1aFjwgjC-jD6mQR4LJ4rubP9j_ugrJE4dgX3D-VvMQCQLo8qiNnPxlcCuSP40TeDjVYcTUfnvPt3oXA0fzKSqEk1SnHPbZ4dQqNIxLObWXe8TVoCcNXgmuV1xfCzttYv_OIT4i9bxwhuxRklp2TAClDeRAvAk5pffxzrbVjWPyY0BJN3W8IJzSiFxJ1ehGa9NGlKKFtoAmOchoDpumuBxywdyeuMs">
+</div>
+<div class="col-span-1 row-span-1 rounded-lg overflow-hidden glass-panel">
+<img alt="Project 2" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLv8Xdc6jIMIwUbQlQFA5tXhYO4_UQtKz3hS10lZMSRLPB2g4EtwjuSxCNiosEJxb24veib1VjpIPB9MVP6YJ-ASgiLcN5DMbLP941oj-JAbqouIYFzHFAb3pDCldGAgDdUXwrHNZrIFDyqBkOWcdlUXJPXB5Efcr6z0-25oNIkfQ_5tlpgi9AVxjhu6Fx5PnXft6lWeS39hWbbJi4bGoLR1TrD9ZQeCDgxa75WRYoy0b1XRT5KJg0POfg">
+</div>
+<div class="col-span-1 row-span-1 rounded-lg overflow-hidden glass-panel bg-white p-4">
+<img alt="Project 3" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLt4xDM_-ITq5FLO8EZdfw2gH5J85NDfyX3Ge2CHmJ72ebh14ecROgVZH8JK8_yF0CSarIZYGHl6QP4Gt4fDhqofeMNlD0SlWp-rf5WSQlot_aILYB4Oc2hgznRgidcspN0Rr5Rygr2NJTDaOA4UCvM-8K34t6yEB6RIOZT_DUFNZOJvY0asYfrkDPZsLgKskB6Ht5OmNK32oof6gRuj4Zp9zsrFiaJ43B5tNYgBnoSb-YrOdsjEMxjeu3Q">
+</div>
+<div class="col-span-1 row-span-2 rounded-lg overflow-hidden glass-panel flex flex-col justify-between p-6">
+<h3 class="font-display text-4xl font-black italic text-center mt-8">VENOM</h3>
+<div class="flex justify-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-white/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/50"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-2 rounded-lg overflow-hidden glass-panel relative group">
+<img alt="Project 4" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLv5B27TuiOqDMZbtcP9L1gcdGs_zQddw21CxnKcXf_skM7ih0TiBXsm-KDdb0mUWIOrNkRYY2J_uHLcFarPuAMvIPwJUEVVroP3rDVwjxCrgxB8Rhzv0xYw2Oiw7KC1OxQwP3SLt7kLdORIEDdLbbnFnRD8Lzx_KR4NRnbL9707sldQGFqBjTh89nU5qv90VZnSVI0k4qwrVkplzPu1vUvwW4UZDAYkHPRhUye3VZIG69fpduts3w6N7A">
+<div class="absolute inset-0 bg-gradient-to-t from-dark-blue/80 to-transparent flex items-end p-8">
+<h3 class="font-display text-6xl font-black text-dark-red opacity-50 group-hover:opacity-100 transition-opacity">STORY</h3>
+</div>
+</div>
+<div class="col-span-1 row-span-1 rounded-lg overflow-hidden glass-panel bg-dark-red flex items-center justify-center">
+<span class="font-display text-2xl font-black text-black">NALIR</span>
+</div>
+<div class="col-span-1 row-span-1 rounded-lg overflow-hidden flex gap-2">
+<div class="w-1/2 h-full glass-panel flex items-center justify-center font-mono font-bold text-2xl">YP</div>
+<div class="w-1/2 h-full glass-panel flex items-center justify-center font-mono font-bold text-2xl">YP</div>
+</div>
+</div>
+</section>
+<!-- Section Navigation -->
+<div class="flex justify-center gap-8 py-8 border-t border-white/10 mb-16 font-mono text-sm tracking-widest uppercase">
+<a class="text-on-surface-variant hover:text-ghost-white transition-colors" href="#about">PROFIL</a>
+<a class="text-on-surface-variant hover:text-ghost-white transition-colors" href="#projects">PROJECT</a>
+<a class="bg-white/20 text-ghost-white px-4 py-1 rounded-full" href="#contact">CONTACT PERSON</a>
+</div>
+<!-- Contact / Footer Section -->
+<section class="py-16 pb-32 relative" id="contact">
+<div class="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32 animate-fade-up" style="animation-play-state: running;">
+<!-- Left Contact Info -->
+<div class="relative flex flex-col items-center">
+<h3 class="font-display text-2xl font-bold uppercase tracking-widest mb-8">CONTACT ME</h3>
+<div class="relative w-64 h-64 rounded-full border border-white/20 flex items-center justify-center p-2 mb-4">
+<img alt="Contact Portrait" class="w-full h-full object-cover rounded-full grayscale" src="https://lh3.googleusercontent.com/aida/AP1WRLtxxAXLj6S_PUrxeVSAs8aR0WBuZ_eNUiCuO2eauOYOHTEgsw9JLB4ay7icyr5mgKOiIdAw08W3kYg1CfNU6OVQm7lP1D_PwPx2twO2or9tEDrujeUAo1bZ349936nN7Il9OyxG37rq7BKTRjo_eCTUL7qr-40Cgqw1RMuYAxyZeUtCdH4Yo4L0MkK-QUCB77vn07Bofl8ktemNYmQFNT8O091hkl6IZddfhEycFBh9hoxsg8dIaRN_poA">
+<!-- Floating Icons -->
+<div class="absolute -right-4 top-1/4 bg-white text-black p-2 rounded-full flex items-center gap-2">
+<span class="font-bold font-mono text-xs">📷 YPZSEE</span>
+</div>
+<div class="absolute -right-8 top-1/2 bg-white text-black p-2 rounded-full flex items-center gap-2">
+<span class="font-bold font-mono text-xs">🎵 YPZSEE</span>
+</div>
+<div class="absolute -right-4 bottom-1/4 bg-white text-black p-2 rounded-full flex items-center gap-2">
+<span class="font-bold font-mono text-xs">▶ YUDHA XD</span>
+</div>
+</div>
+<p class="font-mono text-xs uppercase tracking-widest text-center mt-4">YUDHA PRADANA<br><span class="text-on-surface-variant">21</span></p>
+</div>
+<!-- Right Thank You -->
+<div class="text-center md:text-left flex flex-col items-center md:items-start animate-fade-up delay-100" style="animation-play-state: running;">
+<h2 class="font-display text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-2">THANK YOU</h2>
+<p class="font-mono text-5xl md:text-6xl text-on-surface-variant">2025</p>
+</div>
+</div>
+<!-- Decorative Footer Elements -->
+<div class="mt-24 flex justify-center gap-8 opacity-50">
+<div class="w-48 h-32 border border-white/20 p-4">
+<p class="font-display font-bold uppercase text-xs">PORTOFOLIO</p>
+<p class="font-mono text-[10px] text-on-surface-variant mt-8">2023</p>
+</div>
+<div class="w-32 h-40 border border-white/20 p-4 bg-white/5">
+<p class="font-display font-bold uppercase text-xs">DESIGN<br>PORTFOLIO</p>
+<p class="font-mono text-[10px] text-on-surface-variant mt-16 text-center">2024</p>
+</div>
+</div>
+</section>
+</main>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.animate-fade-up');
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        });
+    </script>
+
+
+</body></html>

@@ -1,81 +1,75 @@
 import Form from "react-bootstrap/Form";
 import "../Assets/Styles/SCSS/_base.scss";
-import { useState, useEffect } from "react";
+import "../Assets/Styles/SCSS/MacMessageForm.scss";
+import { useState } from "react";
 
-export default function MessageForm(props) {
-  const [className, setClassName] = useState([]);
-  useEffect(() => {
-    let txt = "";
-    props.className.forEach((name) => (txt += name + " "));
-    setClassName((prev) => (prev += txt));
-  }, [props.className]);
-
+export default function MessageForm({ variant = "default", className = [] }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const isMacos = variant === "macos";
+  const formClass = [
+    ...(Array.isArray(className) ? className : [className]),
+    isMacos ? "mac-message-form" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-  const handleSubmit = (e) => {
+  const inputClass = isMacos ? "mac-message-form__input" : "bg-dark";
+  const submitClass = isMacos
+    ? "mac-message-form__submit"
+    : "btn bg-dark px-4 py-2 py-md-3 px-md-5 fw-bold";
+
+  const handleSubmit = () => {
     alert(`Gửi thành công! Cảm ơn ${name}`);
   };
 
   return (
-    <>
-      <Form
-        className={className}
-        method="POST"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSf4r_LeYZS4ZT0A__sXOBC-A2HMrVGJhgK3_InjN6eDSTW8tA/formResponse"
-        onSubmit={(e) => handleSubmit(e)}
-      >
-        <Form.Group className="mb-3" controlId="MessageForm.ControlInput1">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            controlid="name"
-            className="bg-dark"
-            name="entry.485905818"
-            type="text"
-            placeholder="Your name..."
-            value={name}
-            style={{ fontSize: 16 + "px !important" }}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="MessageForm.ControlInput2">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            controlid="email"
-            className="bg-dark"
-            name="entry.1869112674"
-            type="email"
-            placeholder="Email"
-            value={email}
-            style={{ fontSize: 16 + "px !important" }}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="MessageForm.ControlTextarea1">
-          <Form.Label>Message</Form.Label>
-          <Form.Control
-            controlid="message"
-            className="bg-dark"
-            name="entry.897887378"
-            as="textarea"
-            rows={3}
-            placeholder="Message"
-            value={message}
-            style={{ fontSize: 16 + "px !important" }}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mt-4 mt-md-5">
-          <button
-            type="submit"
-            className="btn bg-dark px-4 py-2 py-md-3 px-md-5 fw-bold"
-            style={{ fontSize: 1 + "rem" }}
-          >
-            SEND
-          </button>
-        </Form.Group>
-      </Form>
-    </>
+    <Form
+      className={formClass}
+      method="POST"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSf4r_LeYZS4ZT0A__sXOBC-A2HMrVGJhgK3_InjN6eDSTW8tA/formResponse"
+      onSubmit={handleSubmit}
+    >
+      <Form.Group className="mb-3" controlId="MessageForm.ControlInput1">
+        <Form.Label>To:</Form.Label>
+        <Form.Control
+          className={inputClass}
+          name="entry.485905818"
+          type="text"
+          placeholder="Your name..."
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="MessageForm.ControlInput2">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
+          className={inputClass}
+          name="entry.1869112674"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="MessageForm.ControlTextarea1">
+        <Form.Label>Message:</Form.Label>
+        <Form.Control
+          className={inputClass}
+          name="entry.897887378"
+          as="textarea"
+          rows={4}
+          placeholder="Message"
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+        />
+      </Form.Group>
+      <Form.Group className="mt-3">
+        <button type="submit" className={submitClass}>
+          Send
+        </button>
+      </Form.Group>
+    </Form>
   );
 }

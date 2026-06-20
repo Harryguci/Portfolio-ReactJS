@@ -1,0 +1,114 @@
+@use "macos-tokens" as mac;
+
+.mac-launchpad {
+  width: 100%;
+}
+
+.mac-launchpad__panel {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mac-launchpad__heading {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mac-launchpad__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mac-launchpad__app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+
+  &:hover,
+  &.active {
+    transform: scale(1.06);
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    .mac-launchpad__icon {
+      outline: 2px solid rgba(255, 255, 255, 0.8);
+      outline-offset: 3px;
+    }
+  }
+}
+
+.mac-launchpad__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: mac.$mac-icon-radius;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.mac-launchpad__label {
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.mac-launchpad__detail {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  @include mac.mac-glass-panel;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  color: mac.$mac-window-text;
+
+  strong {
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: mac.$mac-window-body-text;
+  }
+}

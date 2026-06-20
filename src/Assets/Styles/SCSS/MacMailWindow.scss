@@ -1,0 +1,73 @@
+@use "macos-tokens" as mac;
+
+.mac-mail {
+  width: 100%;
+}
+
+.mac-mail__window {
+  width: min(920px, 100%);
+}
+
+.mac-mail__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mac-mail__sidebar {
+  h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    color: mac.$mac-window-text;
+  }
+
+  p {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: mac.$mac-window-body-text;
+  }
+}
+
+.mac-mail__signoff {
+  font-weight: 600;
+  margin-bottom: 1rem !important;
+}
+
+.mac-mail__contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.85rem;
+    color: mac.$mac-window-body-text;
+
+    svg {
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+      color: mac.$mac-system-blue;
+    }
+
+    a {
+      color: mac.$mac-system-blue;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.mac-mail__compose {
+  min-width: 0;
+}

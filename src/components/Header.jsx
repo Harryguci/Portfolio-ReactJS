@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState, useEffect } from "react";
 
-export default function Header() {
+export default function Header({ id = "header" }) {
   const [displayText, setDisplayText] = useState("");
   const fullText = "Fullstack Software Developer";
   const typingSpeed = 100; // milliseconds
@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <header
-      id="home-header"
+      id={id}
       className="container-md"
       style={{ backgroundColor: "none" }}
     >

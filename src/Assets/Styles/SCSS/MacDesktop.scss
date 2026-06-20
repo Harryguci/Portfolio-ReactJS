@@ -1,0 +1,113 @@
+@use "base";
+
+.mac-desktop {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.mac-desktop__content {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 80px);
+  padding: 1.5rem 2rem 6rem;
+}
+
+.mac-desktop__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mac-desktop__title {
+  margin: 0 0 0.75rem;
+  color: base.$white;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(79, 171, 218, 0.25);
+}
+
+.mac-desktop__hint {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  animation: macDesktopHintPulse 2.8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.mac-desktop__icons {
+  position: relative;
+  min-height: calc(100vh - 260px);
+}
+
+.mac-desktop__icons-grid {
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
+    justify-items: center;
+    min-height: auto;
+    padding: 1.5rem 0;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mac-desktop__windows {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  .mac-window {
+    pointer-events: auto;
+  }
+}
+
+.mac-desktop--visible {
+  .mac-desktop__header {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mac-desktop__hint {
+    animation-play-state: running;
+  }
+}
+
+@keyframes macDesktopHintPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .mac-desktop__content {
+    padding: 1rem 1rem 5rem;
+  }
+
+  .mac-desktop__icons {
+    min-height: auto;
+  }
+
+  .mac-desktop__header {
+    margin-bottom: 1.5rem;
+  }
+}

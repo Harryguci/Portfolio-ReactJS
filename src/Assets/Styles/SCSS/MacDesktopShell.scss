@@ -1,0 +1,88 @@
+@use "macos-tokens" as mac;
+
+.mac-desktop-shell {
+  position: relative;
+  min-height: 100vh;
+}
+
+.mac-desktop-shell__wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transform: scale(1.05);
+  filter: blur(28px) brightness(0.55);
+}
+
+.mac-desktop-shell__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 22, 48, 0.35) 0%,
+    rgba(15, 22, 48, 0.55) 100%
+  );
+}
+
+.mac-desktop-shell__canvas {
+  position: relative;
+  z-index: 2;
+  padding-top: calc(#{mac.$mac-menu-bar-height} + 1.5rem);
+  padding-bottom: mac.$mac-dock-offset;
+}
+
+.mac-desktop-shell__zone {
+  min-height: min(90vh, 820px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  scroll-margin-top: calc(#{mac.$mac-menu-bar-height} + 12px);
+
+  &--welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100svh - #{mac.$mac-menu-bar-height} - #{mac.$mac-dock-offset});
+    margin-top: -1.5rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  &--portfolio {
+    min-height: 110vh;
+    align-items: stretch;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  &--compact {
+    min-height: auto;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+
+    &.mac-desktop-shell__zone--welcome {
+      min-height: calc(100svh - #{mac.$mac-menu-bar-height} - #{mac.$mac-dock-offset});
+      margin-top: -1.5rem;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.mac-desktop-shell__copyright {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1rem 1rem 0.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+}

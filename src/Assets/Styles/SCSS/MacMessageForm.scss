@@ -1,0 +1,32 @@
+@use "macos-tokens" as mac;
+
+.mac-message-form {
+  .form-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: mac.$mac-window-body-text;
+    margin-bottom: 0.35rem;
+  }
+}
+
+.mac-message-form__input {
+  @include mac.mac-glass-inset;
+  color: mac.$mac-window-text;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.75rem;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:focus {
+    border-color: rgba(0, 122, 255, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      0 0 0 3px rgba(0, 122, 255, 0.2);
+    outline: none;
+  }
+}
+
+.mac-message-form__submit {
+  @include mac.mac-button-primary;
+}
