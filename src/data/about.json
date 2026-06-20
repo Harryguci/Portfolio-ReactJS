@@ -1,0 +1,105 @@
+{
+  "bio": "My name is Chu Quang Huy, and I am a Full-Stack Software Developer based in Hanoi, Vietnam, with over one year of hands-on experience. I specialize in .NET and React.js, and have solid experience working with both SQL (MySQL, SQL Server) and NoSQL (MongoDB) databases. I have a strong foundation in software design principles such as DDD, SOLID, and Distributed Systems, along with experience in AI model training and working within Agile Scrum environments.",
+  "skills": [
+    {
+      "name": "HTML",
+      "imgUrl": "https://www.w3.org/html/logo/downloads/HTML5_Badge_256.png"
+    },
+    {
+      "name": "CSS3(SCSS)",
+      "imgUrl": "./scss.png"
+    },
+    {
+      "name": ".NET",
+      "imgUrl": "https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2019/11/msft.net_large_purple-1.png"
+    },
+    {
+      "name": "Javascript",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+    },
+    {
+      "name": "Typescript",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzb_SYlknOCGuhGNnXlybn134F9fBk-hfQ9w&s"
+    },
+    {
+      "name": "REACT.JS",
+      "imgUrl": "./logo512.png"
+    },
+    {
+      "name": "Git",
+      "imgUrl": "https://www.flexmind.co/wp-content/uploads/2020/04/logo-git-icon-e1586889963495.png"
+    },
+    {
+      "name": "MongoDB",
+      "imgUrl": "https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Picture.png"
+    },
+    {
+      "name": "SQL Server",
+      "imgUrl": "./SQL-server.jpg"
+    },
+    {
+      "name": "MySQL",
+      "imgUrl": "./MySql.jpg"
+    },
+    {
+      "name": "MariaDB",
+      "imgUrl": "https://tse3.mm.bing.net/th/id/OIP.OTVdttLMJrP9U-Vp1hEzlwAAAA?rs=1&pid=ImgDetMain"
+    },
+    {
+      "name": "Deploy",
+      "imgUrl": "./cloud-server-icon-vector-15548468.jpg"
+    },
+    {
+      "name": "Docker",
+      "imgUrl": "https://tse2.mm.bing.net/th/id/OIP.svA18pveVjdiWvAwjI-tlgHaHa?rs=1&pid=ImgDetMain"
+    },
+    {
+      "name": "Azure",
+      "imgUrl": "https://swimburger.net/media/0zcpmk1b/azure.jpg"
+    },
+    {
+      "name": "Python",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/250px-Python-logo-notext.svg.png"
+    },
+    {
+      "name": "Next.js",
+      "imgUrl": "https://tse1.mm.bing.net/th/id/OIP.F4ZMUhYoJeGVHf9ur-4C7gHaHa?rs=1&pid=ImgDetMain"
+    },
+    {
+      "name": "Agile Scrum",
+      "imgUrl": "https://as1.ftcdn.net/v2/jpg/03/35/87/38/1000_F_335873870_9lGF7CqjQinw5AdAxIDobvNTwgcZrzOq.jpg"
+    },
+    {
+      "name": "Design Pattern",
+      "imgUrl": "https://static.vecteezy.com/system/resources/previews/004/578/736/original/enterprise-development-configuration-management-free-vector.jpg"
+    },
+    {
+      "name": "AI Model Training",
+      "imgUrl": "https://cdn.analyticsvidhya.com/wp-content/uploads/2025/05/4-4.webp"
+    },
+    {
+      "name": "AI Integration",
+      "imgUrl": "https://robustx.vn/wp-content/uploads/2025/08/1.-TTNT-AI-2-1.png"
+    }
+  ],
+  "education": [
+    {
+      "period": "2021 - 2026",
+      "title": "Information Technology",
+      "subtitle": "University of Transport and Communications Hanoi"
+    }
+  ],
+  "experience": [
+    {
+      "title": "QC Technology Solution",
+      "period": "03/2024 - Present",
+      "role": "Full-Stack Developer",
+      "description": "Software Development Company",
+      "logoUrl": "./qctech.png"
+    }
+  ],
+  "languages": [
+    { "name": "Vietnamese", "level": "Native" },
+    { "name": "English", "level": "Upper Intermediate (B2)" }
+  ]
+}

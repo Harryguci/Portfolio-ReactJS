@@ -1,0 +1,480 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --color-deep-void: #13023d;
+  --color-dark-blue: #13023d;
+  --color-navy: #13023d;
+  --color-navy-mid: #0036bc;
+  --color-navy-glow: #0036bc;
+  --color-neon-cyan: #00f2ff;
+  --color-electric-indigo: #4c6ef5;
+  --color-on-surface-variant: #7b8a97;
+  --color-ghost-white: #ffffff;
+  --color-dark-red: #5a0f18;
+  --color-surface: #13023d;
+
+  --font-display: "Anybody", sans-serif;
+  --font-body: "Hanken Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  background-color: #13023d;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #13023d;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #13023d;
+  isolation: isolate;
+}
+
+/* Deep Space Lumina — global scrollbar */
+:root {
+  --scrollbar-size: 8px;
+  --scrollbar-track: rgba(255, 255, 255, 0.04);
+  --scrollbar-thumb: rgba(0, 242, 255, 0.35);
+  --scrollbar-thumb-hover: rgba(0, 242, 255, 0.65);
+  --scrollbar-thumb-active: rgba(76, 110, 245, 0.75);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--scrollbar-thumb),
+    rgba(76, 110, 245, 0.35)
+  );
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--scrollbar-thumb-hover),
+    var(--scrollbar-thumb-active)
+  );
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.25);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-thumb-active);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.section-book-reveal {
+  position: relative;
+  perspective: 1600px;
+  perspective-origin: 50% 40%;
+}
+
+.section-book-reveal__inner {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  opacity: 0;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  transform: translate3d(-12%, 0, -100px) rotateY(-78deg);
+}
+
+.section-book-reveal__edge {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  z-index: 1;
+  height: 84%;
+  width: 6px;
+  transform-origin: left center;
+  opacity: 0;
+  will-change: transform, opacity;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 54, 188, 0.05) 0%,
+    rgba(0, 54, 188, 0.75) 50%,
+    rgba(0, 54, 188, 0.05) 100%
+  );
+  box-shadow:
+    0 0 18px rgba(0, 54, 188, 0.45),
+    0 0 40px rgba(0, 54, 188, 0.15);
+}
+
+.section-book-reveal--active .section-book-reveal__inner {
+  animation: sectionBookIn 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.section-book-reveal--active .section-book-reveal__edge {
+  animation: sectionBookEdgeIn 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sectionBookIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(-12%, 0, -100px) rotateY(-78deg);
+  }
+  40% {
+    opacity: 0.88;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotateY(0deg);
+  }
+}
+
+@keyframes sectionBookEdgeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(-12%, 0, -98px) rotateY(-78deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotateY(0deg);
+  }
+}
+
+.section-book-reveal--done .section-book-reveal__inner,
+.section-book-reveal--done .section-book-reveal__edge {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+  animation: none;
+}
+
+.section-book-reveal--done .section-book-reveal__edge {
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.game-menu-item {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.game-menu-item:hover {
+  color: #00f2ff;
+  letter-spacing: 0.1em;
+}
+
+.game-menu-item::before {
+  content: ">";
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  color: #00f2ff;
+  transition: all 0.3s ease;
+}
+
+.game-menu-item:hover::before {
+  opacity: 1;
+  left: -15px;
+}
+
+.software-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-family: "Anybody", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.skill-icon__box {
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.skill-icon__label {
+  transform: translateX(-50%);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-icon:hover .skill-icon__box,
+.skill-icon:focus-within .skill-icon__box {
+  transform: translateY(-6px);
+  border-color: rgba(0, 242, 255, 0.35);
+  box-shadow:
+    0 10px 28px rgba(0, 242, 255, 0.18),
+    0 0 12px rgba(0, 242, 255, 0.12);
+}
+
+.skill-icon:hover .skill-icon__label,
+.skill-icon:focus-within .skill-icon__label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-icon__box,
+  .skill-icon__label {
+    transition: none;
+  }
+
+  .skill-icon:hover .skill-icon__box,
+  .skill-icon:focus-within .skill-icon__box {
+    transform: none;
+  }
+}
+
+.shader-fallback {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(0, 54, 188, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(19, 2, 61, 0.2) 0%, transparent 50%),
+    #13023d;
+}
+
+/* Project detail modal — Deep Space Lumina motion */
+@keyframes modalBackdropIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
+
+@keyframes modalBackdropOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+}
+
+@keyframes modalPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.92);
+    filter: blur(6px);
+    box-shadow: 0 0 0 rgba(0, 242, 255, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.18);
+  }
+}
+
+@keyframes modalPanelOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    filter: blur(4px);
+  }
+}
+
+@keyframes modalReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalGlowPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.project-modal__backdrop {
+  animation: modalBackdropIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.project-modal--exit .project-modal__backdrop {
+  animation: modalBackdropOut 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.project-modal__panel {
+  animation: modalPanelIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  overflow: hidden;
+}
+
+.project-modal__scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: auto;
+}
+
+.project-modal__markdown {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.project-modal__markdown :where(p, li, h1, h2, h3, h4, strong, em, a) {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.project-modal__markdown :where(pre, code) {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.project-modal__markdown :where(img, video, iframe) {
+  max-width: 100%;
+  height: auto;
+}
+
+.project-modal--exit .project-modal__panel {
+  animation: modalPanelOut 0.32s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.project-modal__reveal {
+  opacity: 0;
+  animation: modalReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.project-modal__reveal--1 {
+  animation-delay: 0.12s;
+}
+
+.project-modal__reveal--2 {
+  animation-delay: 0.2s;
+}
+
+.project-modal__reveal--3 {
+  animation-delay: 0.28s;
+}
+
+.project-modal__reveal--4 {
+  animation-delay: 0.36s;
+}
+
+.project-modal__glow {
+  animation: modalGlowPulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .section-book-reveal__inner,
+  .section-book-reveal__edge {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .project-modal__backdrop,
+  .project-modal__panel,
+  .project-modal__reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .project-modal__glow {
+    animation: none;
+    opacity: 0.5;
+  }
+}

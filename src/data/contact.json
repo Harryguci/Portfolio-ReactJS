@@ -1,0 +1,35 @@
+{
+  "phone": "+84967259370",
+  "email": "huyquang0028@gmail.com",
+  "location": "Nghia Do, Hanoi, Vietnam",
+  "socialLinks": [
+    {
+      "label": "GitHub",
+      "handle": "Harryguci",
+      "href": "https://github.com/Harryguci",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "handle": "Huy Chu Quang",
+      "href": "https://www.linkedin.com/in/huy-chu-quang-10b6942a8",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Instagram",
+      "handle": "q_huy.28",
+      "href": "https://instagram.com/q_huy.28",
+      "icon": "instagram"
+    },
+    {
+      "label": "Facebook",
+      "handle": "chu.huy.336333",
+      "href": "https://www.facebook.com/chu.huy.336333/",
+      "icon": "facebook"
+    }
+  ],
+  "milestones": [
+    { "title": "PORTFOLIO", "year": "2024" },
+    { "title": "DESIGN\nPORTFOLIO", "year": "2025" }
+  ]
+}

@@ -1,14 +1,14 @@
 [
   {
     "h2": "Sàn Việc Làm Cao Bằng",
-    "type": "left",
     "content": "Sàn Việc Làm Cao Bằng is the official digital employment platform of the Cao Bang Provincial Employment Service Center, operated under the Department of Labor, Invalids and Social Affairs. It connects job seekers with employers across the province as a trusted channel for labor market information.\n\nThe platform offers public employment services such as job listings, career counseling, labor supply, vocational training guidance, and unemployment insurance support. Workers and businesses can search opportunities, post recruitment needs, and stay informed about the local labor market online—helping reduce barriers to employment and strengthen economic development in Cao Bang.",
-    "imgUrl": "./sanvieclam.jpeg", 
+    "imgUrl": "./sanvieclam.jpeg",
+    "grid": { "colSpan": 1, "rowSpan": 2 },
+    "variant": "image",
     "buttons": [
       {
         "name": "Demo",
         "type": "link",
-        "attr": [],
         "href": "https://vieclamcaobang.vn/",
         "disabled": true
       }
@@ -16,14 +16,14 @@
   },
   {
     "h2": "Tay Ninh Investment Project Management Platform",
-    "type": "right",
-    "content": "The effective management of investment projects is crucial for the Department of Finance of Tay Ninh Province. To address the complexity of overseeing project processes, documents, plans, and capital, we introduce a specialized Investment Project Management Web Platform.\n\nThis robust digital solution provides a centralized system for comprehensive project oversight. Its key innovation lies in the integration of OCR and Large Language Models (LLM). This advanced technology automatically processes and extracts critical data from various project documents—such as contracts and financial reports—ensuring that all project information is captured, categorized, and managed with exceptional efficiency and accuracy.\n\nThe platform drastically reduces manual administrative effort and significantly enhances the effectiveness and transparency of capital management, driving informed decision-making for Tay Ninh's economic initiatives.",
+    "content": "The effective management of investment projects is crucial for the Department of Finance of Tay Ninh Province. To address the complexity of overseeing project processes, documents, plans, and capital, we introduce a specialized Investment Project Management Web Platform.\n\nThis robust digital solution provides a centralized system for comprehensive project oversight. Its key innovation lies in the integration of OCR and Large Language Models (LLM). This advanced technology automatically processes and extracts critical data from various project documents—such as contracts and financial reports—ensuring that all project information is captured, categorized, and managed with exceptional efficiency and accuracy.",
     "imgUrl": "./DauTuCong.png",
+    "grid": { "colSpan": 1, "rowSpan": 1 },
+    "variant": "image",
     "buttons": [
       {
         "name": "Demo",
         "type": "button",
-        "attr": [],
         "href": "#",
         "disabled": true
       }
@@ -31,14 +31,14 @@
   },
   {
     "h2": "Chatbot RAG System",
-    "type": "left",
-    "content": "A database-first Retrieval-Augmented Generation (RAG) system that scales to millions of documents with constant memory usage. Built with FastAPI, PostgreSQL + pgvector, and multimodal AI capabilities.\n\n**Key Advantages:**\n• **Database-First Architecture** - Zero in-memory embeddings, all vectors stored in PostgreSQL with pgvector. Achieves ~99% memory reduction (~2MB per 10k chunks vs ~45MB traditional RAG) with unlimited scalability limited only by disk space.\n• **Advanced Retrieval** - Recency-weighted search with 15% boost for recent documents, dual embedding strategy (Text 384-dim + Multimodal Vintern 768-dim), and hybrid search with keyword fallback for robustness.\n• **Multimodal Capabilities** - High-speed PDF processing with PyMuPDF, image OCR using Gemini Vision API, and visual content search enabled by Vintern embeddings.\n• **Production-Ready** - Async initialization with concurrent model loading (30-40% faster startup), graceful degradation for optional components, Google OAuth authentication with JWT tokens, and modern React + Ant Design frontend.\n\nThe system uses Gemini 2.* Flash Lite for fast, cost-effective answer generation and performs O(log n) similarity search with indexed pgvector queries. Typical query response time is 1.5-4s with cold start in 4-6s.",
+    "content": "A database-first Retrieval-Augmented Generation (RAG) system that scales to millions of documents with constant memory usage. Built with FastAPI, PostgreSQL + pgvector, and multimodal AI capabilities.\n\n**Key Advantages:**\n• **Database-First Architecture** - Zero in-memory embeddings, all vectors stored in PostgreSQL with pgvector.\n• **Advanced Retrieval** - Recency-weighted search with dual embedding strategy.\n• **Multimodal Capabilities** - High-speed PDF processing with PyMuPDF, image OCR using Gemini Vision API.\n• **Production-Ready** - Async initialization, Google OAuth authentication with JWT tokens, and modern React + Ant Design frontend.",
     "imgUrl": "./chatbot.png",
+    "grid": { "colSpan": 1, "rowSpan": 1 },
+    "variant": "image",
     "buttons": [
       {
         "name": "Source",
         "type": "link",
-        "attr": [],
         "href": "https://github.com/Harryguci/ChatBot",
         "disabled": true
       }
@@ -46,15 +46,15 @@
   },
   {
     "h2": "Edtech Web application",
-    "type": "right",
-    "content": "We are excited to introduce a comprehensive EdTech application designed to deliver flexible and engaging learning experiences for users while providing powerful administrative control.\nThis platform is structured into two distinct, yet interconnected, sides:\n⚙️ Admin Console\nThe Admin Console is the powerful control center for course creators and administrators. It facilitates end-to-end management, including:\nEdTech Engine Management: Administrators can manage the dynamic components used to build rich, interactive content. These \"engines\" include elements like customizable text, games, practices, images, videos, audios, and layouts, enabling the creation of truly dynamic lessons. \nDefault Lesson Management: Centralized control over all standard, pre-built courses and content.\n Landing Page Management: Tools to design and update the application's promotional and entry pages.\n🧑‍💻 End-User Experience\nThe user-facing platform is built for flexible and personalized learning: \nView Lessons & Join Courses: Users can access structured course content and view engaging lessons built with the platform's engine.\n View/Do Exams: Access to assessments and testing functionalities.\nCreate Custom Lessons: Leveraging the same robust EdTech Engines, end users can create and organize their own personalized learning materials, fostering self-directed study and knowledge sharing. \n\n This two-sided approach ensures high-qual    ity, standardized content delivered with creative flexibility, making learning both effective and personalized.",
-    "className": "my-5",
+    "content": "We are excited to introduce a comprehensive EdTech application designed to deliver flexible and engaging learning experiences for users while providing powerful administrative control.\n\nThis platform is structured into two distinct, yet interconnected, sides: Admin Console and End-User Experience with dynamic EdTech Engines for lessons, exams, and custom content creation.",
     "imgUrl": "./edtech.png",
+    "grid": { "colSpan": 1, "rowSpan": 2 },
+    "variant": "text",
+    "overlayTitle": "EDTECH",
     "buttons": [
       {
         "name": "Demo",
         "type": "button",
-        "attr": [],
         "href": "#",
         "disabled": true
       }
@@ -62,14 +62,15 @@
   },
   {
     "h2": "Paperless Meeting Management",
-    "type": "left",
-    "content": "The \"Paperless Meeting Management\" application is a comprehensive digital solution designed to modernize and streamline the organization and administration of meetings within government agencies and enterprises. The system digitizes all aspects of a meeting, including participant management, meeting content, and related documents. It supports the entire meeting lifecycle—from planning and approval, sending invitations, confirming attendance, conducting the meeting (online or in-person), to post-meeting summaries and follow-ups.\n\n The application is cross-platform, enabling seamless access on both desktop and mobile devices, which ensures users can manage and participate in meetings anytime, anywhere. Technologically, the system is built using .NET Core 8.0 and the ABP Framework for the backend, ReactJS for the frontend, and MariaDB for data storage. Additionally, it leverages Docker for containerized deployment and Azure cloud infrastructure to ensure high scalability, security, and availability.\n\n By replacing traditional paper-based processes, the application significantly reduces administrative workload, enhances collaboration, improves information transparency, and supports a modern, efficient working environment. This solution represents a vital step towards digital transformation and sustainable, paperless governance.",
+    "content": "The \"Paperless Meeting Management\" application is a comprehensive digital solution designed to modernize and streamline the organization and administration of meetings within government agencies and enterprises. Built using .NET Core 8.0, ABP Framework, ReactJS, MariaDB, Docker, and Azure cloud infrastructure.",
     "imgUrl": "./meeting_project.png",
+    "grid": { "colSpan": 2, "rowSpan": 2 },
+    "variant": "overlay",
+    "overlayTitle": "MEETING",
     "buttons": [
       {
         "name": "Source (Update later)",
         "type": "button",
-        "attr": [],
         "href": "#",
         "disabled": true
       }
@@ -77,15 +78,14 @@
   },
   {
     "h2": "Effort Tracking Application",
-    "type": "left",
-    "content": "A Management applications can track and calculate the effort of work items. Help to managers business team. In the first version, it focus to manager development team, works with Azure Devops.",
-    "className": "my-5",
+    "content": "A Management application that can track and calculate the effort of work items. Helps managers and business teams. In the first version, it focuses on managing development teams, works with Azure DevOps.",
     "imgUrl": "./effort-tracking.png",
+    "grid": { "colSpan": 1, "rowSpan": 1 },
+    "variant": "image",
     "buttons": [
       {
-        "name": "Read More <small style=\"opacity: 0.5\">(Update later)</small>",
+        "name": "Read More",
         "type": "button",
-        "attr": [],
         "href": "#",
         "disabled": true
       }
@@ -93,15 +93,15 @@
   },
   {
     "h2": "Bomber Game",
-    "type": "right",
-    "content": "Experience explosive fun with the Java-based Bomber game! \n          Engage in thrilling gameplay as you strategically navigate through \n          maze-like levels, planting bombs to destroy obstacles and outsmart \n          your opponents. Unleash your inner strategist and embark on an \n          adrenaline-fueled adventure. Play the Bomber game today and ignite \n          your gaming experience!",
-    "className": "my-5",
+    "content": "Experience explosive fun with the Java-based Bomber game! Engage in thrilling gameplay as you strategically navigate through maze-like levels, planting bombs to destroy obstacles and outsmart your opponents.",
     "imgUrl": "./javaGame.png",
+    "grid": { "colSpan": 1, "rowSpan": 1 },
+    "variant": "brand",
+    "brandLabel": "HG",
     "buttons": [
       {
-        "name": "Read More",
+        "name": "Source",
         "type": "link",
-        "attr": [],
         "href": "https://github.com/Harryguci/Bomber-Game"
       }
     ]

@@ -1,33 +1,17 @@
-import React from "react";
-import "./Assets/Styles/SCSS/_base.scss";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import ImmersiveBackground from "./components/effects/ImmersiveBackground";
+import SectionRevealCanvas from "./components/effects/SectionRevealCanvas";
+import SiteHeader from "./components/layout/SiteHeader";
 import Home from "./pages/Home";
 
-const LoadingPage = () => (
-  <div
-    style={{
-      width: "100vw",
-      height: 100 + "vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      background: "#0f1630",
-    }}
-  >
-    <h1 style={{ color: "white" }}>Loading...</h1>
-  </div>
-);
-
-// #0f1630
-function App() {
+export default function App() {
   return (
-    <React.StrictMode>
-      <Navbar />
-      <Home />
-      <Footer />
-    </React.StrictMode>
+    <div className="relative min-h-screen bg-dark-blue text-ghost-white">
+      <ImmersiveBackground />
+      <SectionRevealCanvas />
+      <div className="relative z-10">
+        <SiteHeader />
+        <Home />
+      </div>
+    </div>
   );
 }
-
-export default App;

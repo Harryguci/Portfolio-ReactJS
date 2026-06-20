@@ -1,81 +1,94 @@
-import Form from "react-bootstrap/Form";
-import "../Assets/Styles/SCSS/_base.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function MessageForm(props) {
-  const [className, setClassName] = useState([]);
-  useEffect(() => {
-    let txt = "";
-    props.className.forEach((name) => (txt += name + " "));
-    setClassName((prev) => (prev += txt));
-  }, [props.className]);
+const FORM_ACTION =
+  "https://docs.google.com/forms/d/e/1FAIpQLSf4r_LeYZS4ZT0A__sXOBC-A2HMrVGJhgK3_InjN6eDSTW8tA/formResponse";
 
+const inputClass =
+  "w-full border-b border-white/10 bg-[#050610] px-3 py-3 font-mono text-sm text-ghost-white placeholder:text-on-surface-variant focus:border-neon-cyan focus:outline-none focus:shadow-[0_4px_12px_rgba(0,242,255,0.15)] transition-all";
+
+export default function MessageForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    form.submit();
     alert(`Gửi thành công! Cảm ơn ${name}`);
   };
 
   return (
-    <>
-      <Form
-        className={className}
-        method="POST"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSf4r_LeYZS4ZT0A__sXOBC-A2HMrVGJhgK3_InjN6eDSTW8tA/formResponse"
-        onSubmit={(e) => handleSubmit(e)}
+    <form
+      method="POST"
+      action={FORM_ACTION}
+      target="_blank"
+      onSubmit={handleSubmit}
+      className="w-full space-y-6"
+    >
+      <div>
+        <label
+          htmlFor="contact-name"
+          className="mb-2 block font-mono text-xs uppercase tracking-widest text-on-surface-variant"
+        >
+          Name
+        </label>
+        <input
+          id="contact-name"
+          name="entry.485905818"
+          type="text"
+          required
+          placeholder="Your name..."
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className={inputClass}
+        />
+      </div>
+
+      <div>
+        <label
+          htmlFor="contact-email"
+          className="mb-2 block font-mono text-xs uppercase tracking-widest text-on-surface-variant"
+        >
+          Email
+        </label>
+        <input
+          id="contact-email"
+          name="entry.1869112674"
+          type="email"
+          required
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={inputClass}
+        />
+      </div>
+
+      <div>
+        <label
+          htmlFor="contact-message"
+          className="mb-2 block font-mono text-xs uppercase tracking-widest text-on-surface-variant"
+        >
+          Message
+        </label>
+        <textarea
+          id="contact-message"
+          name="entry.897887378"
+          rows={4}
+          required
+          placeholder="Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className={`${inputClass} resize-none`}
+        />
+      </div>
+
+      <button
+        type="submit"
+        className="rounded bg-neon-cyan px-8 py-3 font-mono text-sm font-bold uppercase tracking-widest text-dark-blue transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,242,255,0.4)]"
       >
-        <Form.Group className="mb-3" controlId="MessageForm.ControlInput1">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            controlid="name"
-            className="bg-dark"
-            name="entry.485905818"
-            type="text"
-            placeholder="Your name..."
-            value={name}
-            style={{ fontSize: 16 + "px !important" }}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="MessageForm.ControlInput2">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            controlid="email"
-            className="bg-dark"
-            name="entry.1869112674"
-            type="email"
-            placeholder="Email"
-            value={email}
-            style={{ fontSize: 16 + "px !important" }}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="MessageForm.ControlTextarea1">
-          <Form.Label>Message</Form.Label>
-          <Form.Control
-            controlid="message"
-            className="bg-dark"
-            name="entry.897887378"
-            as="textarea"
-            rows={3}
-            placeholder="Message"
-            value={message}
-            style={{ fontSize: 16 + "px !important" }}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mt-4 mt-md-5">
-          <button
-            type="submit"
-            className="btn bg-dark px-4 py-2 py-md-3 px-md-5 fw-bold"
-            style={{ fontSize: 1 + "rem" }}
-          >
-            SEND
-          </button>
-        </Form.Group>
-      </Form>
-    </>
+        Send
+      </button>
+    </form>
   );
 }
