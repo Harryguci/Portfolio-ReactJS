@@ -1,0 +1,18 @@
+# Overlay for local machine only: build & tag images, then push to registry.
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.build.yml build --platform linux/amd64
+#   docker compose -f docker-compose.yml -f docker-compose.build.yml push
+# Or: pnpm docker:release
+
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: ${IMAGE_PREFIX}/portfolio-api:${IMAGE_TAG:-latest}
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${IMAGE_PREFIX}/portfolio-web:${IMAGE_TAG:-latest}

@@ -1,0 +1,31 @@
+# Production / VPS: pull pre-built images and run (no build on server).
+# Local build + push: see docker-compose.build.yml and DEPLOY.md
+
+services:
+  api:
+    image: ${IMAGE_PREFIX}/portfolio-api:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__Default: "Data Source=/data/portfolio.db"
+      Jwt__Key: ${JWT_KEY:-change-me-to-a-long-random-secret-key-32+}
+      Jwt__Issuer: portfolio-api
+      Jwt__Audience: portfolio-cms
+      Jwt__ExpiresHours: "12"
+      Admin__Username: ${ADMIN_USERNAME:-admin}
+      Admin__Password: ${ADMIN_PASSWORD:-changeme}
+    volumes:
+      - sqlite_data:/data
+    expose:
+      - "8080"
+
+  web:
+    image: ${IMAGE_PREFIX}/portfolio-web:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "${PORT:-80}:80"
+    depends_on:
+      - api
+
+volumes:
+  sqlite_data:

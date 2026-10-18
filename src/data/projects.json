@@ -2,7 +2,7 @@
   {
     "h2": "Sàn Việc Làm Cao Bằng",
     "content": "Sàn Việc Làm Cao Bằng is the official digital employment platform of the Cao Bang Provincial Employment Service Center, operated under the Department of Labor, Invalids and Social Affairs. It connects job seekers with employers across the province as a trusted channel for labor market information.\n\nThe platform offers public employment services such as job listings, career counseling, labor supply, vocational training guidance, and unemployment insurance support. Workers and businesses can search opportunities, post recruitment needs, and stay informed about the local labor market online—helping reduce barriers to employment and strengthen economic development in Cao Bang.",
-    "imgUrl": "./sanvieclam.jpeg",
+    "imgUrl": "/sanvieclam.jpeg",
     "grid": { "colSpan": 1, "rowSpan": 2 },
     "variant": "image",
     "buttons": [
@@ -17,7 +17,7 @@
   {
     "h2": "Tay Ninh Investment Project Management Platform",
     "content": "The effective management of investment projects is crucial for the Department of Finance of Tay Ninh Province. To address the complexity of overseeing project processes, documents, plans, and capital, we introduce a specialized Investment Project Management Web Platform.\n\nThis robust digital solution provides a centralized system for comprehensive project oversight. Its key innovation lies in the integration of OCR and Large Language Models (LLM). This advanced technology automatically processes and extracts critical data from various project documents—such as contracts and financial reports—ensuring that all project information is captured, categorized, and managed with exceptional efficiency and accuracy.",
-    "imgUrl": "./DauTuCong.png",
+    "imgUrl": "/DauTuCong.png",
     "grid": { "colSpan": 1, "rowSpan": 1 },
     "variant": "image",
     "buttons": [
@@ -32,7 +32,7 @@
   {
     "h2": "Chatbot RAG System",
     "content": "A database-first Retrieval-Augmented Generation (RAG) system that scales to millions of documents with constant memory usage. Built with FastAPI, PostgreSQL + pgvector, and multimodal AI capabilities.\n\n**Key Advantages:**\n• **Database-First Architecture** - Zero in-memory embeddings, all vectors stored in PostgreSQL with pgvector.\n• **Advanced Retrieval** - Recency-weighted search with dual embedding strategy.\n• **Multimodal Capabilities** - High-speed PDF processing with PyMuPDF, image OCR using Gemini Vision API.\n• **Production-Ready** - Async initialization, Google OAuth authentication with JWT tokens, and modern React + Ant Design frontend.",
-    "imgUrl": "./chatbot.png",
+    "imgUrl": "/chatbot.png",
     "grid": { "colSpan": 1, "rowSpan": 1 },
     "variant": "image",
     "buttons": [
@@ -47,7 +47,7 @@
   {
     "h2": "Edtech Web application",
     "content": "We are excited to introduce a comprehensive EdTech application designed to deliver flexible and engaging learning experiences for users while providing powerful administrative control.\n\nThis platform is structured into two distinct, yet interconnected, sides: Admin Console and End-User Experience with dynamic EdTech Engines for lessons, exams, and custom content creation.",
-    "imgUrl": "./edtech.png",
+    "imgUrl": "/edtech.png",
     "grid": { "colSpan": 1, "rowSpan": 2 },
     "variant": "text",
     "overlayTitle": "EDTECH",
@@ -63,7 +63,7 @@
   {
     "h2": "Paperless Meeting Management",
     "content": "The \"Paperless Meeting Management\" application is a comprehensive digital solution designed to modernize and streamline the organization and administration of meetings within government agencies and enterprises. Built using .NET Core 8.0, ABP Framework, ReactJS, MariaDB, Docker, and Azure cloud infrastructure.",
-    "imgUrl": "./meeting_project.png",
+    "imgUrl": "/meeting_project.png",
     "grid": { "colSpan": 2, "rowSpan": 2 },
     "variant": "overlay",
     "overlayTitle": "MEETING",
@@ -79,7 +79,7 @@
   {
     "h2": "Effort Tracking Application",
     "content": "A Management application that can track and calculate the effort of work items. Helps managers and business teams. In the first version, it focuses on managing development teams, works with Azure DevOps.",
-    "imgUrl": "./effort-tracking.png",
+    "imgUrl": "/effort-tracking.png",
     "grid": { "colSpan": 1, "rowSpan": 1 },
     "variant": "image",
     "buttons": [
@@ -94,7 +94,7 @@
   {
     "h2": "Bomber Game",
     "content": "Experience explosive fun with the Java-based Bomber game! Engage in thrilling gameplay as you strategically navigate through maze-like levels, planting bombs to destroy obstacles and outsmart your opponents.",
-    "imgUrl": "./javaGame.png",
+    "imgUrl": "/javaGame.png",
     "grid": { "colSpan": 1, "rowSpan": 1 },
     "variant": "brand",
     "brandLabel": "HG",

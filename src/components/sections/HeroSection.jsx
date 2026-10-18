@@ -72,6 +72,7 @@ export default function HeroSection() {
               Information
             </GameMenuLink>
             <GameMenuLink href="#projects">Projects</GameMenuLink>
+            <GameMenuLink to="/blog">Blog</GameMenuLink>
             <GameMenuLink href="#contact">Contact</GameMenuLink>
           </nav>
         </div>

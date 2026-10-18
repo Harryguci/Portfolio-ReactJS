@@ -1,0 +1,14 @@
+node_modules
+build
+.git
+.cursor
+**/.DS_Store
+backend/**/bin
+backend/**/obj
+backend/**/Data/*.db
+*.md
+.env
+.env.*
+!.env.example
+coverage
+agent-transcripts

@@ -24,10 +24,3 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: () => false,
   }),
 });
-
-HTMLCanvasElement.prototype.getContext = function getContext(type) {
-  if (type === "webgl" || type === "experimental-webgl") {
-    return null;
-  }
-  return null;
-};

@@ -7,11 +7,17 @@
     "@tailwindcss/forms": "^0.5.11",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tiptap/extension-image": "^3.32.0",
+    "@tiptap/extension-link": "^3.32.0",
+    "@tiptap/extension-placeholder": "^3.32.0",
+    "@tiptap/react": "^3.32.0",
+    "@tiptap/starter-kit": "^3.32.0",
     "caniuse-lite": "^1.0.30001787",
+    "dompurify": "^3.4.17",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
-    "three": "^0.184.0",
+    "react-router-dom": "^7.18.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -19,7 +25,14 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "api": "dotnet run --project backend/Portfolio.Api/Portfolio.Api.csproj --launch-profile http",
+    "dev:full": "node scripts/dev-full.mjs",
+    "tunnel": "cloudflared tunnel --url http://127.0.0.1:4173",
+    "deploy:tunnel": "node scripts/deploy-tunnel.mjs",
+    "docker:build": "docker compose -f docker-compose.yml -f docker-compose.build.yml build",
+    "docker:push": "docker compose -f docker-compose.yml -f docker-compose.build.yml push",
+    "docker:release": "node scripts/docker-release.mjs"
   },
   "eslintConfig": {
     "extends": [

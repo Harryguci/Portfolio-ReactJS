@@ -5,7 +5,7 @@
   "displayName": "Harryguci",
   "fullName": "Chu Quang Huy",
   "tagline": "Web · AI · .NET",
-  "portrait": "./avt.png",
-  "portrait2": "./avt2.jpg",
+  "portrait": "/avt.png",
+  "portrait2": "/avt2.jpg",
   "age": null
 }

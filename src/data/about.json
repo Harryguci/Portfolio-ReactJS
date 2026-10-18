@@ -7,7 +7,7 @@
     },
     {
       "name": "CSS3(SCSS)",
-      "imgUrl": "./scss.png"
+      "imgUrl": "/scss.png"
     },
     {
       "name": ".NET",
@@ -23,7 +23,7 @@
     },
     {
       "name": "REACT.JS",
-      "imgUrl": "./logo512.png"
+      "imgUrl": "/logo512.png"
     },
     {
       "name": "Git",
@@ -35,11 +35,11 @@
     },
     {
       "name": "SQL Server",
-      "imgUrl": "./SQL-server.jpg"
+      "imgUrl": "/SQL-server.jpg"
     },
     {
       "name": "MySQL",
-      "imgUrl": "./MySql.jpg"
+      "imgUrl": "/MySql.jpg"
     },
     {
       "name": "MariaDB",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Deploy",
-      "imgUrl": "./cloud-server-icon-vector-15548468.jpg"
+      "imgUrl": "/cloud-server-icon-vector-15548468.jpg"
     },
     {
       "name": "Docker",
@@ -95,7 +95,7 @@
       "period": "03/2024 - Present",
       "role": "Full-Stack Developer",
       "description": "Software Development Company",
-      "logoUrl": "./qctech.png"
+      "logoUrl": "/qctech.png"
     }
   ],
   "languages": [

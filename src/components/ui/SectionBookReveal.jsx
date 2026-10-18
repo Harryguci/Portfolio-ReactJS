@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { emitSectionReveal } from "../../lib/sectionRevealBridge";
 
 export default function SectionBookReveal({
   children,
@@ -35,9 +34,7 @@ export default function SectionBookReveal({
       requestAnimationFrame(() => {
         element.classList.add("section-book-reveal--active");
 
-        if (!prefersReducedMotion) {
-          emitSectionReveal({ element });
-        } else {
+        if (prefersReducedMotion) {
           element.classList.add("section-book-reveal--done");
         }
       });
