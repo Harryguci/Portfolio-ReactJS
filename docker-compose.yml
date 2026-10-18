@@ -1,9 +1,14 @@
 # Production / VPS: pull pre-built images and run (no build on server).
 # Local build + push: see docker-compose.build.yml and DEPLOY.md
+#
+# Docker Hub example (single repo, two tags):
+#   IMAGE_PREFIX=chuhuy/portfolio
+#   → chuhuy/portfolio:api-latest
+#   → chuhuy/portfolio:web-latest
 
 services:
   api:
-    image: ${IMAGE_PREFIX}/portfolio-api:${IMAGE_TAG:-latest}
+    image: ${IMAGE_PREFIX}:api-${IMAGE_TAG:-latest}
     restart: unless-stopped
     environment:
       ASPNETCORE_ENVIRONMENT: Production
@@ -20,7 +25,7 @@ services:
       - "8080"
 
   web:
-    image: ${IMAGE_PREFIX}/portfolio-web:${IMAGE_TAG:-latest}
+    image: ${IMAGE_PREFIX}:web-${IMAGE_TAG:-latest}
     restart: unless-stopped
     ports:
       - "${PORT:-80}:80"

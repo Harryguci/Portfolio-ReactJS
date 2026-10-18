@@ -37,9 +37,9 @@ function loadEnvFile(filePath) {
 loadEnvFile(path.join(root, ".env"));
 
 const imagePrefix = process.env.IMAGE_PREFIX;
-if (!imagePrefix || imagePrefix === "yourdockerhubusername") {
+if (!imagePrefix || imagePrefix.includes("yourdockerhub")) {
   console.error(
-    "Set IMAGE_PREFIX in .env (e.g. Docker Hub username or ghcr.io/you).",
+    "Set IMAGE_PREFIX in .env (e.g. chuhuy/portfolio for Docker Hub).",
   );
   process.exit(1);
 }
@@ -65,9 +65,12 @@ function run(args) {
   });
 }
 
-console.log(`Building & pushing ${imagePrefix}/portfolio-*:${imageTag} (linux/amd64)`);
+console.log(
+  `Building & pushing ${imagePrefix}:api-${imageTag} and :web-${imageTag} (linux/amd64)`,
+);
 
-await run([...composeFiles, "build", "--platform", "linux/amd64"]);
+process.env.DOCKER_DEFAULT_PLATFORM = "linux/amd64";
+await run([...composeFiles, "build"]);
 await run([...composeFiles, "push"]);
 
 console.log("Done. On VPS: docker compose pull && docker compose up -d");

@@ -16,13 +16,13 @@
 
 | Service | Image name |
 |---------|------------|
-| `api` | `${IMAGE_PREFIX}/portfolio-api:${IMAGE_TAG}` |
-| `web` | `${IMAGE_PREFIX}/portfolio-web:${IMAGE_TAG}` |
+| `api` | `${IMAGE_PREFIX}:api-${IMAGE_TAG}` |
+| `web` | `${IMAGE_PREFIX}:web-${IMAGE_TAG}` |
 
-`IMAGE_PREFIX` ví dụ:
+`IMAGE_PREFIX` = user/repo trên registry, ví dụ:
 
-- Docker Hub: `yourusername`
-- GHCR: `ghcr.io/your-github-username`
+- Docker Hub: `chuhuy/portfolio` → `chuhuy/portfolio:api-latest`, `chuhuy/portfolio:web-latest`
+- GHCR: `ghcr.io/your-github-username/portfolio`
 
 ---
 
@@ -99,7 +99,7 @@ nano .env
 ```
 
 ```env
-IMAGE_PREFIX=yourdockerhubusername
+IMAGE_PREFIX=chuhuy/portfolio
 IMAGE_TAG=latest
 
 PORT=80
@@ -162,14 +162,15 @@ pnpm docker:release -- 1.0.0
 Tương đương thủ công:
 
 ```powershell
-docker compose -f docker-compose.yml -f docker-compose.build.yml build --platform linux/amd64
+$env:DOCKER_DEFAULT_PLATFORM='linux/amd64'
+docker compose -f docker-compose.yml -f docker-compose.build.yml build
 docker compose -f docker-compose.yml -f docker-compose.build.yml push
 ```
 
 Images lên registry:
 
-- `yourdockerhubusername/portfolio-api:latest`
-- `yourdockerhubusername/portfolio-web:latest`
+- `chuhuy/portfolio:api-latest`
+- `chuhuy/portfolio:web-latest`
 
 > File `docker-compose.build.yml` **chỉ dùng trên local**. VPS không dùng file này.
 
