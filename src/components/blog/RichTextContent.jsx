@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import DOMPurify from "dompurify";
+import Markdown from "react-markdown";
 
 const PURIFY_CONFIG = {
   USE_PROFILES: { html: true },
@@ -8,30 +9,35 @@ const PURIFY_CONFIG = {
     /^(?:(?:https?|mailto|tel):|data:image\/(?:png|jpe?g|gif|webp|svg\+xml);base64,|\/|#)/i,
 };
 
-export default function RichTextContent({ content }) {
-  const html = useMemo(() => {
-    if (!content) return "";
-    // Legacy markdown seed posts: render as plain paragraphs if no HTML tags
-    if (!/<[a-z][\s\S]*>/i.test(content)) {
-      const escaped = content
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-      return DOMPurify.sanitize(
-        escaped
-          .split(/\n{2,}/)
-          .map((block) => `<p>${block.replace(/\n/g, "<br/>")}</p>`)
-          .join(""),
-        PURIFY_CONFIG,
-      );
-    }
-    return DOMPurify.sanitize(content, PURIFY_CONFIG);
-  }, [content]);
+const HAS_HTML_TAG = /<[a-z][\s\S]*>/i;
 
+export default function RichTextContent({ content }) {
+  const isHtml = useMemo(
+    () => Boolean(content) && HAS_HTML_TAG.test(content),
+    [content],
+  );
+
+  const sanitizedHtml = useMemo(() => {
+    if (!content || !isHtml) return "";
+    return DOMPurify.sanitize(content, PURIFY_CONFIG);
+  }, [content, isHtml]);
+
+  if (!content) return null;
+
+  // TipTap / CMS posts store HTML
+  if (isHtml) {
+    return (
+      <div
+        className="blog-richtext"
+        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+      />
+    );
+  }
+
+  // Legacy seed posts and plain markdown
   return (
-    <div
-      className="blog-richtext"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <div className="blog-richtext blog-markdown">
+      <Markdown>{content}</Markdown>
+    </div>
   );
 }
