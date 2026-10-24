@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import siteData from "../../data/site.json";
+import { clearAuth, isAuthenticated } from "../../lib/auth";
 
 export default function SiteHeader({ variant = "default" }) {
+  const navigate = useNavigate();
   const isCms = variant === "cms";
+  const loggedIn = isAuthenticated();
+
+  const handleLogout = () => {
+    clearAuth();
+    navigate("/cms/login", { replace: true });
+  };
 
   return (
     <header className="absolute top-4 left-4 right-4 z-50 flex items-start justify-between gap-3 sm:top-6 sm:left-6 sm:right-6 md:top-8 md:left-8 md:right-8 md:gap-4">
@@ -21,6 +29,11 @@ export default function SiteHeader({ variant = "default" }) {
             <Link to="/blog" className="hover:text-neon-cyan">
               Blog
             </Link>
+            {loggedIn && (
+              <Link to="/cms/blogs" className="hover:text-neon-cyan">
+                CMS
+              </Link>
+            )}
           </>
         )}
         {isCms && (
@@ -32,6 +45,15 @@ export default function SiteHeader({ variant = "default" }) {
               CMS
             </Link>
           </>
+        )}
+        {(isCms || loggedIn) && (
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="text-red-400 hover:text-red-300"
+          >
+            Logout
+          </button>
         )}
       </nav>
     </header>

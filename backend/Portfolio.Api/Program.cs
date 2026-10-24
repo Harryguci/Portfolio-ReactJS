@@ -355,6 +355,21 @@ cms.MapDelete("/{id:guid}", async (Guid id, AppDbContext db) =>
     return Results.NoContent();
 });
 
+var cmsComments = app.MapGroup("/api/cms/comments").RequireAuthorization();
+
+cmsComments.MapDelete("/{id:guid}", async (Guid id, AppDbContext db) =>
+{
+    var comment = await db.BlogComments.FirstOrDefaultAsync(c => c.Id == id);
+    if (comment is null)
+    {
+        return Results.NotFound();
+    }
+
+    db.BlogComments.Remove(comment);
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
+
 app.Run();
 
 static string SoftSlug(string input) => SlugHelper.Generate(input);

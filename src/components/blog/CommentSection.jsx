@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../../lib/api";
+import { getToken, isAuthenticated } from "../../lib/auth";
 
 const inputClass =
   "w-full border-b border-white/15 bg-transparent px-1 py-2 font-mono text-sm outline-none focus:border-neon-cyan";
@@ -23,6 +24,8 @@ export default function CommentSection({ slug }) {
   const [body, setBody] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState("");
+  const [deletingId, setDeletingId] = useState(null);
+  const canModerate = isAuthenticated();
 
   useEffect(() => {
     if (!slug) return;
@@ -65,6 +68,30 @@ export default function CommentSection({ slug }) {
       setFormError(err.message || "Failed to post comment");
     } finally {
       setSubmitting(false);
+    }
+  }
+
+  async function handleDelete(comment) {
+    if (
+      !window.confirm(
+        `Delete comment by “${comment.authorName}”? This cannot be undone.`
+      )
+    ) {
+      return;
+    }
+
+    const token = getToken();
+    if (!token) return;
+
+    setDeletingId(comment.id);
+    setError("");
+    try {
+      await api.cmsDeleteComment(token, comment.id);
+      setComments((prev) => prev.filter((c) => c.id !== comment.id));
+    } catch (err) {
+      setError(err.message || "Failed to delete comment");
+    } finally {
+      setDeletingId(null);
     }
   }
 
@@ -148,13 +175,25 @@ export default function CommentSection({ slug }) {
             key={comment.id}
             className="border-b border-white/5 pb-6 last:border-0"
           >
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <p className="font-mono text-sm text-ghost-white">
-                {comment.authorName}
-              </p>
-              <time className="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant">
-                {formatDate(comment.createdAt)}
-              </time>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-2">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <p className="font-mono text-sm text-ghost-white">
+                  {comment.authorName}
+                </p>
+                <time className="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant">
+                  {formatDate(comment.createdAt)}
+                </time>
+              </div>
+              {canModerate && (
+                <button
+                  type="button"
+                  onClick={() => handleDelete(comment)}
+                  disabled={deletingId === comment.id}
+                  className="font-mono text-[11px] uppercase tracking-widest text-red-300/80 hover:text-red-300 disabled:opacity-50"
+                >
+                  {deletingId === comment.id ? "Deleting…" : "Delete"}
+                </button>
+              )}
             </div>
             <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-on-surface-variant">
               {comment.body}

@@ -81,4 +81,6 @@ export const api = {
     request(`/api/cms/blogs/${id}`, { method: "PUT", token, body }),
   cmsDeleteBlog: (token, id) =>
     request(`/api/cms/blogs/${id}`, { method: "DELETE", token }),
+  cmsDeleteComment: (token, id) =>
+    request(`/api/cms/comments/${id}`, { method: "DELETE", token }),
 };

@@ -65,11 +65,6 @@ export default function CmsBlogListPage() {
     }
   };
 
-  const handleLogout = () => {
-    clearAuth();
-    navigate("/cms/login", { replace: true });
-  };
-
   return (
     <AppShell headerVariant="cms">
       <main className="mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-8">
@@ -89,13 +84,6 @@ export default function CmsBlogListPage() {
             >
               New post
             </Link>
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="border border-white/15 px-4 py-2 font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-ghost-white"
-            >
-              Logout
-            </button>
           </div>
         </div>
 
