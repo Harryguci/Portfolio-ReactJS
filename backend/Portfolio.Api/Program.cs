@@ -145,6 +145,70 @@ app.MapGet("/api/blogs/{slug}", async (string slug, AppDbContext db) =>
         : Results.Ok(BlogMapping.ToDetail(post));
 });
 
+app.MapGet("/api/blogs/{slug}/comments", async (string slug, AppDbContext db) =>
+{
+    var post = await db.BlogPosts
+        .AsNoTracking()
+        .FirstOrDefaultAsync(p =>
+            p.Slug == slug && p.Status == BlogPostStatus.Published);
+
+    if (post is null)
+    {
+        return Results.NotFound();
+    }
+
+    var comments = await db.BlogComments
+        .AsNoTracking()
+        .Where(c => c.BlogPostId == post.Id)
+        .OrderByDescending(c => c.CreatedAt)
+        .ToListAsync();
+
+    return Results.Ok(comments.Select(CommentMapping.ToDto).ToList());
+});
+
+app.MapPost("/api/blogs/{slug}/comments", async (
+    string slug,
+    CreateBlogCommentRequest request,
+    AppDbContext db) =>
+{
+    var post = await db.BlogPosts
+        .FirstOrDefaultAsync(p =>
+            p.Slug == slug && p.Status == BlogPostStatus.Published);
+
+    if (post is null)
+    {
+        return Results.NotFound();
+    }
+
+    var authorName = request.AuthorName?.Trim() ?? "";
+    var body = request.Body?.Trim() ?? "";
+
+    if (authorName.Length is < 1 or > 100)
+    {
+        return Results.BadRequest(new { message = "Name is required (max 100 characters)." });
+    }
+
+    if (body.Length is < 1 or > 2000)
+    {
+        return Results.BadRequest(new { message = "Comment is required (max 2000 characters)." });
+    }
+
+    var comment = new BlogComment
+    {
+        BlogPostId = post.Id,
+        AuthorName = authorName,
+        Body = body,
+        CreatedAt = DateTime.UtcNow
+    };
+
+    db.BlogComments.Add(comment);
+    await db.SaveChangesAsync();
+
+    return Results.Created(
+        $"/api/blogs/{slug}/comments/{comment.Id}",
+        CommentMapping.ToDto(comment));
+});
+
 var cms = app.MapGroup("/api/cms/blogs").RequireAuthorization();
 
 cms.MapGet("", async (

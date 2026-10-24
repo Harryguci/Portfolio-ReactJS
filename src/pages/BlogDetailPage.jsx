@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import AppShell from "../components/layout/AppShell";
 import RichTextContent from "../components/blog/RichTextContent";
+import CommentSection from "../components/blog/CommentSection";
 import { api } from "../lib/api";
 
 function formatDate(value) {
@@ -88,6 +89,7 @@ export default function BlogDetailPage() {
                 {post.tags}
               </p>
             )}
+            <CommentSection slug={post.slug} />
           </article>
         )}
       </main>

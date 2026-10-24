@@ -13,4 +13,6 @@ public class BlogPost
     public DateTime? PublishedAt { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+    public ICollection<BlogComment> Comments { get; set; } = new List<BlogComment>();
 }

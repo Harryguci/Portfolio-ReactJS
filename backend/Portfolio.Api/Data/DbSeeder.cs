@@ -9,6 +9,8 @@ public static class DbSeeder
     {
         EnsureDataDirectory(connectionString);
         await db.Database.EnsureCreatedAsync();
+        // EnsureCreated does not add new tables to an existing DB
+        await EnsureBlogCommentsTableAsync(db);
 
         if (await db.BlogPosts.AnyAsync())
         {
@@ -41,6 +43,28 @@ public static class DbSeeder
         });
 
         await db.SaveChangesAsync();
+    }
+
+    private static async Task EnsureBlogCommentsTableAsync(AppDbContext db)
+    {
+        await db.Database.ExecuteSqlRawAsync(
+            """
+            CREATE TABLE IF NOT EXISTS "BlogComments" (
+                "Id" TEXT NOT NULL CONSTRAINT "PK_BlogComments" PRIMARY KEY,
+                "BlogPostId" TEXT NOT NULL,
+                "AuthorName" TEXT NOT NULL,
+                "Body" TEXT NOT NULL,
+                "CreatedAt" TEXT NOT NULL,
+                CONSTRAINT "FK_BlogComments_BlogPosts_BlogPostId"
+                    FOREIGN KEY ("BlogPostId") REFERENCES "BlogPosts" ("Id") ON DELETE CASCADE
+            );
+            """);
+
+        await db.Database.ExecuteSqlRawAsync(
+            """
+            CREATE INDEX IF NOT EXISTS "IX_BlogComments_BlogPostId"
+                ON "BlogComments" ("BlogPostId");
+            """);
     }
 
     private static void EnsureDataDirectory(string? connectionString)

@@ -64,6 +64,13 @@ export const api = {
     }),
   listBlogs: (params) => request("/api/blogs", { params }),
   getBlog: (slug) => request(`/api/blogs/${encodeURIComponent(slug)}`),
+  listComments: (slug) =>
+    request(`/api/blogs/${encodeURIComponent(slug)}/comments`),
+  createComment: (slug, body) =>
+    request(`/api/blogs/${encodeURIComponent(slug)}/comments`, {
+      method: "POST",
+      body,
+    }),
   cmsListBlogs: (token, params) =>
     request("/api/cms/blogs", { token, params }),
   cmsGetBlog: (token, id) =>
