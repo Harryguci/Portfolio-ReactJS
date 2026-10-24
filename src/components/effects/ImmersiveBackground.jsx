@@ -1,35 +1,30 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import useReducedEffects from "../../hooks/useReducedEffects";
 
 const LERP = 0.075;
+const IDLE_EPSILON = 0.00035;
 const CENTER = { x: 0.5, y: 0.5 };
-
-function prefersReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
 
 export default function ImmersiveBackground() {
   const glowRef = useRef(null);
   const targetRef = useRef({ ...CENTER });
   const currentRef = useRef({ ...CENTER });
   const frameRef = useRef(0);
-  const [reducedMotion, setReducedMotion] = useState(prefersReducedMotion);
+  const runningRef = useRef(false);
+  const reducedEffects = useReducedEffects();
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = (event) => setReducedMotion(event.matches);
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    if (reducedMotion) return undefined;
+    if (reducedEffects) return undefined;
 
     const onPointerMove = (event) => {
       targetRef.current = {
         x: Math.min(Math.max(event.clientX / window.innerWidth, 0), 1),
         y: Math.min(Math.max(event.clientY / window.innerHeight, 0), 1),
       };
+      if (!runningRef.current) {
+        runningRef.current = true;
+        frameRef.current = requestAnimationFrame(tick);
+      }
     };
 
     const onTouchMove = (event) => {
@@ -39,9 +34,18 @@ export default function ImmersiveBackground() {
         x: Math.min(Math.max(touch.clientX / window.innerWidth, 0), 1),
         y: Math.min(Math.max(touch.clientY / window.innerHeight, 0), 1),
       };
+      if (!runningRef.current) {
+        runningRef.current = true;
+        frameRef.current = requestAnimationFrame(tick);
+      }
     };
 
     const tick = () => {
+      if (document.visibilityState === "hidden") {
+        runningRef.current = false;
+        return;
+      }
+
       const target = targetRef.current;
       const current = currentRef.current;
 
@@ -54,19 +58,35 @@ export default function ImmersiveBackground() {
         node.style.setProperty("--glow-y", `${(current.y * 100).toFixed(2)}%`);
       }
 
+      const dx = Math.abs(target.x - current.x);
+      const dy = Math.abs(target.y - current.y);
+      if (dx < IDLE_EPSILON && dy < IDLE_EPSILON) {
+        runningRef.current = false;
+        return;
+      }
+
       frameRef.current = requestAnimationFrame(tick);
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "hidden") {
+        cancelAnimationFrame(frameRef.current);
+        runningRef.current = false;
+      }
     };
 
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: true });
-    frameRef.current = requestAnimationFrame(tick);
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       cancelAnimationFrame(frameRef.current);
+      runningRef.current = false;
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("touchmove", onTouchMove);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [reducedMotion]);
+  }, [reducedEffects]);
 
   return (
     <>
@@ -77,10 +97,12 @@ export default function ImmersiveBackground() {
         <div className="gradient-bg__base" />
         <div className="gradient-bg__orb gradient-bg__orb--a" />
         <div className="gradient-bg__orb gradient-bg__orb--b" />
-        <div className="gradient-bg__orb gradient-bg__orb--c" />
+        {!reducedEffects && (
+          <div className="gradient-bg__orb gradient-bg__orb--c" />
+        )}
         <div className="gradient-bg__veil" />
       </div>
-      {!reducedMotion && (
+      {!reducedEffects && (
         <div
           ref={glowRef}
           className="cursor-glow pointer-events-none fixed inset-0 z-0"

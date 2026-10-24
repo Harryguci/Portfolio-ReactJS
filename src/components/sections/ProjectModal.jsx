@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Markdown from "react-markdown";
+import SafeImage from "../ui/SafeImage";
 
 export default function ProjectModal({ project, onClose }) {
   const dialogRef = useRef(null);
@@ -78,19 +79,13 @@ export default function ProjectModal({ project, onClose }) {
         </button>
 
         <div className="project-modal__scroll min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain p-6 md:p-10">
-          {project.imgUrl && (
-            <div className="project-modal__reveal project-modal__reveal--1 relative mb-6 overflow-hidden rounded-lg">
-              <img
-                src={project.imgUrl}
-                alt={project.h2}
-                className="max-h-64 w-full max-w-full object-cover"
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-dark-blue/60 to-transparent"
-                aria-hidden="true"
-              />
-            </div>
-          )}
+          <div className="project-modal__reveal project-modal__reveal--1 mb-6 overflow-hidden rounded-lg bg-black/25">
+            <SafeImage
+              src={project.imgUrl}
+              alt={project.h2}
+              className="mx-auto max-h-[min(28rem,50vh)] w-full max-w-full object-contain object-center"
+            />
+          </div>
 
           <h2
             id="project-modal-title"

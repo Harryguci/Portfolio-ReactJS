@@ -99,6 +99,50 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.hero-portrait-glow {
+  background: radial-gradient(
+    circle,
+    rgba(0, 242, 255, 0.2) 0%,
+    transparent 70%
+  );
+  filter: blur(28px);
+}
+
+/* Low-power / weak-device mode — toggled via data-reduced-effects on <html> */
+html[data-reduced-effects] .glass-panel {
+  backdrop-filter: none;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+html[data-reduced-effects] .hero-portrait-glow {
+  filter: none;
+  opacity: 0.45;
+}
+
+html[data-reduced-effects] .gradient-bg__orb {
+  filter: none;
+  will-change: auto;
+  animation: none !important;
+  opacity: 0.35;
+}
+
+html[data-reduced-effects] .gradient-bg__orb--c,
+html[data-reduced-effects] .cursor-glow {
+  display: none !important;
+}
+
+html[data-reduced-effects] .skill-icon__label {
+  backdrop-filter: none;
+}
+
+/* Skip rendering work for offscreen sections */
+#about,
+#projects,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 .field-input {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -503,8 +547,33 @@ body {
 .gradient-bg__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(72px);
-  will-change: transform, opacity;
+  filter: blur(56px);
+  will-change: transform;
+  contain: strict;
+}
+
+@media (max-width: 1024px) {
+  .gradient-bg__orb {
+    filter: blur(40px);
+  }
+
+  .gradient-bg__orb--c {
+    display: none;
+  }
+
+  .cursor-glow__core {
+    display: none;
+  }
+
+  .cursor-glow__aura {
+    filter: blur(32px);
+    opacity: 0.55;
+  }
+
+  .cursor-glow__soft {
+    filter: blur(24px);
+    opacity: 0.6;
+  }
 }
 
 .gradient-bg__orb--a {

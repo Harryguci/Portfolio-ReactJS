@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import projectsData from "../../data/projects.json";
+import SafeImage from "../ui/SafeImage";
 import SectionBookReveal from "../ui/SectionBookReveal";
-import ProjectModal from "./ProjectModal";
+
+const ProjectModal = lazy(() => import("./ProjectModal"));
 
 function ProjectTile({ project, onClick }) {
   const { grid, variant } = project;
@@ -11,10 +13,11 @@ function ProjectTile({ project, onClick }) {
   const gridStyle = {
     gridColumn: `span ${colSpan}`,
     gridRow: `span ${rowSpan}`,
+    minWidth: 0,
   };
 
   const baseClass =
-    "glass-panel cursor-pointer overflow-hidden rounded-lg transition-all duration-300 hover:border-neon-cyan/30";
+    "glass-panel min-w-0 cursor-pointer overflow-hidden rounded-lg transition-all duration-300 hover:border-neon-cyan/30";
 
   if (variant === "text") {
     return (
@@ -25,7 +28,7 @@ function ProjectTile({ project, onClick }) {
         onClick={() => onClick(project)}
         aria-label={`View project: ${project.h2}`}
       >
-        <h3 className="mt-8 text-center font-display text-4xl font-black italic">
+        <h3 className="mt-6 break-words text-center font-display text-2xl font-black italic sm:mt-8 sm:text-3xl md:text-4xl">
           {project.overlayTitle || project.h2}
         </h3>
         <div className="mb-4 flex justify-center gap-2">
@@ -33,13 +36,12 @@ function ProjectTile({ project, onClick }) {
           <div className="h-2 w-2 rounded-full bg-white/50" />
           <div className="h-2 w-2 rounded-full bg-white/50" />
         </div>
-        {project.imgUrl && (
-          <img
-            src={project.imgUrl}
-            alt=""
-            className="absolute inset-0 -z-10 h-full w-full object-contain p-4 grayscale transition-all duration-500 hover:grayscale-0"
-          />
-        )}
+        <SafeImage
+          src={project.imgUrl}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 -z-10 h-full w-full object-contain p-4 grayscale transition-all duration-500 hover:grayscale-0"
+        />
       </button>
     );
   }
@@ -53,13 +55,14 @@ function ProjectTile({ project, onClick }) {
         onClick={() => onClick(project)}
         aria-label={`View project: ${project.h2}`}
       >
-        <img
+        <SafeImage
           src={project.imgUrl}
           alt={project.h2}
+          loading="lazy"
           className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
         />
-        <div className="absolute inset-0 flex items-end bg-gradient-to-t from-dark-blue/80 to-transparent p-8">
-          <h3 className="font-display text-4xl font-black text-dark-red opacity-50 transition-opacity group-hover:opacity-100 md:text-6xl">
+        <div className="absolute inset-0 flex items-end bg-gradient-to-t from-dark-blue/80 to-transparent p-4 sm:p-6 lg:p-8">
+          <h3 className="max-w-full break-words font-display text-2xl font-black leading-none text-dark-red opacity-50 transition-opacity group-hover:opacity-100 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             {project.overlayTitle || project.h2}
           </h3>
         </div>
@@ -91,9 +94,10 @@ function ProjectTile({ project, onClick }) {
       onClick={() => onClick(project)}
       aria-label={`View project: ${project.h2}`}
     >
-      <img
+      <SafeImage
         src={project.imgUrl}
         alt={project.h2}
+        loading="lazy"
         className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
       />
     </button>
@@ -106,28 +110,30 @@ export default function ProjectsSection() {
   return (
     <>
       <SectionBookReveal id="projects" className="mb-32 py-16">
-        <div className="mb-12 flex items-baseline gap-4">
+        <div className="mb-8 flex flex-col gap-4 sm:mb-12 md:gap-5">
           <h2 className="font-display text-4xl font-black uppercase tracking-tight md:text-5xl">
             PROJECTs
           </h2>
-          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
-            AI
-          </span>
-          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
-            Digital Transformation
-          </span>
-          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
-            Edtech
-          </span>
-          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
-            HRM
-          </span>
-          <span className="rounded bg-white/10 px-2 py-1 font-mono text-xs tracking-widest">
-            Personal
-          </span>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            <span className="rounded bg-neon-cyan/20 px-2 py-1 font-mono text-[10px] tracking-widest text-neon-cyan sm:text-xs">
+              AI Engineering
+            </span>
+            <span className="rounded bg-white/10 px-2 py-1 font-mono text-[10px] tracking-widest sm:text-xs">
+              Digital Transformation
+            </span>
+            <span className="rounded bg-white/10 px-2 py-1 font-mono text-[10px] tracking-widest sm:text-xs">
+              Edtech
+            </span>
+            <span className="rounded bg-white/10 px-2 py-1 font-mono text-[10px] tracking-widest sm:text-xs">
+              HRM
+            </span>
+            <span className="rounded bg-white/10 px-2 py-1 font-mono text-[10px] tracking-widest sm:text-xs">
+              Personal
+            </span>
+          </div>
         </div>
 
-        <div className="grid auto-rows-[200px] grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[180px] sm:gap-4 md:auto-rows-[200px] lg:grid-cols-4">
           {projectsData.map((project) => (
             <ProjectTile
               key={project.h2}
@@ -139,10 +145,12 @@ export default function ProjectsSection() {
       </SectionBookReveal>
 
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <Suspense fallback={null}>
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        </Suspense>
       )}
     </>
   );

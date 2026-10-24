@@ -9,7 +9,7 @@ export default function Home() {
   const { activeSection } = useActiveSection();
 
   return (
-    <main className="relative mx-auto w-full max-w-7xl px-4 sm:px-8">
+    <main className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
       <HeroSection />
       <SectionNav activeSection={activeSection} />
       <AboutSection />

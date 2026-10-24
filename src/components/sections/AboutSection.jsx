@@ -6,14 +6,14 @@ import SectionBookReveal from "../ui/SectionBookReveal";
 export default function AboutSection() {
   return (
     <SectionBookReveal id="about" className="mb-32 py-16">
-      <div className="flex flex-col items-center gap-16 md:flex-row">
-        <div className="relative w-full md:w-5/12">
+      <div className="flex flex-col items-center gap-12 md:gap-16 lg:flex-row">
+        <div className="relative w-full max-w-md lg:max-w-none lg:w-5/12">
           <div className="absolute inset-0 z-10 bg-gradient-to-t from-dark-blue to-transparent" />
-          <div className="absolute left-0 top-0 z-20 p-8">
+          <div className="absolute left-0 top-0 z-20 p-6 sm:p-8">
             <p className="font-mono text-sm text-on-surface-variant">
               HELLO, I AM
             </p>
-            <h2 className="font-display text-3xl font-bold uppercase tracking-tight">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-tight sm:text-3xl">
               {siteData.fullName}
             </h2>
           </div>
@@ -21,28 +21,32 @@ export default function AboutSection() {
             alt={siteData.fullName}
             className="aspect-[3/4] w-full rounded-lg object-cover"
             src={siteData.portrait}
+            width={640}
+            height={853}
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute -inset-4 -z-10 rounded-full bg-neon-cyan/5 blur-3xl" />
         </div>
 
-        <div className="w-full md:w-7/12">
+        <div className="w-full min-w-0 lg:w-7/12">
           <h2 className="mb-6 font-display text-4xl font-black uppercase tracking-tight md:text-5xl">
             ABOUT ME
           </h2>
-          <p className="mb-12 max-w-2xl font-mono text-xs uppercase leading-relaxed tracking-wide text-on-surface-variant md:text-sm">
+          <p className="mb-10 max-w-2xl font-mono text-xs uppercase leading-relaxed tracking-wide text-on-surface-variant sm:mb-12 md:text-sm">
             {aboutData.bio}
           </p>
 
           <h3 className="mb-4 font-display text-2xl font-bold uppercase tracking-tight">
             SOFTWARE SKILLS
           </h3>
-          <div className="mb-12 flex flex-wrap gap-2 overflow-visible sm:gap-3">
+          <div className="mb-10 flex flex-wrap gap-2 overflow-visible sm:mb-12 sm:gap-3">
             {aboutData.skills.map((skill) => (
               <SkillIcon key={skill.name} {...skill} />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-10 sm:gap-12 xl:grid-cols-2">
             <div>
               <h3 className="mb-4 font-display text-xl font-bold uppercase tracking-tight">
                 EDUCATION
@@ -71,6 +75,10 @@ export default function AboutSection() {
                     <img
                       src={item.logoUrl}
                       alt={`${item.title} logo`}
+                      width={80}
+                      height={80}
+                      loading="lazy"
+                      decoding="async"
                       className="glass-panel h-20 w-20 rounded-full border border-white/10 bg-black/40 object-contain p-2 shadow-[0_0_20px_rgba(0,242,255,0.1)]"
                     />
                   )}
@@ -84,6 +92,18 @@ export default function AboutSection() {
                     <p className="font-mono text-xs text-on-surface-variant">
                       {item.description}
                     </p>
+                    {item.highlights?.length > 0 && (
+                      <ul className="mt-3 space-y-2 border-l border-neon-cyan/30 pl-3">
+                        {item.highlights.map((highlight) => (
+                          <li
+                            key={highlight}
+                            className="font-mono text-[11px] leading-relaxed text-on-surface-variant"
+                          >
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               ))}

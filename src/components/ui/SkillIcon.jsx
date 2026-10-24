@@ -1,17 +1,43 @@
+import SafeImage from "./SafeImage";
+import { DEFAULT_SKILL_ICON } from "../../constants/assets";
+
+function monogram(name) {
+  const parts = String(name)
+    .replace(/[^a-zA-Z0-9.+#\s-]/g, " ")
+    .trim()
+    .split(/[\s._-]+/)
+    .filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[1][0]).toUpperCase();
+}
+
 export default function SkillIcon({ name, imgUrl }) {
+  const useImage = Boolean(imgUrl);
+
   return (
     <div
       className="skill-icon group relative flex w-10 flex-col items-center gap-1"
       tabIndex={0}
       aria-label={name}
     >
-      <div className="skill-icon__box software-icon glass-panel shrink-0 overflow-hidden p-1">
-        <img
-          src={imgUrl}
-          alt={name}
-          loading="lazy"
-          className="h-full w-full object-contain"
-        />
+      <div className="skill-icon__box software-icon glass-panel flex shrink-0 items-center justify-center overflow-hidden p-1">
+        {useImage ? (
+          <SafeImage
+            src={imgUrl}
+            fallback={DEFAULT_SKILL_ICON}
+            alt={name}
+            loading="lazy"
+            decoding="async"
+            width={32}
+            height={32}
+            className="h-full w-full object-contain"
+          />
+        ) : (
+          <span className="select-none font-mono text-[9px] font-bold leading-none tracking-tight text-neon-cyan/90">
+            {monogram(name)}
+          </span>
+        )}
       </div>
 
       <p

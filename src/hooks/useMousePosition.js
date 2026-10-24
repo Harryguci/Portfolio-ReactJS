@@ -1,23 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const LERP_FACTOR = 0.12;
+const IDLE_EPSILON = 0.0004;
 const CENTER_UV = { x: 0.5, y: 0.5 };
-const CENTER_PARALLAX = { x: 0, y: 0 };
 
 function getReducedMotionPreference() {
   if (typeof window === "undefined") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+/**
+ * Parallax mouse tracking without React setState every frame.
+ * Apply transforms by registering element updaters, or read mouseRef.current.
+ */
 export default function useMousePosition() {
-  const [mouse, setMouse] = useState(CENTER_PARALLAX);
-  const [mouseNormalized, setMouseNormalized] = useState(CENTER_UV);
   const [isReducedMotion, setIsReducedMotion] = useState(getReducedMotionPreference);
 
   const targetRef = useRef({ ...CENTER_UV });
   const currentRef = useRef({ ...CENTER_UV });
+  const mouseRef = useRef({ x: 0, y: 0 });
   const frameRef = useRef(0);
+  const runningRef = useRef(false);
   const reducedMotionRef = useRef(isReducedMotion);
+  const updatersRef = useRef(new Set());
 
   useEffect(() => {
     reducedMotionRef.current = isReducedMotion;
@@ -31,8 +36,8 @@ export default function useMousePosition() {
       if (event.matches) {
         targetRef.current = { ...CENTER_UV };
         currentRef.current = { ...CENTER_UV };
-        setMouse({ ...CENTER_PARALLAX });
-        setMouseNormalized({ ...CENTER_UV });
+        mouseRef.current = { x: 0, y: 0 };
+        updatersRef.current.forEach((fn) => fn(mouseRef.current));
       }
     };
 
@@ -51,6 +56,40 @@ export default function useMousePosition() {
         x: Math.min(Math.max(x, 0), 1),
         y: Math.min(Math.max(y, 0), 1),
       };
+
+      if (!runningRef.current) {
+        runningRef.current = true;
+        frameRef.current = requestAnimationFrame(tick);
+      }
+    };
+
+    const tick = () => {
+      if (document.visibilityState === "hidden" || reducedMotionRef.current) {
+        runningRef.current = false;
+        return;
+      }
+
+      const target = targetRef.current;
+      const current = currentRef.current;
+
+      current.x += (target.x - current.x) * LERP_FACTOR;
+      current.y += (target.y - current.y) * LERP_FACTOR;
+
+      mouseRef.current = {
+        x: current.x * 2 - 1,
+        y: -(current.y * 2 - 1),
+      };
+
+      updatersRef.current.forEach((fn) => fn(mouseRef.current));
+
+      const dx = Math.abs(target.x - current.x);
+      const dy = Math.abs(target.y - current.y);
+      if (dx < IDLE_EPSILON && dy < IDLE_EPSILON) {
+        runningRef.current = false;
+        return;
+      }
+
+      frameRef.current = requestAnimationFrame(tick);
     };
 
     const handlePointerMove = (event) => {
@@ -63,53 +102,33 @@ export default function useMousePosition() {
       updateTarget(touch.clientX, touch.clientY);
     };
 
+    const handleVisibility = () => {
+      if (document.visibilityState === "hidden") {
+        cancelAnimationFrame(frameRef.current);
+        runningRef.current = false;
+      }
+    };
+
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
+      cancelAnimationFrame(frameRef.current);
+      runningRef.current = false;
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 
-  useEffect(() => {
-    let running = true;
-
-    const tick = () => {
-      if (!running) return;
-
-      if (document.visibilityState === "hidden") {
-        frameRef.current = requestAnimationFrame(tick);
-        return;
-      }
-
-      if (reducedMotionRef.current) {
-        frameRef.current = requestAnimationFrame(tick);
-        return;
-      }
-
-      const target = targetRef.current;
-      const current = currentRef.current;
-
-      current.x += (target.x - current.x) * LERP_FACTOR;
-      current.y += (target.y - current.y) * LERP_FACTOR;
-
-      setMouseNormalized({ x: current.x, y: current.y });
-      setMouse({
-        x: current.x * 2 - 1,
-        y: -(current.y * 2 - 1),
-      });
-
-      frameRef.current = requestAnimationFrame(tick);
-    };
-
-    frameRef.current = requestAnimationFrame(tick);
-
+  const subscribe = useCallback((updater) => {
+    updatersRef.current.add(updater);
+    updater(mouseRef.current);
     return () => {
-      running = false;
-      cancelAnimationFrame(frameRef.current);
+      updatersRef.current.delete(updater);
     };
   }, []);
 
-  return { mouse, mouseNormalized, isReducedMotion };
+  return { mouseRef, subscribe, isReducedMotion };
 }

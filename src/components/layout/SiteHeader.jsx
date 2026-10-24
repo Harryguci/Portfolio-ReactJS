@@ -5,14 +5,14 @@ export default function SiteHeader({ variant = "default" }) {
   const isCms = variant === "cms";
 
   return (
-    <header className="absolute top-8 left-8 right-8 z-50 flex items-start justify-between gap-4">
+    <header className="absolute top-4 left-4 right-4 z-50 flex items-start justify-between gap-3 sm:top-6 sm:left-6 sm:right-6 md:top-8 md:left-8 md:right-8 md:gap-4">
       <Link
         to="/"
-        className="font-mono text-2xl font-bold tracking-tighter italic transition-colors hover:text-neon-cyan"
+        className="font-mono text-xl font-bold tracking-tighter italic transition-colors hover:text-neon-cyan sm:text-2xl"
       >
         {siteData.logo}
       </Link>
-      <nav className="flex flex-wrap items-center justify-end gap-4 font-mono text-xs uppercase tracking-widest text-on-surface-variant sm:gap-6 sm:text-sm">
+      <nav className="flex flex-wrap items-center justify-end gap-3 font-mono text-[11px] uppercase tracking-widest text-on-surface-variant sm:gap-6 sm:text-sm">
         {!isCms && (
           <>
             <Link to="/" className="hover:text-neon-cyan">

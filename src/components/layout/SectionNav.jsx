@@ -14,7 +14,7 @@ export default function SectionNav({ activeSection }) {
 
   return (
     <nav
-      className="mb-16 flex justify-center gap-8 border-t border-white/10 py-8 font-mono text-sm tracking-widest uppercase"
+      className="mb-12 flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-white/10 py-6 font-mono text-[11px] tracking-widest uppercase sm:mb-16 sm:gap-x-8 sm:py-8 sm:text-sm"
       aria-label="Section navigation"
     >
       {links.map(({ id, label }) => {
